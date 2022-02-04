@@ -11,7 +11,12 @@
     <link rel="stylesheet" href="{% static 'css/testimonial.css' %}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Compiled and minified CSS -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
 
+    <!-- Compiled and minified JavaScript -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+             -->
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -32,6 +37,11 @@
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Lato&family=Roboto&display=swap');
+
+    :root {
+        --theme-color:  #407BFF;
+    }
+
     body{
         font-family: 'Lato', sans-serif!important;
     }
@@ -39,20 +49,50 @@
         padding-left: 30px;
         padding-right:30px
     }
-    .card-body{
-        height:360px;
+    .card-services{
+        height:320px;
     }
-    .card-body > img{
+    .card-services > img{
         height:80px;
+        padding-bottom:1em;
+    }
+    .card-body> img{
+        height:50px;
         padding-bottom:1em;
     }
     section{
         padding-bottom: 4em;
     }
+    .gazette_txt{
+        font-weight: 500;
+    }
+    .gazette {
+        border-radius: 10px;
+        border: 4px solid #C3EBEE;
+    }
+    .btn {
+        color: #fff;
+        background-color: var(--theme-color)!important;
+        border-color: var(--theme-color)!important;
+    }
+    .pricing > .card > .card-body{
+        min-height: 400px!important;
+    }
+
+    @media only screen and (max-width: 968px) {
+
+        .card{
+            margin-bottom: 2em;
+        }
+        .mobilenopadding{
+            padding-top: unset!important;
+            padding-left: unset!important;
+        }
+    }
 
 </style>
 <body>
-    <header>
+    <header class="container">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a href="/"><img style="height:48px" class="navbar-brand" src="{% static 'img/Startbox logo-black.png' %}" alt="Logo"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -90,7 +130,7 @@
 
 
 <!--  How it works -->
-<section class="pb-5">
+<!-- <section class="pb-5">
     <div class="container">
         <h2 class="text-center px-3 mb-3 font-weight-bold" style="color: #0735BF;">How It Works</h2>
         <ul class="justify-center pl-5">
@@ -99,21 +139,70 @@
             <li><strong>Access your startup-box </strong> - Following your choice of package with the services you require, your StartBx account will have your downloaded documents so that you have access to everything you need.</li>
         </ul>
     </div>
-</section>
+</section> -->
 <!--  End of How it works -->
 
+<!-- How it Works -->
+<section style="background: rgba(7, 53, 191, 0.08);" id="problem">
+    <div class="container-fluid pt-5" >
+
+        <div class="row">
+            <div class="col-md-5 pt-5">
+
+                <p class="mobilenopadding display-4" style="padding-left: 60px; font-size: 4.5em;
+                padding-top: inherit;
+                margin: 20px;">How It Works?</p>
+
+            </div>
+            <div class="row col-md-6 sec-2">
+                <div class="col-md-5 cards_gazzette">
+                    <div class="card shadow-sm bg-white rounded gazette" style="border:none">
+                        <div class="card-body" id="card-body" style="color:black">
+                            <img src="{% static 'img/customize.svg' %}" style="width:85%;padding-bottom: 20px;" class="card-img-top img-fluid" alt="..." height="30px">
+                            <h4 class="card-title font-weight: bold">Determine what you want to accomplish</h4>
+                            <p class="card-title">Would you like a comprehensive package that covers registration to compliance or would you like a specific document?</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5 cards_gazzette">
+                    <div class="card gazette" style="border:none">
+                        <div class="card-body" id="card-body" style=" color:black">
+                            <img src="{% static 'img/customize.svg' %}" style="width:100%;padding-bottom: 20px;" class="card-img-top img-fluid" alt="..." height="30px">
+                            <h4 class="card-title font-weight: bold">Choose the service of your liking</h4>
+                            <p class="card-title gazette_txt"> We have different packages ranging from one-time document downloads to different business packages that allow you to utilize all our services at a flat fee</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-10 cards_gazzette pt-4" style="">
+                    <div class="card gazette" style="border:none">
+                        <div class="card-body" id="card-body" style=" color:black">
+                            <img src="{% static 'img/customize.svg' %}" style="width:14%;padding-bottom: 20px;" class="card-img-top img-fluid" alt="..." height="30px">
+                            <h4 class="card-title font-weight: bold">Access your startup-box </h4>
+                            <p class="card-title gazette_txt"> Following your choice of package with the services you require, your StartBx account will have your downloaded documents so that you have access to everything you need.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        
+</section>
+<!-- End of how it works -->
+
+
+
 <!-- Services -->
-<section class="mb-5">
+<section class="my-5">
     <div class="container text-center">
-        <h2 class="mb-3 font-weight-bold" style="color: #0735BF;">Services</h2>
+        <h2 class="mb-3 font-weight-bold" style="color: var(--theme-color);">Services</h2>
         <p class="lead">We make it simple, easy and accessible for more people  to start businesses and stay compliant, all on their own.</p> 
 
         <div class="row">
-            <div class="col-4">
+            <div class="col-md-4">
               <div class="card">
-                <div class="card-body d-flex flex-column">
+                <div class="card-body card-services d-flex flex-column">
                 <img src="{% static 'img/customize.svg' %}">
-                  <h5 class="card-title mb-3">Customized Packages</h5>
+                  <h5 class="card-title mb-3"><strong>Customized Packages</strong></h5>
                   <p class="card-text">
                     <ul>We offer customized templates 
                     for:
@@ -126,11 +215,11 @@
                 </div>
               </div>
             </div>
-            <div class="col-4">
+            <div class="col-md-4">
               <div class="card">
-                <div class="card-body d-flex flex-column">
+                <div class="card-body card-services d-flex flex-column">
                   <img src="{% static 'img/search.svg' %}">
-                  <h5 class="card-title mb-3">General Templates</h5>
+                  <h5 class="card-title mb-3"><strong>General Templates</strong></h5>
                   <p class="card-text">Search for Specific Templates
                     Get a guide to achieve what
                     you want to accomplish
@@ -141,11 +230,11 @@
                 </div>
               </div>
             </div>
-            <div class="col-4">
+            <div class="col-md-4">
                 <div class="card">
-                  <div class="card-body d-flex flex-column">
+                  <div class="card-body card-services d-flex flex-column">
                     <img src="{% static 'img/people.svg' %}">
-                    <h5 class="card-title mb-3">Professional Help</h5>
+                    <h5 class="card-title mb-3"><strong>Professional Help</strong></h5>
                     <p class="card-text">Get the help of a professional
                         for any issues  you may encouter
                        Seek extra counsultancy services
@@ -163,16 +252,16 @@
 <!-- End of Services -->
 
 <!-- Pricing -->
-<section>
+<section class="pricing">
 <div class="container text-center">
-    <h2 class="mb-3 font-weight-bold" style="color: #0735BF;">Pricing</h2>
+    <h2 class="mb-3 font-weight-bold" style="color: var(--theme-color);">Pricing</h2>
     <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
         <div class="col">
         <div class="card mb-4 rounded-3 shadow-sm">
             <div class="card-header py-3">
             <h4 class="my-0 fw-normal">Customized Packages</h4>
             </div>
-            <div class="card-body">
+            <div class="card-body d-flex flex-column">
             <h2 class="card-title pricing-card-title">$0<small class="text-muted fw-light">/mo</small></h2>
            
             <p>Find templates to several documens 
@@ -186,7 +275,7 @@
                 <li><i class="fa fa-check" aria-hidden="true"></i>Small Business</li>
                 <li><i class="fa fa-check" aria-hidden="true"></i>Tech/Innovation Startup</li>
             </ul>
-            <button type="button" class="w-100 btn btn-lg btn-outline-primary">Get Package</button>
+            <button type="button" class="align-self-justify mt-auto w-100 btn btn-lg btn-outline-primary">Get Package</button>
             </div>
         </div>
         </div>
@@ -195,7 +284,7 @@
             <div class="card-header py-3">
             <h4 class="my-0 fw-normal">Templates</h4>
             </div>
-            <div class="card-body">
+            <div class="card-body d-flex flex-column">
             <h2 class="card-title pricing-card-title">$15<small class="text-muted fw-light">/mo</small></h2>
 
             <p>Find specific templates to suit what you 
@@ -205,12 +294,8 @@
                 to general contracts and agreements
             </p>
             <hr class="text-center">
-            <ul class="list-unstyled mt-3 mb-4">
-                <li>20 users included</li>
-                <li>10 GB of storage</li>
-            
-            </ul>
-            <button type="button" class="w-100 btn btn-lg btn-primary">Get Templates</button>
+  
+            <button type="button" class=" align-self-justify mt-auto w-100 btn btn-lg btn-primary">Get Templates</button>
             </div>
         </div>
         </div>
@@ -219,7 +304,7 @@
             <div class="card-header py-3 text-white bg-primary border-primary">
             <h4 class="my-0 fw-normal">Professional Help</h4>
             </div>
-            <div class="card-body">
+            <div class="card-body d-flex flex-column">
             <h2 class="card-title pricing-card-title">$29<small class="text-muted fw-light">/mo</small></h2>
             <p>In the event you need a little more help 
                 or adice, we are just one call away to help
@@ -227,12 +312,12 @@
             </p>
             <hr class="text-center">
             <ul class="list-unstyled mt-3 mb-4">
-                <li><i class="fa fa-check" aria-hidden="true"></i>Customised Advice to Address 
+                <li><i class="fa fa-check" aria-hidden="true"></i>Customised advice to address 
                     specific needs</li>
                 <li><i class="fa fa-check" aria-hidden="true"></i>Assistance on how/where to use the
-                    Templates </li>
+                    templates </li>
             </ul>
-            <button type="button" class="w-100 btn btn-lg btn-primary">Contact us</button>
+            <button type="button" class="align-self-justify mt-auto w-100 btn btn-lg btn-primary">Contact us</button>
             </div>
         </div>
         </div>
@@ -246,7 +331,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h2 class="text-center font-weight-bold mb-3" style="color: #0735BF;">Testimonials</h2>
+            <h2 class="text-center font-weight-bold mb-3" style="color: var(--theme-color);">Testimonials</h2>
         </div>
         <div class="col-12">
             <div id="testimonialCarousel" class="carousel slide" data-ride="carousel">
@@ -260,25 +345,31 @@
                     <!-- Slide 1 -->
                     <div class="carousel-item active">
                         <div class="carousel-content text-center">
-                            <div class="client-img"><img src="{% static 'img/people.svg' %}" alt="Testimonial Slider"></div>
-                            <h3>Rajnish Kumar <br><span>India</span></h3>
-                            <p class="col-md-8 offset-md-2">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using ‘Content here, content here’, making it look like readable English.</p>
+                            <div class="client-img"><img src="{% static 'img/Clara.jpeg' %}" alt="Testimonial Slider"></div>
+                            <h3>Clara Kitungulu <br><span>StartBox Lead</span></h3>
+                            <p class="col-md-8 offset-md-2">“StartBox is the one stop shop for legal and compliance documents and guidelines for startups and small business owners. 
+                                With StartBox, it becomes simple, easy and accessible for more people to start businesses and stay compliant.”
+                            </p>
                         </div>
                     </div>
                     <!-- Slide 2 -->
                     <div class="carousel-item">
                         <div class="carousel-content text-center">
-                            <div class="client-img"><img src="{% static 'img/people.svg' %}" alt="Testimonial Slider"></div>
-                            <h3>Rajnish Kumar <br><span>India</span></h3>
-                            <p class="col-md-8 offset-md-2">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using ‘Content here, content here’, making it look like readable English.</p>
+                            <div class="client-img"><img src="{% static 'img/Clara.jpeg' %}" alt="Testimonial Slider"></div>
+                            <h3>Clara Kitungulu <br><span>StartBox Lead</span></h3>
+                            <p class="col-md-8 offset-md-2">“StartBox is the one stop shop for legal and compliance documents and guidelines for startups and small business owners. 
+                                With StartBox, it becomes simple, easy and accessible for more people to start businesses and stay compliant.”
+                            </p>
                         </div>
                     </div>
                     <!-- Slide 3 -->
                     <div class="carousel-item">
                         <div class="carousel-content text-center">
-                            <div class="client-img"><img src="{% static 'img/people.svg' %}" alt="Testimonial Slider"></div>
-                            <h3>Rajnish Kumar <br><span>India</span></h3>
-                            <p class="col-md-8 offset-md-2">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using ‘Content here, content here’, making it look like readable English.</p>
+                            <div class="client-img"><img src="{% static 'img/Clara.jpeg' %}" alt="Testimonial Slider"></div>
+                            <h3>Clara Kitungulu <br><span>StartBox Lead</span></h3>
+                            <p class="col-md-8 offset-md-2">“StartBox is the one stop shop for legal and compliance documents and guidelines for startups and small business owners. 
+                                With StartBox, it becomes simple, easy and accessible for more people to start businesses and stay compliant.”
+                            </p>
                         </div>
                     </div>
                     <!-- Slider pre and next arrow -->
