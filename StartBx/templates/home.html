@@ -41,7 +41,7 @@
     :root {
         --theme-color:  #407BFF;
     }
-
+    
     body{
         font-family: 'Lato', sans-serif!important;
     }
@@ -93,16 +93,16 @@
 </style>
 <body>
     <header class="container">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <a href="/"><img style="height:48px" class="navbar-brand" src="{% static 'img/Startbox logo-black.png' %}" alt="Logo"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link" href="#">About Us</a>
-            <a class="nav-item nav-link" href="#">Pricing</a>
+            <a class="nav-item nav-link" href="#pricing">Pricing</a>
             <a class="nav-item nav-link" href="#">Services</a>
             <button type="button" class="btn btn-primary">Get Started</button>
           </div>
@@ -252,7 +252,7 @@
 <!-- End of Services -->
 
 <!-- Pricing -->
-<section class="pricing">
+<section id="pricing" class="pricing">
 <div class="container text-center">
     <h2 class="mb-3 font-weight-bold" style="color: var(--theme-color);">Pricing</h2>
     <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
@@ -295,7 +295,7 @@
             </p>
             <hr class="text-center">
   
-            <button type="button" class=" align-self-justify mt-auto w-100 btn btn-lg btn-primary">Get Templates</button>
+            <button type="button" class="align-self-justify mt-auto w-100 btn btn-lg btn-primary">Get Templates</button>
             </div>
         </div>
         </div>
