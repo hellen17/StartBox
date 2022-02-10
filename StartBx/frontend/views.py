@@ -8,3 +8,6 @@ class HomeView(TemplateView):
 
 class PackageView(TemplateView):
     template_name = 'packages.html'    
+
+class GetTemplateView(TemplateView):
+    template_name = 'documents.html'    

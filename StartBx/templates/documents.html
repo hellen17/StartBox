@@ -1,0 +1,232 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+
+<style>
+
+    .card-services{
+        height:320px;
+    }
+    .card-services > img{
+        height:80px;
+        padding-bottom:1em;
+    }
+    .card-body> img{
+        height:50px;
+        padding-bottom:1em;
+    }
+    section{
+        padding-bottom: 4em;
+    }
+    .gazette_txt{
+        font-weight: 500;
+    }
+    .gazette {
+        border-radius: 10px;
+        border: 4px solid #C3EBEE;
+    }
+    .btn {
+        color: #fff;
+        background-color: var(--theme-color);
+        border-color: var(--theme-color);
+    }
+    .pricing > .card > .card-body{
+        min-height: 400px!important;
+    }
+ 
+
+    @media only screen and (max-width: 968px) {
+
+        .card{
+            margin-bottom: 2em;
+        }
+        .mobilenopadding{
+            padding-top: unset!important;
+            padding-left: unset!important;
+        }
+    }
+
+</style>
+
+    <header class="container">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a href="/"><img style="height:48px" class="navbar-brand" src="{% static 'img/Startbox logo-black.png' %}" alt="Logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#">About Us</a>
+            <a class="nav-item nav-link" href="#pricing">Pricing</a>
+            <a class="nav-item nav-link" href="#">Services</a>
+            <button type="button" class="btn btn-primary">Get Started</button>
+          </div>
+        </div>
+      </nav>
+      </header>
+      
+    <main>  
+     <section id="hero">
+        <div class="container py-5">
+            <div class="row">
+
+                <div class="col-md-6">
+                    <img class="img-fluid" src="{% static 'img/template-hero.png' %}">
+                </div>
+
+                <div class="col-md-6 m-auto px-3">
+                   
+                    <h2 class="display-5 mb-3"><strong>Get started with our legal documents templates</strong> </h2>
+                    <p class="lead pb-3">Access your start-up box, with a customised selection of guides and templates we know your business will need.</p>
+                    <a href="#packages"><button type="button" class="btn btn-primary">View packages</button></a>
+                    
+                </div>
+
+            </div>
+        </div>
+     </section> 
+
+<!-- Search -->
+<Section class="py-3" style="">
+    <div class="container text-center my-5">
+        <p style="font-size: 2em;">Looking  for a specific document?</p>
+        <form class="form-inline">
+            
+            <input class="form-control col-md-10 " type="search" placeholder="Search Document" aria-label="Search">
+         
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    
+
+    </div>
+</Section>
+<!-- End of Search -->
+
+
+<!-- Templates -->
+<section id="packages" class="my-5">
+    <div class="container text-center">
+        <h2 class="mb-3 font-weight-bold" style="color: var(--theme-color);">Popular  Legal documents</h2>
+        <!-- <p class="lead">We make it simple, easy and accessible for more people  to start businesses and stay compliant, all on their own.</p>  -->
+
+        <div class="row row-cols-3">
+            <div class="col-md-4">
+              <div class="card text-white text-left bg-primary mb-3">
+                <div class="card-body card-services d-flex flex-column">
+          
+                  <h5 class="card-title mb-3"><strong>Employment
+                    Agreement</strong></h5>
+                  <p class="card-text">
+                    An Employment Agreement
+                    defines the legally binding and 
+                    contractual relationship between
+                    an employer and employee.
+                    It is one of your company’s 
+                    most important documents.</p>
+    
+                  <a href="#" class="mt-auto btn btn-outline-primary">More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card text-white text-left bg-primary mb-3">
+                <div class="card-body card-services d-flex flex-column">
+          
+                  <h5 class="card-title mb-3"><strong>Employment
+                    Agreement</strong></h5>
+                  <p class="card-text">
+                    An Employment Agreement
+                    defines the legally binding and 
+                    contractual relationship between
+                    an employer and employee.
+                    It is one of your company’s 
+                    most important documents.</p>
+    
+                  <a href="#" class="mt-auto btn btn-outline-primary">More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card text-white text-left bg-primary mb-3">
+                <div class="card-body card-services d-flex flex-column">
+          
+                  <h5 class="card-title mb-3"><strong>Employment
+                    Agreement</strong></h5>
+                  <p class="card-text">
+                    An Employment Agreement
+                    defines the legally binding and 
+                    contractual relationship between
+                    an employer and employee.
+                    It is one of your company’s 
+                    most important documents.</p>
+    
+                  <a href="#" class="mt-auto btn btn-outline-primary">More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card text-white text-left bg-primary mb-3">
+                <div class="card-body card-services d-flex flex-column">
+          
+                  <h5 class="card-title mb-3"><strong>Employment
+                    Agreement</strong></h5>
+                  <p class="card-text">
+                    An Employment Agreement
+                    defines the legally binding and 
+                    contractual relationship between
+                    an employer and employee.
+                    It is one of your company’s 
+                    most important documents.</p>
+    
+                  <a href="#" class="mt-auto btn btn-outline-primary">More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card text-white text-left bg-primary mb-3">
+                <div class="card-body card-services d-flex flex-column">
+          
+                  <h5 class="card-title mb-3"><strong>Employment
+                    Agreement</strong></h5>
+                  <p class="card-text">
+                    An Employment Agreement
+                    defines the legally binding and 
+                    contractual relationship between
+                    an employer and employee.
+                    It is one of your company’s 
+                    most important documents.</p>
+    
+                  <a href="#" class="mt-auto btn btn-outline-primary">More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card text-white text-left bg-primary mb-3">
+                <div class="card-body card-services d-flex flex-column">
+          
+                  <h5 class="card-title mb-3"><strong>Employment
+                    Agreement</strong></h5>
+                  <p class="card-text">
+                    An Employment Agreement
+                    defines the legally binding and 
+                    contractual relationship between
+                    an employer and employee.
+                    It is one of your company’s 
+                    most important documents.</p>
+    
+                  <a href="#" class="mt-auto btn btn-outline-primary">More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+</section>
+
+<!-- End of Templates -->
+
+</main>
+
+{% endblock content %}
+
