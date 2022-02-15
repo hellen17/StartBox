@@ -10,4 +10,7 @@ class PackageView(TemplateView):
     template_name = 'packages.html'    
 
 class GetTemplateView(TemplateView):
-    template_name = 'documents.html'    
+    template_name = 'documents.html'   
+
+class DataPrivacyView(TemplateView):
+    template_name = 'documents/dataprivacy.html'      
