@@ -13,4 +13,7 @@ class GetTemplateView(TemplateView):
     template_name = 'documents.html'   
 
 class DataPrivacyView(TemplateView):
-    template_name = 'documents/dataprivacy.html'      
+    template_name = 'documents/dataprivacy.html'   
+
+class OnlineBUsinessView(TemplateView):
+    template_name = 'packages/online business.html'        
