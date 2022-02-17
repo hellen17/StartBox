@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import HomeView, PackageView, GetTemplateView, DataPrivacyView, OnlineBUsinessView
-
+#from . import views
 app_name = 'frontend'
 
 urlpatterns = [
