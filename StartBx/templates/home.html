@@ -2,19 +2,20 @@
 
 {% block content %}
 {% load static %}
+<link rel="stylesheet" href="{% static 'css/pricingtable.css' %}">
 <style>
  
     .navbar-nav > a{
         padding-left: 30px;
         padding-right:30px
     }
-    .card-services{
+  /**  .card-services{
         height:320px;
     }
     .card-services > img{
         height:80px;
         padding-bottom:1em;
-    }
+    }**/
     .card-body> img{
         height:50px;
         padding-bottom:1em;
@@ -33,6 +34,12 @@
         color: #fff;
         background-color: var(--theme-color)!important;
         border-color: var(--theme-color)!important;
+     
+    }
+    .btn-large{
+        padding: 15px 30px;
+        display: block;
+        border-radius: 50px;
     }
   
     .card-pricing{
@@ -47,6 +54,9 @@
         .mobilenopadding{
             padding-top: unset!important;
             padding-left: unset!important;
+        }
+        .price-table{
+            margin-bottom:30px;
         }
     }
 
@@ -157,57 +167,80 @@
     <div class="container text-center">
         <h2 class="mb-3 font-weight-bold" style="color: var(--theme-color);">Services</h2>
         <p class="lead">We make it simple, easy and accessible for more people  to start businesses and stay compliant, all on their own.</p> 
-
-        <div class="row">
-            <div class="col-md-4">
-              <div class="card">
-                <div class="card-body card-services d-flex flex-column">
-                <img src="{% static 'img/customize.svg' %}">
-                  <h5 class="card-title mb-3"><strong>Customized Packages</strong></h5>
-                  <p class="card-text">
-                    <ul>We offer customized templates 
-                    for:
+<!-- New Pricing -->
+    <div class="row justify-content-center pt-3">
+        <div class="col-md-6 col-lg-4 price-table-resp">
+            <div class="price-table d-flex flex-column">
+                <div class="price-text">
+                    <h4> <strong>Customized Packages</strong></h4>
+                </div>
+                <div class="price-icon pb-3">
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+    
+                </div>
+          
+                <ul class="price-list">We offer customized templates for:
                     <li>Online Business</li>
                     <li>Small Businesses</li>
-                    <li>Tech/Innovation Businesses</li>
-                </ul></p>
+                    <li>Tech/Innovation Businesses </li>
+         
+                </ul>
+                <div class="price-footer">
+                    <a href="{% url 'frontend:packages' %}" class="mt-auto btn btn-primary btn-large">View Packages</a>
+                  
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 price-table-resp">
+            <div class="price-table d-flex flex-column">
+                <div class="price-text">
+                    <h4><strong>General Templates</strong></h4>
+                </div>
+                <div class="price-icon pb-3">
+                    <i class="fa fa-search" aria-hidden="true"></i>
     
-                  <a href="{% url 'frontend:packages' %}" class="mt-auto btn btn-primary">View Packages</a>
+                    <div class="price-icon-shape-wrap">
+                        <div class="price-icon-shape"></div>
+                        <div class="price-icon-shape"></div>
+                    </div>
                 </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card">
-                <div class="card-body card-services d-flex flex-column">
-                  <img src="{% static 'img/search.svg' %}">
-                  <h5 class="card-title mb-3"><strong>General Templates</strong></h5>
-                  <p class="card-text">Search for Specific Templates
-                    Get a guide to achieve what
-                    you want to accomplish
-                    </p>
-              
-                  <a href="{% url 'frontend:templates' %}" class="mt-auto btn btn-primary">View Templates</a>
-               
+                <!-- <div class="price-value">
+                    <b>$49</b>
+                    <span>/Monthly</span>
+                </div> -->
+               <p> Search for specific templates and get a guide to achieve what you want to accomplish</p>
+                <div class="price-footer">
+                    <a href="{% url 'frontend:templates' %}" class="mt-auto btn btn-primary btn-large">View Templates</a>
                 </div>
-              </div>
             </div>
-            <div class="col-md-4">
-                <div class="card">
-                  <div class="card-body card-services d-flex flex-column">
-                    <img src="{% static 'img/people.svg' %}">
-                    <h5 class="card-title mb-3"><strong>Professional Help</strong></h5>
-                    <p class="card-text">Get the help of a professional
-                        for any issues  you may encouter
-                       Seek extra counsultancy services
-                    </p>
-                    
-                    <a href="#" class="align-self-justify mt-auto btn btn-primary">Get Help</a>
+        </div>
+        <div class="col-md-6 col-lg-4 price-table-resp">
+            <div class="price-table d-flex flex-column">
+                <div class="price-text">
+                    <h4> <strong> Professional Help</strong></h4>
+                </div>
+                <div class="price-icon pb-3">
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                    <div class="price-icon-shape-wrap">
+                        <div class="price-icon-shape"></div>
+                        <div class="price-icon-shape"></div>
+                    </div>
+                </div>
+          
+                <p> Get the help of a professional
+                    for any issues  you may encouter
+                   Seek extra counsultancy services
+                </p>
                 
-                  </div>
+              
+                <div class="price-footer">
+                    <a href="#" class="align-self-justify btn-large mt-auto btn btn-primary">Get Help</a>
                 </div>
-              </div>
-          </div>
+            </div>
+        </div>
     </div>
+    </div>
+    
 </section>
 
 <!-- End of Services -->
@@ -286,6 +319,9 @@
 </div>    
 </section>
 <!-- End of Pricing -->
+
+
+
 
 <!-- Testimonial -->
 <section>
