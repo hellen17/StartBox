@@ -234,7 +234,7 @@
                 
               
                 <div class="price-footer">
-                    <a href="#" class="align-self-justify btn-large mt-auto btn btn-primary">Get Help</a>
+                    <a href="{% url 'frontend:contact' %}" class="align-self-justify btn-large mt-auto btn btn-primary">Get Help</a>
                 </div>
             </div>
         </div>
@@ -269,7 +269,8 @@
                 <li><i class="fa fa-check" aria-hidden="true"></i>Small Business</li>
                 <li><i class="fa fa-check" aria-hidden="true"></i>Tech/Innovation Startup</li>
             </ul>
-            <button type="button" class="align-self-justify mt-auto w-100 btn btn-lg btn-outline-primary">Get Package</button>
+            <a class="align-self-justify mt-auto w-100 btn btn-lg btn-outline-primary" href="{% url 'frontend:packages' %}">Get Package
+           </a>
             </div>
         </div>
         </div>
@@ -288,8 +289,8 @@
                 to general contracts and agreements
             </p>
             <hr class="text-center">
-  
-            <button type="button" class="align-self-justify mt-auto w-100 btn btn-lg btn-primary">Get Templates</button>
+            <a class="align-self-justify mt-auto w-100 btn btn-lg btn-primary"  href="{% url 'frontend:templates' %}">
+                Get Templates</a>
             </div>
         </div>
         </div>
@@ -311,7 +312,10 @@
                 <li><i class="fa fa-check" aria-hidden="true"></i>Assistance on how/where to use the
                     templates </li>
             </ul>
-            <button type="button" class="align-self-justify mt-auto w-100 btn btn-lg btn-primary">Contact us</button>
+            <a class="align-self-justify mt-auto w-100 btn btn-lg btn-primary" href="{% url 'frontend:contact' %}">Contact us
+
+            </a>
+
             </div>
         </div>
         </div>
