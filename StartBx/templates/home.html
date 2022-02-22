@@ -45,6 +45,19 @@
     .card-pricing{
         min-height: 450px;
     }
+    .navbar-nav .nav-link > .fa > .badge {
+        font-size: 0.55rem;
+        position: absolute;
+        right: 0;
+        font-family: sans-serif;
+    }
+    .navbar-nav .nav-link > .fa {
+        top: 3px;
+        line-height: 12px;
+        position: relative;
+        width: 36px;
+        font-size: 24px;
+      }
 
     @media only screen and (max-width: 968px) {
 
@@ -62,25 +75,7 @@
 
 </style>
 <body>
-    <header class="container">
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <a href="/"><img style="height:48px" class="navbar-brand" src="{% static 'img/Startbox logo-black.png' %}" alt="Logo"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="#">About Us</a>
-            <a class="nav-item nav-link" href="#services">Services</a>
-            <a class="nav-item nav-link" href="#pricing">Pricing</a>
-            
-            <button type="button" class="btn btn-primary">Get Started</button>
-          </div>
-        </div>
-      </nav>
-      </header>
-      
+
     <main>  
      <section id="hero">
         <div class="container py-5">

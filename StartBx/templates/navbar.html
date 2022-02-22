@@ -1,0 +1,48 @@
+{% load static %}
+
+<header class="container">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a href="/"><img style="height:48px" class="navbar-brand" src="{% static 'img/Startbox logo-black.png' %}" alt="Logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#">About Us</a>
+            <a class="nav-item nav-link" href="#services">Services</a>
+            <a class="nav-item nav-link" href="#pricing">Pricing</a>
+            {% if user.is_authenticated %}
+            <a class="nav-item nav-link" href="#">
+                <i class="fa fa-shopping-cart" aria-hidden="true">
+                <span class="badge badge-danger">0</span>
+                </i>
+            </a>
+            
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Hi, {{user.username}}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#">Profile</a>
+                  <a class="dropdown-item" href="#">Settings</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                </div>
+              </li>
+         
+            {% else %}
+              <!-- Cart icon -->
+            <a class="nav-item nav-link" href="#">
+                <i class="fa fa-shopping-cart" aria-hidden="true">
+                <span class="badge badge-danger">0</span>
+                </i>
+            </a>
+            <a href="/register"><button type="button" class="btn btn-primary">Get Started</button></a>
+            {% endif %}
+
+     
+          </div>
+        </div>
+    </nav>
+    </header>
