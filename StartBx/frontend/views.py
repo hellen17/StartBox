@@ -1,11 +1,57 @@
 from re import template
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
-from .forms import ContactForm
+from .forms import ContactForm, UserRegisterForm
 from django.views import View
+from django.contrib import messages
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
+
+# auth views
+
+# def register(response):
+#     if response.method == 'POST':
+#         form = UserRegisterForm(response.POST)
+#         if form.is_valid():
+#             form.save()
+#             messages.success(response, f'Your account has been created!')
+#         return redirect('/')    
+#     else:        
+#         form = UserRegisterForm()
+#     return render(response, 'registration/register.html', {'form': form})
+
+def register(request):
+
+    if request.method == 'POST':
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            #username = form.cleaned_data.get('username')
+            messages.success(request, f'Your account has been created!')
+            return redirect('/')
+
+
+    else:   
+        form = UserRegisterForm()
+    return render(request, 'registration/register.html', {'form':form})
+ 
+ 
+# class Register(View):
+#     def post(self, request):
+#         form = UserRegisterForm(request.POST)
+#         if form.is_valid():
+#             form.save()  
+#             username = form.cleaned_data.get('username')
+#             messages.success(request, f'Your account has been created! You are nowable to log in')
+#             return redirect('login')
+        
+#         form = UserRegisterForm()
+#         return render(request, 'register.html', {'form':form})
+
+
 
 class HomeView(TemplateView):
     template_name = 'home.html'
