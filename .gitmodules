@@ -1,0 +1,3 @@
+[submodule "src/ian-cart"]
+	path = src/ian-cart
+	url = https://github.com/Impact-Africa-Network/ian-cart.git

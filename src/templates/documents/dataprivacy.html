@@ -1,0 +1,266 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+
+<style>
+
+    .card-services{
+        height:320px;
+    }
+    .card-services > img{
+        height:80px;
+        padding-bottom:1em;
+    }
+    .card-body> img{
+        height:50px;
+        padding-bottom:1em;
+    }
+    section{
+        padding-bottom: 4em;
+    }
+    .gazette_txt{
+        font-weight: 500;
+    }
+    .gazette {
+        border-radius: 10px;
+        border: 4px solid #C3EBEE;
+    }
+    .btn {
+        color: #fff;
+        background-color: var(--theme-color);
+        border-color: var(--theme-color);
+    }
+    .pricing > .card > .card-body{
+        min-height: 400px!important;
+    }
+    .theme-color{
+        color:  var(--theme-color);
+    }
+    .card-services > .btn{
+        color: var(--theme-color)!important;
+        background-color: #fff;
+        border-color: var(--theme-color);
+    }
+    .card-services > .btn:hover {
+        background-color: var(--theme-color)!important; 
+        color: white!important;
+      }
+ 
+
+    @media only screen and (max-width: 968px) {
+
+        .card{
+            margin-bottom: 2em;
+        }
+        .mobilenopadding{
+            padding-top: unset!important;
+            padding-left: unset!important;
+        }
+    }
+
+</style>
+
+    <main>  
+     <section id="hero">
+        <div class="container py-5">
+            <div class="row">
+
+                <div class="col-md-6">
+                    <img class="img-fluid" src="{% static 'img/Rectangle 448.png' %}">
+                </div>
+
+                <div class="col-md-6 m-auto px-3">
+                   
+                    <h2 class="display-5 mb-3 theme-color"><strong>What is a Data Privacy policy?</strong> </h2>
+                    <p class="lead pb-3">A Data Privacy Policy states how a business will deal with the personal information of its users.</p>
+                    <h2 class="display-5 mb-3 theme-color"><strong>Usage</strong> </h2>
+                    <p class="lead pb-3">A Data Privacy Policy is used to diisclose the manner in which data will be handled.</p>
+                    <h2 class="display-5 mb-3 theme-color"><strong>Who is it for?</strong> </h2>
+                    <p class="lead pb-3">A Data Privacy Policy is for  any website visitor or customer.</p>
+                    <a href="#packages"><button type="button" class="btn btn-primary"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        Add to Cart</button></a>
+                    
+                </div>
+
+            </div>
+        </div>
+     </section> 
+
+<!-- Description -->
+<Section class="py-3" >
+    <div class="container my-5">
+        <p class="theme-color text-center" style="font-size: 2em;">What’s Included?</p>
+        <span>
+            <p>Data Privacy Policy template includes the points set out in the Kenyan Data Protection Act. <br>
+
+            It empowers individuals with enforceable rights over their personal information and provides guidelines for companies to handle their users’  by addressing:</p>
+            <ul>
+                <li>collection of personal information</li>
+                <li>use of personal information </li>
+                <li>disclosure of personal information</li>
+                <li>access to and correction of personal information</li>
+                <li>storage and Security</li>
+            </ul>
+            <p>The enforeceable rights to individuals or ‘data subjects’ include:</p>
+            <ul>
+                <li>The right to be informed about data tracking</li>
+                <li>The right to access data</li>
+                <li>The right to erasure and rectification of data</li>
+                <li>The right to opt out of tracking</li>
+                <li>The right not to be subject to automated decision-making</li>
+            </ul>
+            <div class="text-center pt-3">
+            <a href="#packages"><button type="button" class="btn btn-primary"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                Add to Cart</button></a>
+            </div>
+        </span>
+      
+    
+
+    </div>
+</Section>
+<!-- End of Description -->
+
+<!-- Search -->
+<Section class="py-3">
+    <div class="container text-center my-5">
+        <p style="font-size: 2em;">Looking  for a specific document?</p>
+        <form class="form-inline">
+            
+            <input class="form-control col-md-10 " type="search" placeholder="Search Document" aria-label="Search">
+         
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    
+
+    </div>
+</Section>
+<!-- End of Search -->
+
+
+<!-- Templates -->
+<section id="templates" class="my-5">
+    <div class="container text-center">
+        <h2 class="mb-3 font-weight-bold" style="color: var(--theme-color);">Related documents</h2>
+        <!-- <p class="lead">We make it simple, easy and accessible for more people  to start businesses and stay compliant, all on their own.</p>  -->
+
+        <div class="row row-cols-3">
+            <div class="col-md-4">
+              <div class="card text-white text-left bg-primary mb-3">
+                <div class="card-body card-services d-flex flex-column">
+          
+                  <h5 class="card-title mb-3"><strong>Employment
+                    Agreement</strong></h5>
+                  <p class="card-text">
+                    An Employment Agreement
+                    defines the legally binding and 
+                    contractual relationship between
+                    an employer and employee.
+                    It is one of your company’s 
+                    most important documents.</p>
+    
+                  <a href="#" class="mt-auto btn btn-outline-primary">More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card text-white text-left bg-primary mb-3">
+                <div class="card-body card-services d-flex flex-column">
+          
+                  <h5 class="card-title mb-3"><strong>Sale
+                    Agreement</strong></h5>
+                  <p class="card-text">
+                    An Employment Agreement
+                    defines the legally binding and 
+                    contractual relationship between
+                    an employer and employee.
+                    It is one of your company’s 
+                    most important documents.</p>
+    
+                  <a href="#" class="mt-auto btn btn-outline-primary">More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card text-white text-left bg-primary mb-3">
+                <div class="card-body card-services d-flex flex-column">
+          
+                  <h5 class="card-title mb-3"><strong>Service
+                    Agreement</strong></h5>
+                  <p class="card-text">
+                    An Employment Agreement
+                    defines the legally binding and 
+                    contractual relationship between
+                    an employer and employee.
+                    It is one of your company’s 
+                    most important documents.</p>
+    
+                  <a href="#" class="mt-auto btn btn-outline-primary">More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card text-white text-left bg-primary mb-3">
+                <div class="card-body card-services d-flex flex-column">
+          
+                  <h5 class="card-title mb-3"><strong>Non-Disclosure
+                    Agreement</strong></h5>
+                  <p class="card-text">
+                    An Employment Agreement
+                    defines the legally binding and 
+                    contractual relationship between
+                    an employer and employee.
+                    It is one of your company’s 
+                    most important documents.</p>
+    
+                  <a href="#" class="mt-auto btn btn-outline-primary">More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card text-white text-left bg-primary mb-3">
+                <div class="card-body card-services d-flex flex-column">
+          
+                  <h5 class="card-title mb-3"><strong>Data Privacy
+                    Agreement</strong></h5>
+                  <p class="card-text">
+                    An Employment Agreement
+                    defines the legally binding and 
+                    contractual relationship between
+                    an employer and employee.
+                    It is one of your company’s 
+                    most important documents.</p>
+    
+                  <a href="#" class="mt-auto btn btn-outline-primary">More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card text-white text-left bg-primary mb-3">
+                <div class="card-body card-services d-flex flex-column">
+          
+                  <h5 class="card-title mb-3"><strong>Shareholders
+                    Agreement</strong></h5>
+                  <p class="card-text">
+                    An Employment Agreement
+                    defines the legally binding and 
+                    contractual relationship between
+                    an employer and employee.
+                    It is one of your company’s 
+                    most important documents.</p>
+    
+                  <a href="#" class="mt-auto btn btn-outline-primary">More</a>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- End of Templates -->
+
+</main>
+
+{% endblock content %}
+
