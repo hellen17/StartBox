@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/cart.css' %}">
+
+
+<!--Cart Section-->
+<section class="cart-section">
+    <div class="auto-container">
+        <div class="row">
+            <div class="column col-lg-8 col-md-12 col-sm-12">
+                <!--Cart Outer-->
+                <div class="cart-outer">
+                    <div class="table-outer">
+                        <table class="default-table ">
+                            <thead class="cart-header">
+                                <tr>
+                                    <th class="product-name">Product</th>
+                                    <th class="product-thumbnail">&nbsp;</th>
+                                    <th class="product-price">Price</th>
+                                    <th class="product-quantity">Quantity</th>
+                                    <th class="product-subtotal">Subtotal</th>
+                                    <th class="product-remove">&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% if cart_details %}
+                                {% for single_order in cart_details.values %}
+                                <tr class="cart-item">
+                                    <td class="product-thumbnail"><a href="shop-single.html"><img
+                                                src="{{ single_order.image }}" alt=""></a></td>
+                                    <td class="product-name"><a href="shop-single.html">{{ single_order.product_name
+                                            }}</a></td>
+                                    <td class="product-price">{{ single_order.price }}</td>
+                                    <td class="product-quantity">
+                                        <div class="item-quantity"> <input type="number" class="qty" name="qty"
+                                                value="{{ single_order.quantity }}"> </div>
+                                    </td>
+                                    <td class="product-subtotal"><span class="amount">{{ single_order.subtotal }}</span>
+                                    </td>
+                                    <td class="product-remove"> <a href="#" class="remove"><span
+                                                class="flaticon-dustbin"></span></a></td>
+                                </tr>
+                                {% endfor %}
+                                {% else %}
+                                <tr class="cart-item">
+                                    <td class="product-price">Nothing in your Cart</td>
+                                </tr>
+                                {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="cart-options clearfix">
+                        <div class="apply-coupon">
+                            <div class="form-group">
+                                <input type="text" name="coupon-code" class="input" placeholder="Coupon Code">
+                            </div>
+                            <div class="form-group">
+                                <button type="button" class="theme-btn btn-style-one">Apply Coupon</button>
+                            </div>
+                            <div class="form-group pull-right">
+                                <button type="button" class="theme-btn btn-style-three">update cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column col-lg-4 col-md-12 col-sm-12">
+                <div class="totals-table-outer">
+                    <ul class="totals-table">
+                        <li>
+                            <h3>Cart Totals</h3>
+                        </li>
+                        <!-- <li><span class="col">Subtotal</span><span class="col price">{{total}}</span></li> -->
+                        <li><span class="col">Total</span><span class="col price">{{total}}</span></li>
+                    </ul>
+                    <a class="theme-btn btn-style-one proceed-btn" href="{% url 'orders:checkout' %}">Proceed to
+                        Checkout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End Cart Section-->
+
+
+{% endblock content %}

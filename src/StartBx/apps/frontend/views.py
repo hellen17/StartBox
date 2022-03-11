@@ -1,4 +1,5 @@
 from re import template
+import uuid
 from django.shortcuts import render, redirect
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
@@ -7,6 +8,7 @@ from django.views import View
 from django.contrib import messages
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
+from .models import *
 
 # Create your views here.
 
@@ -91,3 +93,54 @@ class Contact(View):
             request,
             'contact.html',
             {'form': form})
+
+
+# Cart
+def view_cart(request):
+    cart_data = {}
+    prices = []
+    total = 0
+    order = Order.objects.filter(customer_id=uuid.UUID('e49b7fd2-584e-4e14-b710-a36a1441bf3d'), purchased=False).values().first() 
+
+    if order is None:
+        print('None')
+    else:
+        order_id = order['order_id']
+
+        order_details = OrderDetail.objects.filter(order_id=str(order_id)).values()
+
+        # print(order_details)
+
+        for order_detail in order_details:
+            current_order_detail = order_detail['order_detail_id']
+            # print(order_detail)
+            current_product_id = order_detail['product_id']
+            # print(current_product_id)
+
+            product_detail = Product.objects.filter(product_id=current_product_id).values().first()
+
+            # print(product_detail)
+            product_price = product_detail['product_price']
+            quantity = order_detail['quantity']
+            subtotal = product_price * quantity
+
+            prices.append(subtotal)
+
+            single_item_order = {
+                "product_id": current_product_id,
+                "product_name": product_detail['product_name'],
+                "product_image": product_detail['product_pictures'],
+                "product_price": product_price,
+                "quantity": order_detail['quantity'],
+                "subtotal": subtotal
+            }
+
+            cart_data.update({str(current_order_detail): single_item_order})
+
+        for price in prices:
+            total+=price
+        # Display in Cart for Item: Order_detail_id, Product_id, Product Name, Product Image, Price, Quantity 
+
+    return render(request, 'shopping-cart.html', context= {'cart_details': cart_data, 'total': total})
+    # print(products)
+    # return render(request, 'index.html', {'product_list': products, 'media_url':settings.MEDIA_URL})

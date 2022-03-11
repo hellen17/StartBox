@@ -4,7 +4,7 @@ from . import views
 
 #from frontend import views as views
 
-from .views import HomeView, PackageView, GetTemplateView, DataPrivacyView, OnlineBUsinessView, Contact, register
+from .views import HomeView, PackageView, GetTemplateView, DataPrivacyView, OnlineBUsinessView, Contact, register,view_cart
 
 app_name = 'StartBx.apps.frontend'
 
@@ -15,6 +15,7 @@ urlpatterns = [
     path('data-privacy/', DataPrivacyView.as_view(), name='dataprivacy'),
     path('online-business-package/', OnlineBUsinessView.as_view(), name='onlinebusinesspackage'),
     path('contact/', Contact.as_view(), name='contact'),
+    #path('cart/',view_cart, name="cart"),
    
 
     # Auth urls
