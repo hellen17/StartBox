@@ -1,6 +1,6 @@
 from re import template
 import uuid
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
 from .forms import ContactForm, UserRegisterForm
@@ -9,6 +9,8 @@ from django.contrib import messages
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from .models import *
+from django.views.generic import DetailView
+
 
 # Create your views here.
 
@@ -64,8 +66,14 @@ class PackageView(TemplateView):
 class GetTemplateView(TemplateView):
     template_name = 'documents.html'   
 
-class DataPrivacyView(TemplateView):
-    template_name = 'documents/dataprivacy.html'   
+# class DataPrivacyView(TemplateView):
+#     template_name = 'documents/dataprivacy.html'   
+
+def DataPrivacyView(request):
+    template = Product.objects.all().order_by('id')
+    print("This is a ", template)
+    return render(request, 'documents/dataprivacy.html', context= {'template': template})
+
 
 class OnlineBUsinessView(TemplateView):
     template_name = 'packages/online business.html'  
@@ -144,3 +152,15 @@ def view_cart(request):
     return render(request, 'shopping-cart.html', context= {'cart_details': cart_data, 'total': total})
     # print(products)
     # return render(request, 'index.html', {'product_list': products, 'media_url':settings.MEDIA_URL})
+
+
+class ProductDetailView(DetailView):
+    model = Product
+    template_name = 'product_detail.html'
+
+def product_detail(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    context = {
+        'product': product,
+    }
+    return render(request, 'product_detail.html', context)
