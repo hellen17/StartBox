@@ -17,7 +17,7 @@ urlpatterns = [
     path('data-privacy/', DataPrivacyView, name='dataprivacy'),
     path('online-business-package/', OnlineBUsinessView.as_view(), name='onlinebusinesspackage'),
     path('contact/', Contact.as_view(), name='contact'),
-    path('product/<int:pk>/detail/', ProductDetailView.as_view(), name="product-detail"),
+    path('template/<slug:slug>/', ProductDetailView.as_view(), name="product-detail"),
 
     #path('cart/',view_cart, name="cart"),
    

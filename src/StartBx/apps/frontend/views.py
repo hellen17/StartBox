@@ -9,7 +9,7 @@ from django.contrib import messages
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from .models import *
-from django.views.generic import DetailView
+from django.views.generic import DetailView, ListView
 
 
 # Create your views here.
@@ -63,15 +63,21 @@ class HomeView(TemplateView):
 class PackageView(TemplateView):
     template_name = 'packages.html'    
 
-class GetTemplateView(TemplateView):
-    template_name = 'documents.html'   
+class GetTemplateView(ListView):
+    model = Product
+    template_name = 'documents.html'  
+    slug_field = 'slug'
+    #extra_context={'templates': Product.objects.all()}
+
+ 
+
 
 # class DataPrivacyView(TemplateView):
 #     template_name = 'documents/dataprivacy.html'   
 
 def DataPrivacyView(request):
     template = Product.objects.all().order_by('id')
-    print("This is a ", template)
+    # print("This is a ", template)
     return render(request, 'documents/dataprivacy.html', context= {'template': template})
 
 
@@ -104,6 +110,7 @@ class Contact(View):
 
 
 # Cart
+# This Code is not in use #
 def view_cart(request):
     cart_data = {}
     prices = []
@@ -157,10 +164,13 @@ def view_cart(request):
 class ProductDetailView(DetailView):
     model = Product
     template_name = 'product_detail.html'
+    slug_field = 'slug'
+    # extra_context={'template': Product.objects.filter(slug=slug_field)}
+
 
 def product_detail(request, pk):
-    product = get_object_or_404(Product, pk=pk)
+    product = get_object_or_404(Product, pk)
     context = {
-        'product': product,
+        'template': product,
     }
     return render(request, 'product_detail.html', context)
