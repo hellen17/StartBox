@@ -168,9 +168,10 @@ class ProductDetailView(DetailView):
     # extra_context={'template': Product.objects.filter(slug=slug_field)}
 
 
-def product_detail(request, pk):
-    product = get_object_or_404(Product, pk)
+def product_detail(request, slug):
+    product = get_object_or_404(Product, slug=slug)
     context = {
-        'template': product,
+        'object': product,
     }
+    print("Test", slug)
     return render(request, 'product_detail.html', context)
