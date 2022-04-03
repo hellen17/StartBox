@@ -1,43 +1,78 @@
-<!-- Footer -->
-<footer class="page-footer font-small special-color-dark pt-4">
+{% load static %}
+<style>
+  .list-footer {
+    list-style-type: none;
+    line-height: 2em;
+}
+.list-footer a {
+  color: #fff;
+  text-decoration: none;
+}
+a{
+  color: #fff;
+}
 
-    <!-- Footer Elements -->
-    <div class="container">
-  
-      <!-- Social buttons -->
-      <ul class="list-unstyled list-inline text-center">
-        <li class="list-inline-item">
-          <a class="btn-floating btn-fb mx-1">
-            <i class="fab fa-facebook-f"> </i>
-          </a>
-        </li>
-        <li class="list-inline-item">
-          <a class="btn-floating btn-tw mx-1">
-            <i class="fab fa-twitter"> </i>
-          </a>
-        </li>
-        <li class="list-inline-item">
-          <a class="btn-floating btn-gplus mx-1">
-            <i class="fab fa-google-plus-g"> </i>
-          </a>
-        </li>
-        <li class="list-inline-item">
-          <a class="btn-floating btn-li mx-1">
-            <i class="fab fa-linkedin-in"> </i>
-          </a>
-        </li>
-  
-      </ul>
-      <!-- Social buttons -->
-  
-    </div>
-    <!-- Footer Elements -->
-  
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">© 2022 Copyright:
-      <a href="/"> StartBx</a>
-    </div>
-    <!-- Copyright -->
-  
-  </footer>
-  <!-- Footer -->
+
+@media only screen and (max-width: 968px) {
+
+  .list-footer{
+    padding-left: unset!important;
+
+  }
+  footer{
+    text-align: center;
+  }
+}
+</style>
+
+  <section style="background-color: #212F4F; position:relative;z-index:1;">
+    <footer class="d-flex align-items-center justify-content-center ">
+        <div class="container ">
+            <div class="pb-5" style="padding-top: 6rem;">
+                <div class="row" style="font-size:1.2em">
+                    <p class="col-md-3 pb-5">
+                      <img src="{% static 'img/StartBox_logo_white.png' %}" alt="StartBox logo">
+                    </p>
+                    <div class="col-md-3 list-footer pl-5 pb-5">
+                      <a href="#">
+                        <li>About Us</li>
+                      </a>
+                      <a href="#">
+                        <li>Services</li>
+                      </a>
+                      <a href="#">
+                        <li>Templates</li>
+                      </a>
+                    </div>
+                    <div class="col-md-3 list-footer text-white pb-5">
+                      <p><strong>Contact Us:</strong></p>
+                      <a href="#">
+                        <li>imali@impactafrica.network</li>
+                      </a>
+
+                    </div>
+                    <p class="col-md-3"><span style="color: white;">Powered by</span> 
+                        <a class="navbar-brand" href="https://impactafrica.network" target="_blank">
+                        <img src="{% static 'img/IAN-logo.png' %}" alt="Impact Africa" class="d-inline-block align-top logo" style="width: 300px;
+                        height: auto;">
+                    </a></p>
+                    
+                </div>
+            </div>
+            <hr style="width:50%", size="3", color=white>  
+
+            <div class="text-center text-white">
+              <a href="https://web.facebook.com/ImpactAfricaNetworkKE/?_rdc=1&_rdr " class="icons"><i
+                  class="fab fa-facebook p-2 "></i></a>
+              <a href="https://www.instagram.com/impactafricanetwork254/" class="icons "><i
+                  class="fab fa-instagram p-2 "></i></a>
+              <a href="https://www.linkedin.com/company/impactafrica-network/ " class="icons "><i
+                  class="fab fa-linkedin p-2 "></i></a>
+              <a href="https://https://twitter.com/IANetworkTweets" class="icons "><i
+                  class="fab fa-twitter p-2 "></i></a>
+            </div> 
+        </div>
+    </footer>
+
+
+</section>

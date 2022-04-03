@@ -85,7 +85,7 @@
                       
                       <form method="post" action="{%url 'ian_cart:cart_add'%}">
                           {%csrf_token%}
-                          <input type="hidden" value="{{product.id}}" name="product_id">
+                          <input type="hidden" value="{{object.id}}" name="product_id">
                           <input type="hidden" value="1" name="quantity">
                           <button type="submit" class="btn btn-style-one"><i class="fa fa-shopping-cart pr-2" aria-hidden="true"></i>Add to Cart</button></a>
                       </form>
@@ -133,11 +133,10 @@
                 Add to Cart</button></a> -->
                 
                 <div>
-              
-                  <p>Behold {{item.product_name}}</p>
+                      
                   <form method="post" action="{%url 'ian_cart:cart_add'%}">
                       {%csrf_token%}
-                      <input type="hidden" value="{{item.id}}" name="product_id">
+                      <input type="hidden" value="{{object.id}}" name="product_id">
                       <input type="hidden" value="1" name="quantity">
                       <button type="submit" class="btn btn-style-one"><i class="fa fa-shopping-cart pr-2" aria-hidden="true"></i>Add to Cart</button></a>
                   </form>
