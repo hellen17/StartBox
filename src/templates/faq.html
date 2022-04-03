@@ -1,117 +1,64 @@
-
-<div class="accordion" id="accordionExample">
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingOne">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Accordion Item #1
-        </button>
-      </h2>
-      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-          <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-        </div>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingTwo">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Accordion Item #2
-        </button>
-      </h2>
-      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-          <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-        </div>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Accordion Item #3
-        </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-          <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-        </div>
-      </div>
-    </div>
-  </div>
+{% load static %}
 
 
-  <!-- Seamless faq -->
-  <div class="row">
-    <div class="col-lg-12">
-        <div class="accordion" id="accordionExample">
-            
-            <!-- Accordion Item -->
-            <div class="accordion-item">
-                <h3 class="accordion-header" id="headingOne">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Does seamless Hq do payroll?</button>
-                </h3>
-                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
-                    <div class="accordion-body">With a robust payroll workflow that caters for a myriad of requirements, we provide the convenience of paying you staff efficiently with the payroll model.</div>
-                </div>
-            </div>
-            <!-- end of accordion-item -->
+<head>
 
-            <!-- Accordion Item -->
-            <div class="accordion-item">
-                <h3 class="accordion-header" id="headingTwo">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">What payment integrations does seamless have?</button>
-                </h3>
-                <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample" style="">
-                    <div class="accordion-body">Seamless HQ has bank integrations to provide easy and seamless payment via bank transfer, on top of this we also have mobile money integrated.</div>
-                </div>
-            </div>
-            <!-- end of accordion-item -->
 
-            <!-- Accordion Item -->
-            <div class="accordion-item">
-                <h3 class="accordion-header" id="headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Is there an Employee self service portal?</button>
-                </h3>
-                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">Our innovative mobile app ensures your employees are up to date with all company updates while also providing all the core operational features for them.</div>
-                </div>
-            </div>
-            <!-- end of accordion-item -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 
-            <!-- Accordion Item -->
-            <div class="accordion-item">
-                <h3 class="accordion-header" id="headingFour">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">Is Seamless cloud hosted?</button>
-                </h3>
-                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">At seamless we are true believers of the cloud revolution and its limitless capabilities. Our solution is built for the cloud giving you all the park to manage your data while providing world class security</div>
-                </div>
-            </div>
-            <!-- end of accordion-item -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
 
-            <!-- Accordion Item -->
-            <div class="accordion-item">
-                <h3 class="accordion-header" id="headingFive">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseThree">How safe is customer data?</button>
-                </h3>
-                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">With industry standard data management, our data pipeline ensures periodic backup of your database while keeping it secure and accessible.</div>
-                </div>
-            </div>
-            <!-- end of accordion-item -->
+</head>
+    
+    
+    <!-- Questions -->
+    <div class="accordion-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="h2-heading">Lorem ipsum dolor sit</h2>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->   
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="accordion" id="accordionExample">
+                        
+                        <!-- Accordion Item -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Elementum tempus egestas sed sed risus pretium quam vulputate turpis in eu</button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque. Pretium quam vulputate dignissim suspendisse in est ante in nibh. Lectus arcu bibendum at varius vel. Commodo odio aenean sed ading diam donec. Vitae elementum curabitur vitae nunc. Leo integer malesuada nunc vel risus notra</div>
+                            </div>
+                        </div>
+                        <!-- end of accordion-item -->
 
-            <!-- Accordion Item -->
-            <div class="accordion-item">
-                <h3 class="accordion-header" id="headingSix">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseThree">What reports can I get from seamless hq?</button>
-                </h3>
-                <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">All statutory reports are provided by default. Seamless also generates variance reports for use by your finance excs.</div>
-                </div>
-            </div>
-            <!-- end of accordion-item -->
+                        <!-- Accordion Item -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Facilisi etiam dignissim diam quis enim lobortis scelerisque. Vulputate eu sceleri?</button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">Mauris faucibus placerat nisl. Sed eros odio, posuere at felis quis, tincidunt facilisis nibh. Nulla in ante sem. Nam aliquam urna nisi, cursus semper dolor convallis at. Duis vulputate est in consectetur, et condimentum elit tincidunt libero consectetur, et condimentum suis vulputate est in libero</div>
+                            </div>
+                        </div>
+                        <!-- end of accordion-item -->
 
-        </div> <!-- end of accordion -->
-    </div> <!-- end of col -->
-</div>
+                        <!-- Accordion Item -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Duis vulputate est in consectetur, et condimentum elit tincidunt libero?</button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">Nullam at diam at mi facilisis consectetur at non turpis. Proin a felis nisi. Sed at orci rutrum, tincidunt magna vel, pharetra libero. Proin mauris orci, faucibus eget malesuada vel, consectetur, et condimentum elit tincidunt pellentesque vitae ligula. Pellentesque euismod tincidun</div>
+                            </div>
+                        </div>
+                        <!-- end of accordion-item -->
 
-  
+                    </div> <!-- end of accordion -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of accordion-1 -->
+    <!-- end of questions -->

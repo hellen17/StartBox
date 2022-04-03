@@ -1,6 +1,51 @@
 /*********************/
 /*     Questions     */
 /*********************/
+
+.accordion-item {
+    background-color: #fff;
+}
+.accordion-header {
+    margin-bottom: 0;
+}
+
+
+.accordion-1 .accordion-button:not(.collapsed) {
+    color: #212529;
+}
+.accordion-item:first-of-type .accordion-button {
+    border-top-left-radius: calc(0.25rem - 1px);
+    border-top-right-radius: calc(0.25rem - 1px);
+}
+.accordion-1 .accordion-button {
+    width: auto;
+    padding-top: 2rem;
+    padding-left: 0;
+    background: none;
+    box-shadow: none;
+    font-weight: 600;
+    font-size: 1.15rem;
+    line-height: 1.625rem;
+}
+.accordion-button:not(.collapsed) {
+    color: #0c63e4;
+    background-color: #e7f1ff;
+    box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
+}
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+    cursor: pointer;
+}
+.accordion-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    text-align: left;
+    border: 0;
+    border-radius: 0;
+    overflow-anchor: none;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,border-radius .15s ease;
+}
 .accordion-1 {
 	padding-top: 4rem;
 	padding-bottom: 5rem;
@@ -65,4 +110,18 @@
 	padding-top: 0;
 	padding-left: 1.875rem;
 	padding-bottom: 1.125rem;
+}
+
+
+.accordion-item:first-of-type {
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+}
+
+@media (min-width: 992px){
+.accordion-1 .accordion {
+    width: 820px;
+    margin-right: auto;
+    margin-left: auto;
+}
 }
