@@ -2,9 +2,6 @@ from django import views
 from django.urls import path
 #from . import views
 from .views import *
-#from StartBx.apps.frontend import views as views
-
-#from frontend import views as views
 
 # from .views import HomeView, PackageView, GetTemplateView, DataPrivacyView, OnlineBUsinessView, Contact, register,view_cart, ProductDetailView
 
