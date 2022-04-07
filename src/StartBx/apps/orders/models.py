@@ -5,7 +5,7 @@ from StartBx.apps.frontend.models import Product
 
 from dataclasses import dataclass
 
-@dataclass
+@dataclass(frozen=True)
 class PaymentOptions:
     MPESA:str = 'MPESA'
     CARD: str = 'CARD'
@@ -40,7 +40,7 @@ class Order(models.Model):
 class OrderItem(models.Model):
     id = models.BigAutoField(primary_key=True, unique=True)
     order = models.ForeignKey(
-        Order, related_name="items", on_delete=models.CASCADE, null=True
+        Order, related_name="items", on_delete=models.CASCADE, null=True,blank=True
     )
     product = models.ForeignKey(
         Product, related_name="order_items", on_delete=models.CASCADE

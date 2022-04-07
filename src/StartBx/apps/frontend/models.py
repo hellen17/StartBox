@@ -14,12 +14,12 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 class Product(models.Model):
     id = models.AutoField(primary_key=True)
-    product_name = models.CharField(max_length=40,null=False)
-    product_description = models.CharField(max_length=500,null=False)
+    product_name = models.CharField(max_length=40)# null is False by default
+    product_description = models.CharField(max_length=500)
     content = RichTextUploadingField()
     price = models.FloatField()
-    url = models.URLField(null=True,blank=True)
-    slug = models.SlugField(unique=True,null=True,blank=True)
+    url = models.URLField(default="",blank=True)
+    slug = models.SlugField(unique=True,default="",blank=True)
     
 
     # brand = models.CharField(max_length=255,choices=BRAND_TYPES,default=None)
@@ -35,7 +35,7 @@ class Product(models.Model):
         if not self.id:
             self.slug = slugify(self.product_name)
 
-        super(Product, self).save(*args, **kwargs)
+        super().save(*args, **kwargs)
 
     def get_absolute_url(self):
         return reverse("StartBx.apps.frontend:product-detail", kwargs={"slug": self.slug})      
