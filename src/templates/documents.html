@@ -78,7 +78,7 @@
             
             <input class="form-control col-md-10 " type="search" placeholder="Search Document" aria-label="Search">
          
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <button class="btn btn-outline-success my-2 my-sm-0 ml-2" type="submit">Search</button>
         </form>
     
 
@@ -93,26 +93,25 @@
         <h2 class="mb-3 font-weight-bold" style="color: var(--theme-color);">Popular  Legal documents</h2>
         <!-- <p class="lead">We make it simple, easy and accessible for more people  to start businesses and stay compliant, all on their own.</p>  -->
 
+
         <div class="row row-cols-3">
+          {% for item in object_list %}
+
           <div class="col-md-4">
             <div class="card text-white text-left bg-primary mb-3">
               <div class="card-body card-services d-flex flex-column">
         
-                <h5 class="card-title mb-3"><strong>Employment
-                  Agreement</strong></h5>
-                <p class="card-text">
-                  An Employment Agreement
-                  defines the legally binding and 
-                  contractual relationship between
-                  an employer and employee.
-                  It is one of your company’s 
-                  most important documents.</p>
+                <h5 class="card-title mb-3"><strong>{{item.product_name}}
+                  </strong></h5>
+                <p class="card-text">{{item.product_description}}
+                  </p>
   
-                <a href="#" class="mt-auto btn btn-outline-primary">More</a>
+                <a href="{{ item.get_absolute_url }}" class="mt-auto btn btn-outline-primary">More</a>
+
               </div>
             </div>
           </div>
-          <div class="col-md-4">
+          <!-- <div class="col-md-4">
             <div class="card text-white text-left bg-primary mb-3">
               <div class="card-body card-services d-flex flex-column">
         
@@ -201,7 +200,9 @@
                 <a href="#" class="mt-auto btn btn-outline-primary">More</a>
               </div>
             </div>
-          </div>
+          </div> -->
+
+          {% endfor %}
       </div>
     </div>
 </section>

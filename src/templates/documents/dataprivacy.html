@@ -78,8 +78,17 @@
                     <p class="lead pb-3">A Data Privacy Policy is used to diisclose the manner in which data will be handled.</p>
                     <h2 class="display-5 mb-3 theme-color"><strong>Who is it for?</strong> </h2>
                     <p class="lead pb-3">A Data Privacy Policy is for  any website visitor or customer.</p>
-                    <a href="#packages"><button type="button" class="btn btn-primary"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                        Add to Cart</button></a>
+
+                    <div>
+                      <form method="post" action="{%url 'ian_cart:cart_add'%}">
+                          {%csrf_token%}
+                          <input type="hidden" value="{{product.id}}" name="product_id">
+                          <input type="hidden" value="1" name="quantity">
+                          <button type="submit" class="btn btn-style-one"><i class="fa fa-shopping-cart pr-2" aria-hidden="true"></i>Add to Cart</button></a>
+                      </form>
+                    </div>
+                    <!-- <a href="#packages"><button type="button" class="btn btn-primary"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        Add to Cart</button></a> -->
                     
                 </div>
 
@@ -111,13 +120,25 @@
                 <li>The right not to be subject to automated decision-making</li>
             </ul>
             <div class="text-center pt-3">
-            <a href="#packages"><button type="button" class="btn btn-primary"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                Add to Cart</button></a>
+            <!-- <a href="#packages"><button type="button" class="btn btn-primary"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                Add to Cart</button></a> -->
+                
+                <div>
+                  {% if template %}
+                  {% for item in template %}
+                  <p>Behold {{item.product_name}}</p>
+                  <form method="post" action="{%url 'ian_cart:cart_add'%}">
+                      {%csrf_token%}
+                      <input type="hidden" value="{{item.id}}" name="product_id">
+                      <input type="hidden" value="1" name="quantity">
+                      <button type="submit" class="btn btn-style-one"><i class="fa fa-shopping-cart pr-2" aria-hidden="true"></i>Add to Cart</button></a>
+                  </form>
+                  {% endfor %}
+                  {% endif %}
+                </div>
             </div>
         </span>
       
-    
-
     </div>
 </Section>
 <!-- End of Description -->

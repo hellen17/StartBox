@@ -38,10 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
+    'ian_cart',
     'StartBx.apps.frontend',
     'StartBx.apps.orders',
-    'StartBx.apps.payment'
-
+    'StartBx.apps.payment',
+    'ckeditor',
+    'ckeditor_uploader',
+    
 
 ]
 
@@ -142,3 +145,10 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = 'login'
+
+CART_SESSION_ID = 'cart'
+
+# ckeditor
+
+CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+CKEDITOR_UPLOAD_PATH = "uploads/"

@@ -1,0 +1,213 @@
+.auto-container {
+    position: static;
+    max-width: 1310px;
+    padding: 0px 15px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.payment-box{
+    position:relative;
+}
+
+.payment-options {
+    position: relative;
+    padding: 30px 30px;
+    background-color: #F5F7FC;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.payment-box .payment-options li{
+    position:relative;
+    margin-bottom:35px; 
+}
+
+.payment-box .payment-options li .radio-option{
+    position:relative;    
+}
+
+.payment-box .payment-options li .radio-option label {
+    position: relative;
+    display: block;
+    padding-left: 30px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 15px;
+    color: #202124;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+
+.radio-box input[type="radio"]:checked + label {
+    border-color: #60329c;
+}
+
+ul, li {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.payment-box .payment-options li .radio-option input:checked + label .small-text {
+    display: block;
+}
+
+.payment-box .payment-options li .radio-option label .small-text {
+    position: relative;
+    display: none;
+    text-transform: none;
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #696969;
+}
+
+
+
+.order-box {
+    position: relative;
+    padding: 30px 30px;
+    background: #F5F7FC;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+.order-box table {
+    width: 100%;
+}
+
+.order-box h3{
+    position: relative;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    color: #202124;
+    margin-bottom: 25px;
+}
+
+.order-box table{
+    width: 100%;
+}
+
+.order-box thead th{
+    position: relative;
+    padding-bottom: 11px;
+    border-bottom: 1px solid #E7E7EC;
+}
+
+.order-box thead th strong{
+    font-weight: bold;
+}
+
+.order-box .cart-item td{
+    font-size: 15px;
+    line-height: 20px;
+    color: #696969;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.order-box table th:last-child,
+.order-box table td:last-child{
+    position: relative;
+    text-align: right;
+}
+
+.order-box .cart-subtotal td{
+    padding: 15px 0;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
+    color: #202124;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #E7E7EC;
+}
+
+.order-box .order-total td{
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
+    color: #202124;
+    padding-top: 15px;
+}
+
+
+
+.default-form {
+    position: relative;
+}
+
+.default-form .form-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.default-form .form-group:last-child {
+    margin-bottom: 0;
+}
+
+.default-form .form-group > label {
+    font-size: 15px;
+    line-height: 20px;
+    color: #202124;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.default-form .form-group input[type="text"],
+.default-form .form-group input[type="password"],
+.default-form .form-group input[type="number"],
+.default-form .form-group input[type="email"],
+.default-form .form-group input[type="url"],
+.default-form .form-group textarea,
+.default-form .form-group select {
+    position: relative;
+    width: 100%;
+    display: block;
+    height: 60px;
+    line-height: 30px;
+    padding: 15px 20px;
+    font-size: 15px;
+    color: #696969;
+    background: #F0F5F7;
+    border: 1px solid #F0F5F7;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 8px;
+    -webkit-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease;
+}
+
+.default-form .form-group textarea {
+    height: 160px;
+    resize: none;
+    padding-top: 15px;
+}
+
+.checkout-page{
+    position:relative;
+    padding:60px 0px 10px;
+}
+
+.checkout-page .column{
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.checkout-page .title{
+    position: relative;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    color: #202124;
+    margin-bottom: 30px;
+}
+
+.checkout-form{
+    position:relative;
+    background: #ffffff;
+    
+    border-radius: 10px;
+    
+}

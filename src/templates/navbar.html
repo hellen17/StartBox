@@ -10,12 +10,13 @@
           <div class="navbar-nav">
             <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link" href="#">About Us</a>
-            <a class="nav-item nav-link" href="#services">Services</a>
+            <a class="nav-item nav-link" href="/templates">Templates</a>
             <a class="nav-item nav-link" href="#pricing">Pricing</a>
             {% if user.is_authenticated %}
-            <a class="nav-item nav-link" href="#">
+            <a class="nav-item nav-link" href="/cart">
+              <!-- Show number of items in cart -->
                 <i class="fa fa-shopping-cart" aria-hidden="true">
-                <span class="badge badge-danger">0</span>
+                <span class="badge badge-danger">{{ request.session.cart.keys|length }}</span>
                 </i>
             </a>
             

@@ -1,3 +1,7 @@
-[submodule "src/ian-cart"]
-	path = src/ian-cart
-	url = https://github.com/Impact-Africa-Network/ian-cart.git
+# [submodule "src/ian-cart"]
+# 	path = src/ian-cart
+# 	url = https://github.com/Impact-Africa-Network/ian-cart.git
+
+[submodule "src/ian_cart"]
+	path = src/ian_cart
+	url = https://github.com/Impact-Africa-Network/ian-cart

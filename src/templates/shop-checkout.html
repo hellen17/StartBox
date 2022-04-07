@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+
+<!--CheckOut Page-->
+<section class="checkout-page">
+    <div class="auto-container">
+        <form id="placeOrder" method="post" action="." class="default-form"> {% csrf_token %}                
+            <div class="row">
+            
+
+            <div class="column col-lg-8 col-md-12 col-sm-12">
+                <!--Checkout Details-->
+                <div class="checkout-form">
+                    <h3 class="title"> <strong>Billing Details</strong> </h3>
+                    
+                        <div class="row">
+                            <!--Form Group-->
+                            <div class="form-group col-sm-12">
+                                {{form|crispy}}
+                            </div>
+
+
+                            <!--Form Group-->
+                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                <h3 class="title"> <strong>Additional information</strong> </h3>
+                                <div class="field-label">Order notes (optional)</div>
+                                <textarea class=""
+                                    placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
+                            </div>
+                        </div>
+                </div>
+                <!--End Checkout Details-->
+            </div>
+
+            <div class="column col-lg-4 col-md-12 col-sm-12">
+                <!--Order Box-->
+                <div class="order-box">
+                    <h3>Your Order</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th><strong>Product</strong></th>
+                                <th><strong>Subtotal</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in cart %}
+                            <tr class="cart-item">
+                                <td class="product-name">{{item.product_name}} <strong>×&nbsp;{{item.quantity}}</strong></td>
+                                <td class="product-total">{{item.total_price}}</td>
+                            </tr>
+
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr class="cart-subtotal">
+                                <td>Subtotal</td>
+                                <td><span class="amount">$ {{cart.get_total_price}}</span></td>
+                            </tr>
+                            <tr class="cart-subtotal">
+                                <td>Shipping</td>
+                                <td><span class="amount">$0.00</span></td>
+                            </tr>
+                            <tr class="order-total">
+                                <td>Total</td>
+                                <td><span class="amount">${{cart.get_total_price}}</span></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <!--End Order Box-->
+
+                <!--Payment Box-->
+                <div class="payment-box">
+                    <!--Payment Options-->
+                    <div class="payment-options">
+                        <ul>
+                            <li>
+                                <div class="radio-option radio-box">
+                                    <input type="radio" name="payment-method" id="payment-2" value="MPESA" checked>
+                                    <label for="payment-2"> <strong>MPESA</strong> <span class="small-text">Make
+                                            your payment via MPESA. Please use your Order
+                                            ID as the payment reference. Your order won’t be shipped until the
+                                            funds have cleared in our account.</span></label>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="radio-option radio-box">
+                                    <input type="radio" name="payment-method" id="payment-1" value="Card">
+                                    <label for="payment-1"><strong>Card Payments</strong> <span class="small-text">Make your
+                                            payment via your Credit/Debit Card. Please use your Order ID as
+                                            the payment reference. Your order won’t be shipped until the funds
+                                            have cleared in our account.</span></label>
+                                </div>
+                            </li>
+
+                            <!-- <li>
+                                <div class="radio-option radio-box">
+                                    <input type="radio" name="payment-method" id="payment-3" value="Cash">
+                                    <label for="payment-3">Cash on Delivery<span class="small-text">Make your
+                                            payment directly into our bank account. Please use your Order ID as
+                                            the payment reference. Your order won’t be shipped until the funds
+                                            have cleared in our account.</span></label>
+                                </div>
+                            </li> -->
+
+                            <!-- <li>
+                                <div class="radio-option radio-box">
+                                    <input type="radio" name="payment-method" id="payment-4">
+                                    <label for="payment-4"><strong>PayPal</strong>
+                                        <img src="images/icons/paypal.png" alt="">
+                                    </label>
+                                </div>
+                            </li> -->
+                        </ul>
+
+                        <div class="btn">
+                            <button type="submit" form="placeOrder" class="btn">Place Order</button>
+                        </div>
+                    </div>
+
+                </div>
+                <!--End Payment Box-->
+            </div>
+        </div>
+        </form>
+    </div>
+</section>
+<!--End CheckOut Page-->
+{% endblock content %}
+
