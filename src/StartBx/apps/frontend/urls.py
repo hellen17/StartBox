@@ -11,6 +11,8 @@ urlpatterns = [
     path('', HomeView.as_view(), name='home'),
     path('packages/', PackageView.as_view(), name='packages'),
     path('templates/', GetTemplateView.as_view(), name='templates'),
+    path('guidelines/', GuidelinesView.as_view(), name='guidelines'),
+
     path('data-privacy/', DataPrivacyView, name='dataprivacy'),
     path('online-business-package/', OnlineBUsinessView.as_view(), name='onlinebusinesspackage'),
     path('contact/', Contact.as_view(), name='contact'),
