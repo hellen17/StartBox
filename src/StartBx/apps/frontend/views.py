@@ -61,7 +61,10 @@ class HomeView(TemplateView):
     template_name = 'home.html'
 
 class PackageView(TemplateView):
-    template_name = 'packages.html'    
+    template_name = 'packages.html'   
+
+class GuidelinesView(TemplateView):
+    template_name = 'comingsoon.html'     
 
 class GetTemplateView(ListView):
     model = Product
