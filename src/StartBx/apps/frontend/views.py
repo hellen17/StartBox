@@ -16,17 +16,6 @@ from django.views.generic import DetailView, ListView
 
 # auth views
 
-# def register(response):
-#     if response.method == 'POST':
-#         form = UserRegisterForm(response.POST)
-#         if form.is_valid():
-#             form.save()
-#             messages.success(response, f'Your account has been created!')
-#         return redirect('/')    
-#     else:        
-#         form = UserRegisterForm()
-#     return render(response, 'registration/register.html', {'form': form})
-
 def register(request):
 
     if request.method == 'POST':
@@ -60,21 +49,37 @@ def register(request):
 class HomeView(TemplateView):
     template_name = 'home.html'
 
-class PackageView(TemplateView):
-    template_name = 'packages.html'   
+class PackageView(TemplateView): 
+    template_name = 'packages.html'  
+
 
 class GuidelinesView(TemplateView):
     template_name = 'comingsoon.html'     
 
+
 class GetTemplateView(ListView):
     model = Product
-    template_name = 'documents.html'  
+    template_name = 'documents.html'
     slug_field = 'slug'
-    #extra_context={'templates': Product.objects.all()}
+    extra_context={'templates': Product.objects.all().filter(category='Template')}
 
+"""
+class TemplateMixin(object):
+    def get_templates(self):
+        return Product.objects.all().filter(category='Template')
+
+    def get_context_data(self, **kwargs):
+        context = super(TemplateMixin, self).get_context_data(**kwargs)
+        context['templates'] = self.get_templates()
+        return context    
+
+class GetTemplateView(TemplateMixin, ListView):
+    model = Product
+    template_name = 'documents.html'
+    slug_field = 'slug'
+"""
+  
  
-
-
 # class DataPrivacyView(TemplateView):
 #     template_name = 'documents/dataprivacy.html'   
 
@@ -84,11 +89,13 @@ def DataPrivacyView(request):
     return render(request, 'documents/dataprivacy.html', context= {'template': template})
 
 
-class OnlineBUsinessView(TemplateView):
-    template_name = 'packages/online business.html'  
+class OnlineBusinessView(ListView):
+    model = Product
+    template_name = 'packages/online business.html' 
+    slug_field = 'slug'  
+    extra_context={'templates': Product.objects.all().filter(category='Template')}
 
-# class ProfessionalHelpView(TemplateView):
-#     template_name = 'contact.html'  
+
 
 class Contact(View):
     def get(self, request):
@@ -164,17 +171,29 @@ def view_cart(request):
     # return render(request, 'index.html', {'product_list': products, 'media_url':settings.MEDIA_URL})
 
 
-class ProductDetailView(DetailView):
-    model = Product
-    template_name = 'product_detail.html'
-    slug_field = 'slug'
-    # extra_context={'template': Product.objects.filter(slug=slug_field)}
+# class ProductDetailView(DetailView):
+#     model = Product
+#     template_name = 'product_detail.html'
+#     slug_field = 'slug'
+#     # extra_context={'template': Product.objects.filter(slug=slug_field)}
 
 
-def product_detail(request, slug):
+def package_detail(request, slug):
     product = get_object_or_404(Product, slug=slug)
     context = {
         'object': product,
     }
-    print("Test", slug)
-    return render(request, 'product_detail.html', context)
+    
+    return render(request, 'online business.html', context)
+
+
+def product_detail(request, slug):
+    product = get_object_or_404(Product, slug=slug)
+    template = Product.objects.all().filter(category='Template')
+    context = {
+        'object': product,
+        'dataset': template,
+    }
+
+    return render(request, 'product_detail.html', context)    
+
