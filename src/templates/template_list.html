@@ -1,0 +1,32 @@
+
+
+<section id="packages" class="my-5">
+    <div class="container text-center">
+        <h2 class="mb-3 font-weight-bold" style="color: var(--theme-color);">Popular  Legal documents</h2>  
+  
+        <div class="row row-cols-3">
+        
+          {% for item in object_list %}
+  
+          <div class="col-md-4">
+            <div class="card text-white text-left bg-primary mb-3">
+              <div class="card-body card-services d-flex flex-column">
+        
+                <h5 class="card-title mb-3"><strong>{{item.product_name}}
+                  </strong></h5>
+                <p class="card-text">{{item.product_description}}
+                  </p>
+  
+                <a href="{{ item.get_absolute_url }}" class="mt-auto btn btn-outline-primary">More</a>
+  
+              </div>
+            </div>
+          </div>
+  
+  
+          {% endfor %}
+      </div>
+    </div>
+  </section>
+  
+  

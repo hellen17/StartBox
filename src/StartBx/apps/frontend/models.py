@@ -1,3 +1,4 @@
+from sre_constants import CATEGORY
 from django.db import models
 from django.urls import reverse
 
@@ -7,7 +8,11 @@ from ckeditor_uploader.fields import RichTextUploadingField
 # from markdown_deux import markdown
 # from django.utils.safestring import mark_safe
 
-
+CATEGORY = (
+    ('Package', 'Package'),
+    ('Template', 'Template'),
+ 
+)
 
 
 # Create your models here.
@@ -20,6 +25,8 @@ class Product(models.Model):
     price = models.FloatField()
     url = models.URLField(default="",blank=True)
     slug = models.SlugField(unique=True,default="",blank=True)
+    
+    category = models.CharField(max_length=20, choices=CATEGORY)
     
 
     # brand = models.CharField(max_length=255,choices=BRAND_TYPES,default=None)

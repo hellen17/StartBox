@@ -168,123 +168,37 @@
 
 
 <!-- Templates -->
-<section id="templates" class="my-5">
-    <div class="container text-center">
-        <h2 class="mb-3 font-weight-bold" style="color: var(--theme-color);">Related documents</h2>
-        <!-- <p class="lead">We make it simple, easy and accessible for more people  to start businesses and stay compliant, all on their own.</p>  -->
 
-        <div class="row row-cols-3">
-            <div class="col-md-4">
-              <div class="card text-white text-left bg-primary mb-3">
-                <div class="card-body card-services d-flex flex-column">
-          
-                  <h5 class="card-title mb-3"><strong>Employment
-                    Agreement</strong></h5>
-                  <p class="card-text">
-                    An Employment Agreement
-                    defines the legally binding and 
-                    contractual relationship between
-                    an employer and employee.
-                    It is one of your company’s 
-                    most important documents.</p>
-    
-                  <a href="#" class="mt-auto btn btn-outline-primary">More</a>
-                </div>
-              </div>
+<!-- {% include "template_list.html" with object_list=templates only %} -->
+<section id="packages" class="my-5">
+  <div class="container text-center">
+      <h2 class="mb-3 font-weight-bold" style="color: var(--theme-color);">Popular  Legal documents</h2>  
+
+      <div class="row row-cols-3">
+      
+        {% for item in dataset %}
+
+        <div class="col-md-4">
+          <div class="card text-white text-left bg-primary mb-3">
+            <div class="card-body card-services d-flex flex-column">
+      
+              <h5 class="card-title mb-3"><strong>{{item.product_name}}
+                </strong></h5>
+              <p class="card-text">{{item.product_description}}
+                </p>
+
+              <a href="{{ item.get_absolute_url }}" class="mt-auto btn btn-outline-primary">More</a>
+
             </div>
-            <div class="col-md-4">
-              <div class="card text-white text-left bg-primary mb-3">
-                <div class="card-body card-services d-flex flex-column">
-          
-                  <h5 class="card-title mb-3"><strong>Sale
-                    Agreement</strong></h5>
-                  <p class="card-text">
-                    An Employment Agreement
-                    defines the legally binding and 
-                    contractual relationship between
-                    an employer and employee.
-                    It is one of your company’s 
-                    most important documents.</p>
-    
-                  <a href="#" class="mt-auto btn btn-outline-primary">More</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card text-white text-left bg-primary mb-3">
-                <div class="card-body card-services d-flex flex-column">
-          
-                  <h5 class="card-title mb-3"><strong>Service
-                    Agreement</strong></h5>
-                  <p class="card-text">
-                    An Employment Agreement
-                    defines the legally binding and 
-                    contractual relationship between
-                    an employer and employee.
-                    It is one of your company’s 
-                    most important documents.</p>
-    
-                  <a href="#" class="mt-auto btn btn-outline-primary">More</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card text-white text-left bg-primary mb-3">
-                <div class="card-body card-services d-flex flex-column">
-          
-                  <h5 class="card-title mb-3"><strong>Non-Disclosure
-                    Agreement</strong></h5>
-                  <p class="card-text">
-                    An Employment Agreement
-                    defines the legally binding and 
-                    contractual relationship between
-                    an employer and employee.
-                    It is one of your company’s 
-                    most important documents.</p>
-    
-                  <a href="#" class="mt-auto btn btn-outline-primary">More</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card text-white text-left bg-primary mb-3">
-                <div class="card-body card-services d-flex flex-column">
-          
-                  <h5 class="card-title mb-3"><strong>Data Privacy
-                    Agreement</strong></h5>
-                  <p class="card-text">
-                    An Employment Agreement
-                    defines the legally binding and 
-                    contractual relationship between
-                    an employer and employee.
-                    It is one of your company’s 
-                    most important documents.</p>
-    
-                  <a href="#" class="mt-auto btn btn-outline-primary">More</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card text-white text-left bg-primary mb-3">
-                <div class="card-body card-services d-flex flex-column">
-          
-                  <h5 class="card-title mb-3"><strong>Shareholders
-                    Agreement</strong></h5>
-                  <p class="card-text">
-                    An Employment Agreement
-                    defines the legally binding and 
-                    contractual relationship between
-                    an employer and employee.
-                    It is one of your company’s 
-                    most important documents.</p>
-    
-                  <a href="#" class="mt-auto btn btn-outline-primary">More</a>
-                </div>
-              </div>
-            </div>
+          </div>
         </div>
+
+
+        {% endfor %}
     </div>
+  </div>
 </section>
+
 
 <!-- End of Templates -->
 
