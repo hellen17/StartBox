@@ -18,7 +18,7 @@ urlpatterns = [
     path('contact/', Contact.as_view(), name='contact'),
     # path('template/<slug:slug>/', ProductDetailView.as_view(), name="product-detail"),
     path('template/<slug:slug>/', product_detail, name="product-detail"),
-    path('package/<slug:slug>/', package_detail, name="package-detail"),
+    path('packages/<slug:slug>/', package_detail, name="package-detail"),
 
 
 
