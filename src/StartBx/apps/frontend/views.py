@@ -180,11 +180,13 @@ def view_cart(request):
 
 def package_detail(request, slug):
     product = get_object_or_404(Product, slug=slug)
+    template = Product.objects.all().filter(category='Template')
     context = {
         'object': product,
+        'dataset': template,
     }
     
-    return render(request, 'online business.html', context)
+    return render(request, 'package_detail.html', context)
 
 
 def product_detail(request, slug):

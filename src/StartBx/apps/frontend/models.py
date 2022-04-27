@@ -25,8 +25,8 @@ class Product(models.Model):
     price = models.FloatField()
     url = models.URLField(default="",blank=True)
     slug = models.SlugField(unique=True,default="",blank=True)
-    
     category = models.CharField(max_length=20, choices=CATEGORY)
+    # file = models.FileField(default="",blank=True) - one field
     
 
     # brand = models.CharField(max_length=255,choices=BRAND_TYPES,default=None)
