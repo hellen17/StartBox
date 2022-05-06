@@ -23,7 +23,7 @@ urlpatterns = [
     path('', include('StartBx.apps.frontend.urls', namespace='frontend')),
     path("cart/", include("ian_cart.urls", namespace="cart")),
     path("", include("StartBx.apps.orders.urls", namespace="orders")),
-    #path("", include("StartBx.apps.payment.urls", namespace="payment")),
+    path("", include("StartBx.apps.payment.urls", namespace="payment")),
     path('', include('django.contrib.auth.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls'))
 
