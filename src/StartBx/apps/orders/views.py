@@ -24,7 +24,7 @@ def checkout(request):
                     order=order,
                     product=product,
                     price=item.get("price"),
-                    quantity=item.get("quantity"),
+                    # quantity=item.get("quantity"),
                 )
             
             order_created.delay(order.id)

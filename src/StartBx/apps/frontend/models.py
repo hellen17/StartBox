@@ -17,17 +17,22 @@ CATEGORY = (
 
 # Create your models here.
 
+class Packages(models.Model):
+    file = models.FileField(upload_to="files/%Y/%m/%d")
+    
 class Product(models.Model):
     id = models.AutoField(primary_key=True)
     product_name = models.CharField(max_length=40)# null is False by default
     product_description = models.CharField(max_length=500)
     content = RichTextUploadingField()
     price = models.FloatField()
-    url = models.URLField(default="",blank=True)
+   # url = models.URLField(default="",blank=True)
     slug = models.SlugField(unique=True,default="",blank=True)
     category = models.CharField(max_length=20, choices=CATEGORY)
-    # file = models.FileField(default="",blank=True) - one field
-    
+    file = models.FileField(default="",blank=True)
+    many_files=models.ManyToManyField(Packages,default="",blank=True)
+
+
 
     # brand = models.CharField(max_length=255,choices=BRAND_TYPES,default=None)
     # colour = models.CharField(max_length=255,choices=COLOR,default=None,null=True)

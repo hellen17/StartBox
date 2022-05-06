@@ -7,6 +7,10 @@ name = "pypi"
 django = "*"
 django-crispy-forms = "*"
 celery = "*"
+django-ckeditor = "*"
+django-environ = "*"
+braintree = "*"
+weasyprint = "*"
 
 [dev-packages]
 
