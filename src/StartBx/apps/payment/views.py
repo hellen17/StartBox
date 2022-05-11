@@ -48,9 +48,16 @@ def payment_process_card(request):
 
 
 def payment_process_mpesa(request):
+
     cart = Cart(request)
     order_id = request.session.get("order_id")
     order = get_object_or_404(Order, id=order_id)
+    '''
+    If user has not logged in redirect them to login/register before checkout
+    '''
+    # if request.user.is_authenticated() == 'False':
+    #     return redirect('/login')
+    
     if request.method == "POST":
         # payment_process.delay(order_id)
         cart.clear()
