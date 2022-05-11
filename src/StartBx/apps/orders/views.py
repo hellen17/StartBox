@@ -6,7 +6,13 @@ from .forms import OrderCreateForm
 from .models import Order, OrderItem, PaymentOptions
 from django.urls import reverse
 from .tasks import order_created
+from django.contrib.auth.decorators import login_required
 
+'''
+If user has not logged in redirect them to login/register before checkout
+'''
+
+@login_required
 def checkout(request):
     cart = Cart(request)
     if request.method == "POST":
