@@ -2,6 +2,8 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError  
+from django.core.validators import RegexValidator
+
 
 
 NATURE_OF_BUSINESS= [
@@ -13,10 +15,14 @@ NATURE_OF_BUSINESS= [
 
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
+    first_name = forms.CharField(label='First Name', max_length=150)
+    last_name = forms.CharField(label='Last Name', max_length=150)
+    phone_regex = RegexValidator(regex=r'^0(7(?:(?:[129][0-9])|(?:0[0-8])|(4[0-1]))[0-9]{6})$', message="Phone number must be entered in the format: '07xxxxxxxx'. Up to 10 digits allowed.")
+    phone_number = forms.CharField(validators=[phone_regex], max_length=10, widget=forms.TextInput(attrs={'placeholder': 'Use the format: \'07xxxxxxxx\''})) # validators should be a list
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'password1', 'password2']
+        fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2', 'phone_number' ]
 
 # class CustomUserCreationForm(UserCreationForm):  
 #     username = forms.CharField(label='Username', min_length=5, max_length=150)  

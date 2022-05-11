@@ -2,6 +2,7 @@ from django import views
 from django.urls import path
 #from . import views
 from .views import *
+from django.contrib.auth import views as auth_views
 
 # from .views import HomeView, PackageView, GetTemplateView, DataPrivacyView, OnlineBUsinessView, Contact, register,view_cart, ProductDetailView
 
@@ -23,7 +24,8 @@ urlpatterns = [
 
     #path('cart/',view_cart, name="cart"),
     # Auth urls
-    path('register/', register, name='signup')
+    path('register/', register, name='signup'),
+    path('accounts/login/', auth_views.LoginView.as_view())
     #path('register/', Register.as_view(), name='register')
     
 

@@ -20,6 +20,7 @@ Login
         border-radius: 4px;
         padding:19px 66px;
     }
+
     @media only screen and (max-width: 968px) {
 
         .content-section{
@@ -39,7 +40,7 @@ Login
         {% csrf_token %}
         {{form|crispy}}
     </fieldset>
-    <p class="text-muted"> <small>  Don't have an account? Create one <a href="/register">here</a></small> </p>
+    <p class="text-muted"> <small>  Don't have an account? Create one <a style="color: #43a047!important;"  href="/register">here</a></small> </p>
     <button type="submit" class="btn">Login</button>
 
     </form>

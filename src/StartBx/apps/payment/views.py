@@ -48,15 +48,13 @@ def payment_process_card(request):
         )
 
 
-@login_required
+
 def payment_process_mpesa(request):
 
     cart = Cart(request)
     order_id = request.session.get("order_id")
     order = get_object_or_404(Order, id=order_id)
-    '''
-    If user has not logged in redirect them to login/register before checkout
-    '''
+
     # if not request.user.is_authenticated():
     #     return redirect('/login')
     

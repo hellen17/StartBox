@@ -80,10 +80,15 @@
               <hr>
               <form>
                 <div class="form-group">
-                  <label for="fullName">Full Name</label>
-                  <input type="text" class="form-control" id="fullName" aria-describedby="fullNameHelp" placeholder="Enter your fullname" value="{{user.username}}">
+                  <label for="fullName">First Name</label>
+                  <input type="text" class="form-control" id="firstName" aria-describedby="fullNameHelp" placeholder="Enter your fullname" value="{{user.first_name}}">
                   <small id="fullNameHelp" class="form-text text-muted">Your name may appear around here where you are mentioned. You can change or remove it at any time.</small>
                 </div>
+                <div class="form-group">
+                    <label for="fullName">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" aria-describedby="fullNameHelp" placeholder="Enter your fullname" value="{{user.last_name}}">
+                    <small id="fullNameHelp" class="form-text text-muted">Your name may appear around here where you are mentioned. You can change or remove it at any time.</small>
+                  </div>
                 <div class="form-group">
                   <label for="Email">Your Email Address</label>
                   <input type="email" class="form-control" id="Email" aria-describedby="EmailAddress" placeholder="Enter your email" value="{{user.email}}">
