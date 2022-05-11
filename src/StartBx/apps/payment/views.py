@@ -5,6 +5,8 @@ from django.conf import settings
 import braintree
 from django.urls import reverse
 from .tasks import payment_completed
+from django.contrib.auth.decorators import login_required
+
 
 gateway = braintree.BraintreeGateway(settings.BRAINTREE_CONF)
 
@@ -46,7 +48,7 @@ def payment_process_card(request):
         )
 
 
-
+@login_required
 def payment_process_mpesa(request):
 
     cart = Cart(request)
@@ -55,7 +57,7 @@ def payment_process_mpesa(request):
     '''
     If user has not logged in redirect them to login/register before checkout
     '''
-    # if request.user.is_authenticated() == 'False':
+    # if not request.user.is_authenticated():
     #     return redirect('/login')
     
     if request.method == "POST":
