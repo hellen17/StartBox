@@ -48,6 +48,7 @@ def register(request):
 
 class HomeView(TemplateView):
     template_name = 'home.html'
+ 
 
 class PackageView(TemplateView): 
     template_name = 'packages.html'  
@@ -56,14 +57,16 @@ class PackageView(TemplateView):
 class GuidelinesView(TemplateView):
     template_name = 'comingsoon.html'     
 
+class ViewProfileView(TemplateView):
+    template_name = 'view_profile.html'
 
-class GetTemplateView(ListView):
-    model = Product
-    template_name = 'documents.html'
-    slug_field = 'slug'
-    extra_context={'templates': Product.objects.all().filter(category='Template')}
+# class GetTemplateView(ListView):
+#     model = Product
+#     template_name = 'documents.html'
+#     slug_field = 'slug'
+#     extra_context={'templates': Product.objects.all().filter(category='Template')}
 
-"""
+
 class TemplateMixin(object):
     def get_templates(self):
         return Product.objects.all().filter(category='Template')
@@ -77,7 +80,7 @@ class GetTemplateView(TemplateMixin, ListView):
     model = Product
     template_name = 'documents.html'
     slug_field = 'slug'
-"""
+
   
  
 # class DataPrivacyView(TemplateView):
