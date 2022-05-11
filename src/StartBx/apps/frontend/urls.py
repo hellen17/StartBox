@@ -19,8 +19,7 @@ urlpatterns = [
     # path('template/<slug:slug>/', ProductDetailView.as_view(), name="product-detail"),
     path('template/<slug:slug>/', product_detail, name="product-detail"),
     path('packages/<slug:slug>/', package_detail, name="package-detail"),
-
-
+    path('profile/', ViewProfileView.as_view(), name='profile'),
 
     #path('cart/',view_cart, name="cart"),
     # Auth urls
