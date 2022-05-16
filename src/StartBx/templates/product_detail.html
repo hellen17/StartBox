@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
+
 {% block content %}
 {% load static %}
 
@@ -60,37 +61,41 @@
     }
 
 </style>
-      
+
     <main>  
      <section id="hero">
         <div class="container py-5">
             <div class="row">
+                       
 
                 <div class="col-md-6">
-                    <img class="img-fluid" src="{% static 'img/Rectangle 449.png' %}">
+                    <img class="img-fluid" src="{% static 'img/Rectangle 448.png' %}">
                 </div>
 
                 <div class="col-md-6 m-auto px-3">
                    
-                    <h2 class="display-5 mb-3 theme-color"><strong>What is an {{object.product_name}}?</strong> </h2>
-                    <p class="lead pb-3">An {{object.product_name}}  provides you with everything you need to consider when setting up your online-based business.</p>
+                    <h2 class="display-5 mb-3 theme-color"><strong>What is a {{object.product_name}}?</strong> </h2>
+                    <p class="lead pb-3">A {{object.product_name}} states how a business will deal with the personal information of its users.</p>
                     <h2 class="display-5 mb-3 theme-color"><strong>Usage</strong> </h2>
-                    <p class="lead pb-3">It includes an array of documents from what you need to register to the agreements you need to carry out your business, to ensuring you stay compliant.</p>
+                    <p class="lead pb-3">A {{object.product_name}} is used to disclose the manner in which data will be handled.</p>
                     <h2 class="display-5 mb-3 theme-color"><strong>Who is it for?</strong> </h2>
-                    <p class="lead pb-3">An {{object.product_name}} is for  any business owner whose business will be entirely digital.</p>
+                    <p class="lead pb-3">A {{object.product_name}} is for  any website visitor or customer.</p>
 
                     <div>
+                      
                       <form method="post" action="{%url 'ian_cart:cart_add'%}">
                           {%csrf_token%}
                           <input type="hidden" value="{{object.id}}" name="product_id">
                           <input type="hidden" value="1" name="quantity">
                           <button type="submit" class="btn btn-style-one"><i class="fa fa-shopping-cart pr-2" aria-hidden="true"></i>Add to Cart</button></a>
                       </form>
-                  </div>
+                    </div>
                     <!-- <a href="#packages"><button type="button" class="btn btn-primary"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
                         Add to Cart</button></a> -->
                     
                 </div>
+             
+          
 
             </div>
         </div>
@@ -101,33 +106,46 @@
     <div class="container my-5">
         <p class="theme-color text-center" style="font-size: 2em;">What’s Included?</p>
         <span>
-            <p>The {{object.product_name}} includes:<br>
+        {{object.content|safe}}
 
-            </p>
+            <!-- <p>Data Privacy Policy template includes the points set out in the Kenyan Data Protection Act. <br>
+
+            It empowers individuals with enforceable rights over their personal information and provides guidelines for companies to handle their users’  by addressing:</p>
             <ul>
-              <li><strong>Entity Registration Guide:</strong>  This gives you a step-by-step process on how to go about registering your business all on your own</li>
-              <li><strong>Business Permit Guide:</strong> This will highlight which permits you will need to run your specific business and how to procure the licences requires</li>
-              <li><strong>Tax Compliance Guide: </strong>We guide you on the taxes you will need to file, why those taxes apply to you and how to file them on your own. </li>
-              <li><strong>Employment Agreement:</strong> An Employment Agreement defines the legally binding and contractual relationship between an employer and employee. It is one of your company’s  most important documents.</li>
-              <li><strong>Sale Agreement</strong> which is a legally binding contract outlining the agreed upon terms and conditions of the buyer and seller and ensures the protection of both parties’ interests. </li>
+                <li>collection of personal information</li>
+                <li>use of personal information </li>
+                <li>disclosure of personal information</li>
+                <li>access to and correction of personal information</li>
+                <li>storage and Security</li>
+            </ul>
+            <p>The enforeceable rights to individuals or ‘data subjects’ include:</p>
+            <ul>
+                <li>The right to be informed about data tracking</li>
+                <li>The right to access data</li>
+                <li>The right to erasure and rectification of data</li>
+                <li>The right to opt out of tracking</li>
+                <li>The right not to be subject to automated decision-making</li>
             </ul>
 
+             -->
             <div class="text-center pt-3">
-              <div>
-                <form method="post" action="{%url 'ian_cart:cart_add'%}">
-                    {%csrf_token%}
-                    <input type="hidden" value="{{object.id}}" name="product_id">
-                    <input type="hidden" value="1" name="quantity">
-                    <button type="submit" class="btn btn-style-one"><i class="fa fa-shopping-cart pr-2" aria-hidden="true"></i>Add to Cart</button></a>
-                </form>
-            </div>
             <!-- <a href="#packages"><button type="button" class="btn btn-primary"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
                 Add to Cart</button></a> -->
+                
+                <div>
+                      
+                  <form method="post" action="{%url 'ian_cart:cart_add'%}">
+                      {%csrf_token%}
+                      <input type="hidden" value="{{object.id}}" name="product_id">
+                      <input type="hidden" value="1" name="quantity">
+                      <button type="submit" class="btn btn-style-one"><i class="fa fa-shopping-cart pr-2" aria-hidden="true"></i>Add to Cart</button></a>
+                  </form>
+                
+                </div>
             </div>
+
         </span>
       
-    
-
     </div>
 </Section>
 <!-- End of Description -->
@@ -140,7 +158,7 @@
             
             <input class="form-control col-md-10 " type="search" placeholder="Search Document" aria-label="Search">
          
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <button class="btn btn-outline-success my-2 my-sm-0 ml-2" type="submit">Search</button>
         </form>
     
 
@@ -150,13 +168,14 @@
 
 
 <!-- Templates -->
+
+<!-- {% include "template_list.html" with object_list=templates only %} -->
 <section id="packages" class="my-5">
   <div class="container text-center">
-      <h2 class="mb-3 font-weight-bold" style="color: var(--theme-color);">Popular  Legal documents</h2>
-      <!-- <p class="lead">We make it simple, easy and accessible for more people  to start businesses and stay compliant, all on their own.</p>  -->
-
+      <h2 class="mb-3 font-weight-bold" style="color: var(--theme-color);">Popular  Legal documents</h2>  
 
       <div class="row row-cols-3">
+      
         {% for item in dataset %}
 
         <div class="col-md-4">
@@ -165,10 +184,11 @@
       
               <h5 class="card-title mb-3"><strong>{{item.product_name}}
                 </strong></h5>
+                <p>Ksh {{item.price}}</p> 
               <p class="card-text">{{item.product_description}}
                 </p>
 
-              <a href="{{ item.get_absolute_url }}" class="mt-auto btn btn-outline-primary">More</a>
+              <a href="{{ item.get_absolute_url }}" class="mt-auto ml-auto">More</a>
 
             </div>
           </div>
@@ -180,9 +200,10 @@
   </div>
 </section>
 
+
 <!-- End of Templates -->
 
 </main>
 
-{% endblock content %}
 
+{% endblock content %}
