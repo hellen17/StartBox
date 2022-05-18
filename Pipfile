@@ -11,6 +11,9 @@ django-ckeditor = "*"
 django-environ = "*"
 braintree = "*"
 weasyprint = "*"
+django-storages = "*"
+boto3 = "*"
+python-decouple = "*"
 
 [dev-packages]
 
