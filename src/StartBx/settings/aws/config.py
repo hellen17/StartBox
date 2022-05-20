@@ -1,4 +1,4 @@
-'''
+
 #Uncomment if you want to use S3 bucket otherwise comment so that static files are generated locally
 
 import datetime
@@ -30,4 +30,3 @@ AWS_HEADERS = {
     'Expires': expires,
     'Cache-Control': 'max-age=%d' % (int(two_months.total_seconds()), ),
 }
-'''

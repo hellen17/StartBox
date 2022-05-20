@@ -16,6 +16,9 @@ import braintree
 from pathlib import Path
 from decouple import config
 
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -200,3 +203,18 @@ EMAIL_USE_TLS = True
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+
+#sentry
+sentry_sdk.init(
+    dsn="https://001b3f6d5a9e4220ac99cfc92ea46cc1@o461119.ingest.sentry.io/6422767",
+    integrations=[DjangoIntegration()],
+
+    # Set traces_sample_rate to 1.0 to capture 100%
+    # of transactions for performance monitoring.
+    # We recommend adjusting this value in production.
+    traces_sample_rate=0.8,
+
+    # If you wish to associate users to errors (assuming you are using
+    # django.contrib.auth) you may enable sending PII data.
+    send_default_pii=True
+)
