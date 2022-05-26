@@ -4,6 +4,7 @@ from django.urls import reverse
 
 from django.utils.text import slugify
 from ckeditor_uploader.fields import RichTextUploadingField
+from django_ckeditor_5.fields import CKEditor5Field
 
 # from markdown_deux import markdown
 # from django.utils.safestring import mark_safe
@@ -25,6 +26,8 @@ class Product(models.Model):
     product_name = models.CharField(max_length=40)# null is False by default
     product_description = models.CharField(max_length=500)
     content = RichTextUploadingField()
+    #content = CKEditor5Field(null=True, config_name="extends")
+
     price = models.FloatField()
    # url = models.URLField(default="",blank=True)
     slug = models.SlugField(unique=True,default="",blank=True)

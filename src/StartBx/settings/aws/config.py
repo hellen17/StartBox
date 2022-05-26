@@ -22,6 +22,9 @@ MEDIA_ROOT = MEDIA_URL
 STATIC_URL = f'{S3_URL}static/'
 ADMIN_MEDIA_PREFIX = f'{STATIC_URL}admin/'
 
+#ckeditor
+TEXT_CKEDITOR_BASE_PATH = f'//{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/ckeditor/ckeditor/'
+
 two_months = datetime.timedelta(days=61)
 date_two_months_later = datetime.date.today() + two_months
 expires = date_two_months_later.strftime("%A, %d %B %Y 20:00:00 GMT")

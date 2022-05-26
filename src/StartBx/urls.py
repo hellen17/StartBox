@@ -25,7 +25,9 @@ urlpatterns = [
     path("", include("StartBx.apps.orders.urls", namespace="orders")),
     path("", include("StartBx.apps.payment.urls", namespace="payment")),
     path('', include('django.contrib.auth.urls')),
-    path('ckeditor/', include('ckeditor_uploader.urls'))
+    path('ckeditor/', include('ckeditor_uploader.urls')),
+    path("ckeditor5/", include('django_ckeditor_5.urls'))
+
 
 
 ]

@@ -32,7 +32,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config("DEBUG", default=False, cast=bool)
+DEBUG = config("DEBUG", default=True, cast=bool)
 
 ALLOWED_HOSTS = config("ALLOWED_HOSTS", cast=lambda v: [s.strip() for s in v.split(',')])
 
@@ -90,6 +90,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'StartBx.wsgi.application'
+
+AWS_QUERYSTRING_AUTH = False
 
 
 # Database
@@ -162,9 +164,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, "static")
-# ]
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static")
+]
 
 
 
@@ -182,6 +184,7 @@ CART_SESSION_ID = 'cart'
 CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
+#braintree
 BRAINTREE_MERCHANT_ID = config('BRAINTREE_MERCHANT_ID')  # Merchant ID
 BRAINTREE_PUBLIC_KEY = config('BRAINTREE_PUBLIC_KEY')   # Public Key
 BRAINTREE_PRIVATE_KEY = config('BRAINTREE_PRIVATE_KEY')  # Private key
