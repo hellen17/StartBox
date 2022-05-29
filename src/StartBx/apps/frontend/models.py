@@ -4,7 +4,7 @@ from django.urls import reverse
 
 from django.utils.text import slugify
 from ckeditor_uploader.fields import RichTextUploadingField
-from django_ckeditor_5.fields import CKEditor5Field
+#from django_ckeditor_5.fields import CKEditor5Field
 
 # from markdown_deux import markdown
 # from django.utils.safestring import mark_safe
