@@ -33,7 +33,7 @@ def checkout(request):
                     # quantity=item.get("quantity"),
                 )
             
-            order_created.delay(order.id)
+            order_created.delay(order.id) # delay function adds the task to the queue
             # set the order in the session
     
             request.session["order_id"] = str(order.id)
