@@ -55,11 +55,9 @@ def payment_process_mpesa(request):
     order_id = request.session.get("order_id")
     order = get_object_or_404(Order, id=order_id)
 
-    # if not request.user.is_authenticated():
-    #     return redirect('/login')
-    
+ #
     if request.method == "POST":
-        # payment_process.delay(order_id)
+        #payment_process.delay(order_id)
         cart.clear()
         return redirect("/shop")
     return render(request, "process-mpesa.html", {"order": order})
