@@ -1,0 +1,186 @@
+
+            
+<style>
+
+    a{
+        text-decoration: none!important;
+    }
+    .section-heading .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 50px;
+        height: 4px;
+        background: var(--theme-color);
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+
+    }
+    .justify-content-center {
+        justify-content: center !important;
+    }
+    .price-text{
+        font-weight: bold;
+    }
+    .price-table {
+        border-radius: 50px;
+        text-align: center;
+        padding: 30px;
+        -webkit-transition: all 0.25s linear;
+        transition: all 0.25s linear;
+        -webkit-box-shadow: 0 10px 20px 0 rgba(61, 82, 96, 0.15);
+        box-shadow: 0 10px 20px 0 rgba(61, 82, 96, 0.15);
+      
+    }
+
+    .price-table .price-text {
+        margin-bottom: 30px;
+    }
+
+    .price-table .price-value {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .price-table .price-value b {
+        font-size: 2.0rem;
+        font-weight: 400;
+        font-family: "Poppins-Bold", sans-serif;
+        color: #050626;
+    }
+
+    .price-table .price-footer .price-block-btn {
+        display: block;
+        border-radius: 50px;
+        color: #fff;
+    }
+
+    .default-button {
+        border-radius: 5px;
+        display: inline-block;
+        /* background-color: #26C281; */
+        background-color: var(--theme-color);
+        border: none;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        padding: 20px 40px;
+        -webkit-transition: all 0.25s ease;
+        transition: all 0.25s ease;
+        color: #fff;
+    }
+    .min-height{
+        min-height: 575px;
+    }
+   
+
+</style>
+            
+<section class="my-3" id="pricing">
+    <div class="container">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-lg-7">
+                <div class="section-heading">
+                    <h2 class="section-title text-center" style="color: var(--theme-color);">Pricing</h2>
+                </div>
+            </div>
+        </div>
+        <!--// .row //-->
+        <div class="pricing-tab-content-wrap">
+            <div class="pricing-tab-content active" style="margin-top: 50px;">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 col-lg-4 price-table-resp">
+                        <div class="price-table d-flex flex-column min-height">
+                            <div class="price-text">
+                                <h4> <strong>Customized Packages</strong></h4>
+                            </div>
+                            <div class="price-icon">
+                                <i class="fas fa-chart-pie"></i>
+                            </div>
+                            <div class="price-value">
+                                <b>ksh1500</b>
+                                <span>/package</span>
+                            </div>
+                            <div class="text-left">
+                            <p>Find templates to several documens ranging from the registration phase
+                                 to compliance and likely needed agreements. </p>
+                            <ul class="price-list" style="list-style-type: unset!important;">
+                                <li>Online Business</li>
+                                <li>Small Business</li>
+                                <li>Tech/Innovation Startups</li>
+                               
+                            </ul>
+                        </div>
+                            <div class="price-footer">
+                                <a href="{% url 'frontend:packages' %}" class="default-button price-block-btn align-self-justify mt-auto w-100 ">Get Package</a>
+                                <!-- <a class="align-self-justify mt-auto w-100 btn btn-lg btn-primary" href="{% url 'frontend:contact' %}">Contact us -->
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 price-table-resp">
+                        <div class="price-table d-flex flex-column min-height">
+                            <div class="price-text">
+                                <h4> <strong>Templates</strong> </h4>
+                            </div>
+                            <div class="price-icon">
+                                <i class="fas fa-chart-line"></i>
+                                <div class="price-icon-shape-wrap">
+                                    <div class="price-icon-shape"></div>
+                                    <div class="price-icon-shape"></div>
+                                </div>
+                            </div>
+                            <div class="price-value">
+                                <b>ksh450</b>
+                                <span>/template</span>
+                            </div>
+                            <div class="text-left">
+                            <p>Find specific templates to suit what you would like to accomplish. 
+                            The options range from registration guidelines to accounting cheat sheets to general contracts and agreements </p>
+                            </div>
+                            <div class="price-footer mt-auto">
+                                <a href="{% url 'frontend:templates' %}" class="default-button price-block-btn ">Get Template</a>
+
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 price-table-resp">
+                        <div class="price-table d-flex flex-column min-height">
+                            <div class="price-text">
+                                <h4> <strong> Professional Help</strong></h4>
+                            </div>
+                            <div class="price-icon">
+                                <i class="fas fa-city"></i>
+                                <div class="price-icon-shape-wrap">
+                                    <div class="price-icon-shape"></div>
+                                    <div class="price-icon-shape"></div>
+                                </div>
+                            </div>
+                            <div class="price-value">
+                                <b>ksh1000</b>
+                                <span>/hour</span>
+                            </div>
+                            <div class="text-left">
+                            <p>In the event you need a little more help or advice,
+                                 we are just one call away to help you figure everything out </p>
+                            <ul class="price-list" style="list-style-type: unset!important;">
+                                <li>Customised advice to address specific needs</li>
+                                <li>Assistance on how/where to use the templates </li>
+                              
+                            </ul>
+                            </div>
+                            <div class="price-footer mt-auto">
+                                <a href="{% url 'frontend:contact' %}" class="default-button price-block-btn">Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--// .row //-->
+            </div>
+        </div>
+    </div>
+    <!--// .container //-->
+</section>
+        
