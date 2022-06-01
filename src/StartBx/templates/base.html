@@ -138,8 +138,16 @@
       {% endblock %}
 
       
-      {% include "CTA.html" %}      
-      {% include "footer.html" %}
+      {% block CTA %}
+      {% include "CTA.html" %} 
+      {% endblock %}
+        
+      {% block footer %}
+      {% include "footer.html" %} 
+      {% endblock footer %}     
+     
+
+ 
    
   </body>
 
