@@ -18,6 +18,19 @@
   background: white;
 }
 
+.cart-section {
+  position: relative;
+  padding: 60px 0px 50px;
+}
+
+.auto-container {
+  position: static;
+  max-width: 1310px;
+  padding: 0px 15px;
+  margin: 0 auto;
+  width: 100%;
+}
+
 /* Braintree Hosted Fields styling classes*/
 .braintree-hosted-fields-focused {
   color: #495057;
@@ -32,11 +45,11 @@
   box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
 }
 
-  </style>
+</style>
 
 <section class="cart-section">
     <div class="auto-container">
-        <div class="row">
+        <!-- <div class="row"> -->
             <div class="bootstrap-basic">
                 <form method="POST" class="needs-validation" novalidate="" id="cardForm"> 
                     {% csrf_token %}
@@ -104,7 +117,7 @@
                 </div>
               </div>
               </div>
-        </div>
+        <!-- </div> -->
     </div>
 </section>
 {% endblock content %}

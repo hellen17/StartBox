@@ -21,6 +21,7 @@ urlpatterns = [
     path('template/<slug:slug>/', product_detail, name="product-detail"),
     path('packages/<slug:slug>/', package_detail, name="package-detail"),
     path('profile/', ViewProfileView.as_view(), name='profile'),
+    path('order-success/', OrderSuccessView.as_view(), name='order-success'),
 
     #path('cart/',view_cart, name="cart"),
     # Auth urls

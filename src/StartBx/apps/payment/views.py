@@ -5,7 +5,6 @@ from django.conf import settings
 import braintree
 from django.urls import reverse
 from .tasks import payment_completed
-from django.contrib.auth.decorators import login_required
 
 
 gateway = braintree.BraintreeGateway(settings.BRAINTREE_CONF)
@@ -37,7 +36,7 @@ def payment_process_card(request):
             cart.clear()
             return render(request, "order-completed.html", {"order": order})
         else:
-            return redirect("/shop")
+            return redirect("/templates")
     else:
         # generate token
         client_token = gateway.client_token.generate()
@@ -66,3 +65,4 @@ def payment_process_mpesa(request):
 
 def order_completed(request):
     return render(request, "order-completed.html")
+   
