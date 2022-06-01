@@ -59,6 +59,9 @@ class GuidelinesView(TemplateView):
 class ViewProfileView(TemplateView):
     template_name = 'view_profile.html'
 
+class OrderSuccessView(TemplateView):
+    template_name = 'order-completed.html'
+
 # class GetTemplateView(ListView):
 #     model = Product
 #     template_name = 'documents.html'
