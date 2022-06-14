@@ -25,7 +25,7 @@ class Product(models.Model):
     id = models.AutoField(primary_key=True)
     product_name = models.CharField(max_length=40)# null is False by default
     product_description = models.CharField(max_length=500)
-    content = RichTextUploadingField()
+    content = RichTextUploadingField(default="",blank=True)
     #content = CKEditor5Field(null=True, config_name="extends")
 
     price = models.FloatField()
