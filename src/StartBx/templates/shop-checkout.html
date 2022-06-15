@@ -140,7 +140,7 @@
                         </ul>
 
                         <div class="btn">
-                            <button type="submit" form="placeOrder" class="btn">Place Order</button>
+                            <button id="checkout" type="submit" form="placeOrder" class="btn">Place Order</button>
                         </div>
                     </div>
 
@@ -151,6 +151,20 @@
         </form>
     </div>
 </section>
+
 <!--End CheckOut Page-->
+<script>
+    $('#checkout').click(function(event){
+        $.ajax({
+            url: 'process-mpesa/',
+            success: function(result){
+                console.log("done, result=%s", result);
+            }
+        });
+    });
+    
+</script>
+
+
 {% endblock content %}
 
