@@ -17,6 +17,9 @@ python-decouple = "*"
 sentry-sdk = "*"
 psycopg2-binary = "*"
 django-ckeditor-5 = "*"
+djangorestframework = "*"
+phonenumbers = "*"
+
 
 [dev-packages]
 

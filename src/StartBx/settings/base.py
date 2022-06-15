@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'StartBx.apps.frontend',
     'StartBx.apps.orders',
     'StartBx.apps.payment',
+    'StartBx.apps.mpesa',
     'ckeditor',
     'ckeditor_uploader',
 ]

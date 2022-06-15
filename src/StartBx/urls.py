@@ -21,6 +21,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('StartBx.apps.frontend.urls', namespace='frontend')),
+    path('', include('StartBx.apps.mpesa.urls', namespace='mpesa')),
     path("cart/", include("ian_cart.urls", namespace="cart")),
     path("", include("StartBx.apps.orders.urls", namespace="orders")),
     path("", include("StartBx.apps.payment.urls", namespace="payment")),
