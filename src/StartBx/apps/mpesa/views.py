@@ -1,3 +1,4 @@
+import email
 from urllib import response
 from django.shortcuts import render
 from rest_framework.response import Response
@@ -22,6 +23,11 @@ class MpesaTransactionViewset(viewsets.ModelViewSet):
     permission_classes = [AllowAny]
 
     queryset = Transaction.objects.all()
+
+
+    def get_serializer_class(self):
+        return sz.MpesaTransactionSerializer
+
 
     @action(detail=False, methods=['POST'], url_path='initiate')
     def initiate_stk(self,request):
@@ -57,18 +63,44 @@ class MpesaTransactionViewset(viewsets.ModelViewSet):
             }, status=status.HTTP_503_SERVICE_UNAVAILABLE) 
 
            
-        response = sz.MpesaDetailTransactionSerializer(transaction)
-        # If transaction is created, call Remit API
-        # Background Task to call Remit API using celery
-        
-        stk_response = handle_stk_request(data)
-        #breakpoint() # debug
-        return Response({
-            "success": True,
-            "data":response.data,
-            "msg":"Transaction Created"
-        },
-        status=status.HTTP_200_OK)
+        #response = sz.MpesaDetailTransactionSerializer(transaction)
+        '''
+        If transaction is created, call Remit API
+        Background Task to call Remit API using celery
+        '''    
+        #stk_response = handle_stk_request(data)
+        r_status = handle_stk_request(phone_number, amount, reference)
+        stk_response  = handle_stk_request(phone_number, amount, reference)
+
+        print("Mpesa Response ", stk_response)
+        print("R_status ", r_status)
+
+        if r_status == True:
+            Txndata = sz.MpesaDetailTransactionSerializer(transaction).data
+
+            print("Response", Txndata)
+
+            return Response(
+                {
+                    "success": True,
+                    "data": Txndata,
+                    "msg": "Payment request made, status is pending",
+                },                    
+                status=status.HTTP_200_OK
+            )
+
+        else:
+            return Response(
+                {
+                    "error": True,
+                    "data": "failedrequest",
+                    "msg": "Something went wrong with your request. Try again later",
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+
+      
 
     @action(detail=False, methods=['POST'], url_path='status')  
     def receive_callback(self,request):
@@ -88,3 +120,34 @@ class MpesaTransactionViewset(viewsets.ModelViewSet):
         return Response({ 
             "success":True,
         }, status=status.HTTP_200_OK) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def mpesa_transactions(request):
+
+    amount = request.POST['amount']
+    phone_number = request.POST['phone_number']
+    reference = request.POST['reference']
+
+    response = handle_stk_request(amount,phone_number,reference)
+    print('This is the response', response)
+
+    return response
+
+
+
+    
+    
+
+
