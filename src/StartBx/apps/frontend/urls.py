@@ -3,6 +3,8 @@ from django.urls import path
 #from . import views
 from .views import *
 from django.contrib.auth import views as auth_views
+from django.urls.conf import include
+
 
 # from .views import HomeView, PackageView, GetTemplateView, DataPrivacyView, OnlineBUsinessView, Contact, register,view_cart, ProductDetailView
 
@@ -23,11 +25,15 @@ urlpatterns = [
     path('profile/', ViewProfileView.as_view(), name='profile'),
     path('order-success/', OrderSuccessView.as_view(), name='order-success'),
 
+    #path('transactions/', include("StartBx.apps.mpesa.urls", namespace="transactions")),
+  
+
     #path('cart/',view_cart, name="cart"),
     # Auth urls
     path('register/', register, name='signup'),
     path('accounts/login/', auth_views.LoginView.as_view())
     #path('register/', Register.as_view(), name='register')
+
     
 
 ]

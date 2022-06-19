@@ -21,6 +21,8 @@ def checkout(request):
    
 
     if request.method == "POST":
+        print(request.POST)
+        phone_number = request.POST.get("phone_number")
 
       
         form = OrderCreateForm(request.POST or None, instance=current_user)
@@ -31,6 +33,7 @@ def checkout(request):
                 'first_name': current_user.first_name,
                 'last_name' : current_user.last_name,
                 'email': current_user.email,
+                'phone_number': phone_number
                 }
         form = OrderCreateForm(data)        
 
@@ -58,6 +61,11 @@ def checkout(request):
             if payment_method == PaymentOptions.MPESA:
                 return redirect(reverse("payment:process-mpesa"))
             return redirect(reverse("payment:process-card"))
+        else:
+            print("errorsfound")
+            print(form.errors)
+
+
     else:
         # form.fields['first_name'].initial = current_user.first_name
         # form.fields['last_name'].initial = current_user.last_name

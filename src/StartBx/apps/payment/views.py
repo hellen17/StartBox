@@ -26,6 +26,8 @@ def payment_process_card(request):
                 "options": {"submit_for_settlement": True},
             }
         )
+        #print("Result is",result)   
+
         if result.is_success:
             # mark the order as paid
             order.paid = True
@@ -53,9 +55,13 @@ def payment_process_mpesa(request):
     cart = Cart(request)
     order_id = request.session.get("order_id")
     order = get_object_or_404(Order, id=order_id)
+    print(f"Order : {order}")
 
  #
     if request.method == "POST":
+        '''
+        Add payment completed page with payment completed method
+        '''
         #payment_process.delay(order_id)
         cart.clear()
         return redirect("/shop")

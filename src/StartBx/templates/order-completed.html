@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 
-
 {% block content %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
 
 <style>
     .center-items{
@@ -59,6 +62,183 @@
         box-shadow: inset 0px 0px 0px 30px #7ac142;
     }
     }
+    .auto-container {
+    position: static;
+    max-width: 1310px;
+    padding: 0px 15px;
+    margin: 0 auto;
+    width: 100%;
+    }
+
+    /* Order Box */
+
+    .order-box{
+        position:relative;
+        padding: 30px 30px;
+        background: #F5F7FC;
+        border-radius: 8px;
+        margin-bottom: 30px;
+    }
+
+    .order-box h3{
+        position: relative;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 24px;
+        color: #202124;
+        margin-bottom: 25px;
+    }
+
+    .order-box table{
+        width: 100%;
+    }
+
+    .order-box thead th{
+        position: relative;
+        padding-bottom: 11px;
+        border-bottom: 1px solid #E7E7EC;
+    }
+
+    .order-box thead th strong{
+        font-weight: 500;
+    }
+
+    .order-box .cart-item td{
+        font-size: 15px;
+        line-height: 20px;
+        color: #696969;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    .order-box table th:last-child,
+    .order-box table td:last-child{
+        position: relative;
+        text-align: right;
+    }
+
+    .order-box .cart-subtotal td{
+        padding: 15px 0;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 22px;
+        color: #202124;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #E7E7EC;
+    }
+
+    .order-box .order-total td{
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 22px;
+        color: #202124;
+        padding-top: 15px;
+    }
+
+    /*** 
+
+====================================================================
+Order Slip
+====================================================================
+
+***/
+
+    .order-confirmation{
+        position: relative;
+        padding: 100px 0 70px;
+    }
+
+    .order-confirmation .auto-container{
+        max-width: 770px;
+    }
+
+    .order-confirmation .upper-box{
+        position: relative;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+    .order-confirmation .upper-box .icon{
+        display: inline-block;
+        height: 80px;
+        width: 80px;
+        color: rgba(25, 103, 210, 1);
+        background: rgba(25, 103, 210, .1);
+        border-radius: 50%;
+        line-height: 80px;
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 13px;
+    }
+
+    .order-confirmation .upper-box h4{
+        font-weight: 500;
+        font-size: 30px;
+        line-height: 41px;
+        color: #202124;
+        margin-bottom: 11px;
+    }
+
+    .order-confirmation .upper-box .text{
+        font-size: 15px;
+        line-height: 20px;
+        color: #696969;
+    }
+
+    .order-confirmation .order-info{
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        padding: 40px 40px 0;
+        background: #F5F7FC;
+        border-radius: 8px;
+        margin-bottom: 60px;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+    }
+
+    .order-confirmation .order-info li{
+        position: relative;
+        margin-right: 40px;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        font-size: 15px;
+        line-height: 20px;
+        color: #696969;
+        margin-bottom: 40px;
+    }   
+
+    .order-confirmation .order-info li:last-child{
+        margin-right: 0;
+    }
+
+    .order-confirmation .order-info li strong{
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 22px;
+        color: #202124;
+        margin-top: 13px;
+    }
+
+    .order-confirmation .order-box{
+        background: none;
+        border: 1px solid #ECEDF2;
+        border-radius: 8px;
+        padding: 50px 60px 60px;
+    }
+
 
 </style>
 
@@ -71,9 +251,10 @@
             <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
             <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
         </svg>
+      
          <h2 style="color:#0fad00">Order Complete</h2>
         <h3>Dear, {{user.first_name}}</h3>
-        <p style="font-size:20px;color:#5C5C5C;">Thank you for making an order with us. We have sent you an email to "{{user.email}}" with 
+        <p style="font-size:20px;color:#5C5C5C;">Thank you. Your order has been placed. We have sent you an email to "{{user.email}}" with 
             your document. Please check your email and download the document.
         </p>
         <a href="{% url 'frontend:templates' %}" class="btn btn-success"> Back to shopping </a>
@@ -81,7 +262,78 @@
         </div>
         
 	</div>
+
 </div>
+
+<!-- Order Confirmation -->
+<section class="order-confirmation">
+    <div class="auto-container">
+        <!-- <div class="upper-box">
+            <span class="icon fa fa-check"></span>
+            <h4>Your order is successful!</h4>
+            <div class="text">Thank you. Your order has been placed.</div>
+        </div> -->
+
+        <ul class="order-info">
+            <li>
+                <span>Order Number</span>
+                <strong>{{order.id}}</strong>
+            </li>
+
+            <li>
+                <span>Date</span>
+                <strong>{{order.created}}</strong>
+            </li>
+
+            <li>
+                <span>Total</span>
+                <strong>Ksh{{order.get_total_cost}}</strong>
+            </li>
+
+            <li>
+                <span>Payment Method</span>
+                <strong>{{order.payment_method}}</strong>
+            </li>
+        </ul>
+
+        <!--Order Box-->
+        <div class="order-box">
+            <h3>Order details</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th><strong>Product</strong></th>
+                        <th><strong>Subtotal</strong></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in order.items.all %}
+                    <tr class="cart-item">
+                        <td class="product-name">{{item.product.product_name}} *{{item.quantity}}</td>
+                        <td class="product-total">{{item.get_cost}}</td>
+                    </tr>  
+                    {% endfor %}                 
+                </tbody>
+                <tfoot>
+                    <tr class="cart-subtotal">
+                        <td>Subtotal</td>
+                        <td><span class="amount">Ksh{{order.get_total_cost}}</span></td>
+                    </tr>
+                    <tr class="cart-subtotal">
+                        <td>Shipping</td>
+                        <td><span class="amount">Ksh0.00</span></td>
+                    </tr>
+                    <tr class="order-total">
+                        <td>Total</td>
+                        <td><span class="amount">Ksh {{order.get_total_cost}}</span></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <!--End Order Box-->
+    </div>
+</section>
+<!-- End Order Confirmation -->
 
 {% block CTA %}
 {% endblock %}

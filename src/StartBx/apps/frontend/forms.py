@@ -17,8 +17,8 @@ class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
     first_name = forms.CharField(label='First Name', max_length=150)
     last_name = forms.CharField(label='Last Name', max_length=150)
-    phone_regex = RegexValidator(regex=r'^0(7(?:(?:[129][0-9])|(?:0[0-8])|(4[0-1]))[0-9]{6})$', message="Phone number must be entered in the format: '07xxxxxxxx'. Up to 10 digits allowed.")
-    phone_number = forms.CharField(validators=[phone_regex], max_length=10, widget=forms.TextInput(attrs={'placeholder': 'Use the format: \'07xxxxxxxx\''})) # validators should be a list
+    phone_regex = RegexValidator(regex=r'(\+254)\s*?(\d{3})\s*?(\d{3})\s*?(\d{3})', message="invalid phone number, phone number should be in the format of +254")
+    phone_number = forms.CharField(validators=[phone_regex], max_length=13, widget=forms.TextInput(attrs={'placeholder': 'Use the format: \'+2547xxxxxxxx\''})) # validators should be a list
 
     class Meta:
         model = User

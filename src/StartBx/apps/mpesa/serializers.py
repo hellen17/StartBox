@@ -32,7 +32,7 @@ class MpesaTransactionSerializer(serializers.Serializer):
             raise serializers.ValidationError("Please enter a valid phone number")
         if not phonenumbers.is_valid_number(x):
             raise serializers.ValidationError(f"Invalid phone number {phone_number}")
-        attrs["phone"] = str(int(phone_number))
+        attrs["phone_number"] = str(int(phone_number))
         return attrs
 
 

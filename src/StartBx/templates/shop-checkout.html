@@ -36,6 +36,10 @@
                                 <label for="exampleInputEmail1">Last Name</label>
                                 <input type="text" class="form-control" id="last_name" value="{{user.last_name}}" aria-describedby="last_name" readonly>
                             </div>
+                            <div class="form-group col-sm-12">
+                                <label for="exampleInputEmail1">Phone Number</label>
+                                <input type="text" class="form-control" id="phone_number" name="phone_number" aria-describedby="phone_number" required>
+                            </div>
 
                             <div class="form-group col-sm-12">
                                 <label for="exampleInputEmail1">Email address</label>
@@ -140,7 +144,7 @@
                         </ul>
 
                         <div class="btn">
-                            <button type="submit" form="placeOrder" class="btn">Place Order</button>
+                            <button id="checkout" type="submit" form="placeOrder" class="btn">Place Order</button>
                         </div>
                     </div>
 
@@ -151,6 +155,24 @@
         </form>
     </div>
 </section>
+
 <!--End CheckOut Page-->
+
+
+<!-- <script>
+    $('#checkout').click(function(event){
+        $.ajax({
+            type: 'POST',
+            url: 'process-mpesa/',
+            success: function(result){
+                console.log("done, result=%s", result);
+                alert('STK Push Sent')
+            }
+        });
+    });
+    
+</script> -->
+
+
 {% endblock content %}
 

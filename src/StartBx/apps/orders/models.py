@@ -19,6 +19,8 @@ class Order(models.Model):
     braintree_id = models.CharField(max_length=150, blank=True)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
+    phone_number = models.CharField(max_length=20,default="")
+    amount = models.DecimalField(max_digits=10, decimal_places=2, default="0")
     email = models.EmailField()
     country = models.CharField(max_length=100, default="")
     postal_code = models.CharField(max_length=20)

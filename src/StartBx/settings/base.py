@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     'storages',
     'crispy_forms',
     'ian_cart',
+    #'ian_account',
+    'rest_framework',
     'StartBx.apps.frontend',
     'StartBx.apps.orders',
     'StartBx.apps.payment',
@@ -58,7 +60,7 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
 ]
 
-# AUTH_USER_MODEL = "ian_account.User"
+#AUTH_USER_MODEL = "ian_account.User"
 
 
 MIDDLEWARE = [
@@ -198,14 +200,20 @@ BRAINTREE_CONF = braintree.Configuration(
         private_key=BRAINTREE_PRIVATE_KEY
 )
 
+SENDGRID_API_KEY = config('SENDGRID_API_KEY')
 
 EMAIL_HOST = config('EMAIL_HOST')
 EMAIL_PORT = config('EMAIL_PORT')
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'hellen@impactafrica.network'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_USE_SSL = True
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 #sentry
