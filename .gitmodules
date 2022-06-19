@@ -5,3 +5,6 @@
 [submodule "src/ian_cart"]
 	path = src/ian_cart
 	url = https://github.com/Impact-Africa-Network/ian-cart
+[submodule "src/ian_account"]
+	path = src/ian_account
+	url = https://github.com/Impact-Africa-Network/ian-account
