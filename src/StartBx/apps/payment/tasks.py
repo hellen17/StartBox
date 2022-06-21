@@ -1,6 +1,6 @@
 from io import BytesIO
 from celery import shared_task
-#import weasyprint
+import weasyprint
 from django.template.loader import render_to_string
 from django.core.mail import EmailMessage
 from django.conf import settings
@@ -22,7 +22,7 @@ def payment_completed(order_id):
     # generate PDF
     html = render_to_string("orders/order/pdf.html", {"order": order})
     out = BytesIO()
-    #weasyprint.HTML(string=html).write_pdf(out)
+    weasyprint.HTML(string=html).write_pdf(out)
 
     # attach PDF file
     email.attach(f"order_{order.id}.pdf", out.getvalue(), "application/pdf")
