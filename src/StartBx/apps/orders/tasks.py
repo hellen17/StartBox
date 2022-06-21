@@ -24,7 +24,8 @@ def order_created(order_id):
               f'Your order ID is {order.id}.'
     mail_sent = send_mail(subject,
                           message,
-                          'shalom.nyende@gmail.com',
+                          'hellen@impactafrica.network',
                           [order.email])
     return mail_sent
 
+#shalom.nyende@gmail.com

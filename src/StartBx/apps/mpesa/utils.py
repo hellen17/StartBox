@@ -94,8 +94,9 @@ def handle_stk_request(phone_number, amount, reference):
         try:
             response = requests.request("POST", config('IAN_REMIT_URL') + '/transactions/mobile-money/stk/', headers = headers, json = payload)
             print("Responssseee:", response)
+            print("Status:", response.status_code)
             response_json = response.json()
-            print(response.status_code)
+
             if response.status_code == 202: #checks if the request was accepted for processing
                 print('Mpesa Request Pass', response.json())
                 return True, response_json
