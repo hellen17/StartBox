@@ -62,7 +62,6 @@ def getAccessToken():
 
 
 def handle_stk_request(phone_number, amount, reference):
-
     status, access_key = getAccessToken()
     print("Access key:", access_key)
     
@@ -80,20 +79,21 @@ def handle_stk_request(phone_number, amount, reference):
             'Authorization': access_key,
         }
 
-        till_number = 5002
-
+        till_number = 5004
+  
         payload = {
             "till_number": till_number,
             "request_amount": amount,
-            "reference": reference,
-            "phone_number": phone_number,
+            "reference": f'STARTBX{reference}',
+            "sender_phone": phone_number
         }
+
         print('Payload:')
         print(payload)
 
         try:
             response = requests.request("POST", config('IAN_REMIT_URL') + '/transactions/mobile-money/stk/', headers = headers, json = payload)
-            print("Responssseee:", response)
+         
             print("Status:", response.status_code)
             response_json = response.json()
 
@@ -147,6 +147,6 @@ TOKEN = "gAAAAABiqx-KJz2G-tvLNFbjTLv0PFlmBFbamQ7tr4SjMuo5i2mxuLzdG9zK237e7LNXCcj
 #         return payload
 #     except Exception as e:
 #         print(str(e))
-#         print('Mpesa Request Fail')
+#         print('Mpesa Request Failed')
 
         
