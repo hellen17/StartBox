@@ -26,6 +26,7 @@ def payment_completed(order_id):
 
     # attach PDF file
     email.attach(f"order_{order.id}.pdf", out.getvalue(), "application/pdf")
+    
     # send e-mail
     email.send()
 
