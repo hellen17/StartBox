@@ -7,8 +7,12 @@ from rest_framework import viewsets, status
 from rest_framework.permissions import AllowAny
 
 from StartBx.apps.mpesa.models import Transaction
+from StartBx.apps.orders.models import Order
+
 from StartBx.apps.mpesa.utils import handle_stk_request
 from . import serializers as sz
+
+from django.contrib import messages
 # Create your views here.
 '''
 Create ViewSet
@@ -102,6 +106,26 @@ class MpesaTransactionViewset(viewsets.ModelViewSet):
 
       
 
+    # @action(detail=False, methods=['POST'], url_path='status')  
+    # def receive_callback(self,request):
+    #     """
+    #     Receive Callback from Remit API
+    #     Update Transaction Status
+    #     Test using Postman ngrok
+    #     Get callback url for startbox .../mpesa/transactions/status
+        
+    #     """
+    #     print(request.data)
+    #     #webhook
+    #     reference = request.data.get('reference') #reference should be unique
+    #     trx: Transaction = Transaction.objects.get(reference=reference)
+    #     trx.status = request.data.get('status') # sets status
+    #     trx.save()
+    #     return Response({ 
+    #         "success":True,
+    #     }, status=status.HTTP_200_OK) 
+
+
     @action(detail=False, methods=['POST'], url_path='status')  
     def receive_callback(self,request):
         """
@@ -112,14 +136,38 @@ class MpesaTransactionViewset(viewsets.ModelViewSet):
         
         """
         print(request.data)
-        #webhook
-        reference = request.data.get('reference') #reference should be unique
-        trx: Transaction = Transaction.objects.get(reference=reference)
-        trx.status = request.data.get('status') # sets status
-        trx.save()
-        return Response({ 
-            "success":True,
-        }, status=status.HTTP_200_OK) 
+        body = request.data
+
+        #status = body['status']
+        ian_reference = body['ian_reference']
+        
+        print("Status", status)
+
+        if status == 'SUCCESSFUL':
+            reference = request.data.get('reference') #reference should be unique
+            #trx: Transaction = Transaction.objects.get(reference=reference)
+
+            trx: Order = Order.objects.get(id=reference)            
+            trx.status = request.data.get('status') # sets status
+            trx.ian_reference = ian_reference
+            trx.save()
+            messages.success(request, "Your order has been placed successfully")
+
+            return Response({ 
+                "success":True,
+                "msg": "Callback successful"
+
+            }, status=status.HTTP_200_OK)
+        else:
+            messages.warning(request, "Your payment is still pending")
+            return Response({ 
+                "success":True,
+                "msg": "Payment still pending"
+
+            }, status=status.HTTP_202_ACCEPTED)  
+           
+  
+            
 
 
 
@@ -128,22 +176,16 @@ class MpesaTransactionViewset(viewsets.ModelViewSet):
 
 
 
+# def mpesa_transactions(request):
 
+#     amount = request.POST['amount']
+#     phone_number = request.POST['phone_number']
+#     reference = request.POST['reference']
 
+#     response = handle_stk_request(amount,phone_number,reference)
+#     print('This is the response', response)
 
-
-
-
-def mpesa_transactions(request):
-
-    amount = request.POST['amount']
-    phone_number = request.POST['phone_number']
-    reference = request.POST['reference']
-
-    response = handle_stk_request(amount,phone_number,reference)
-    print('This is the response', response)
-
-    return response
+#     return response
 
 
 

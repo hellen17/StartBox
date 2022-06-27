@@ -14,9 +14,13 @@ def order_created(order_id):
     order = Order.objects.get(id=order_id)
     print(order.id,order.phone_number,order.get_total_cost())
 
-    response = handle_stk_request(phone_number=order.phone_number,amount=str(order.get_total_cost()),reference=order.id)
+    '''Call STK Push function'''
 
-    print("Response is:", response)
+    # response = handle_stk_request(phone_number=order.phone_number,amount=str(order.get_total_cost()),reference=order.id)
+
+    # print("Response is:", response)
+
+    
 
     subject = f'Order nr. {order.id}'
     message = f'Dear {order.first_name},\n\n' \

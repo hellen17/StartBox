@@ -8,7 +8,7 @@ router.register('transactions', views.MpesaTransactionViewset, basename='transac
 app_name = 'mpesa'
 
 urlpatterns = [
-    path('mpesa/',views.mpesa_transactions , name='mpesa'),
+ 
 ]
 
 urlpatterns +=router.urls

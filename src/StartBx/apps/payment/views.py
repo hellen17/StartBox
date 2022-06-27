@@ -5,6 +5,10 @@ from django.conf import settings
 import braintree
 from django.urls import reverse
 from .tasks import payment_completed
+from StartBx.apps.mpesa.utils import handle_stk_request
+from django.contrib import messages
+
+
 
 
 gateway = braintree.BraintreeGateway(settings.BRAINTREE_CONF)
@@ -64,7 +68,42 @@ def payment_process_mpesa(request):
         '''
         #payment_process.delay(order_id)
         cart.clear()
-        return redirect("/shop")
+        return redirect("/templates")
+    return render(request, "process-mpesa.html", {"order": order})
+
+''''
+Create a view that takes user phone number that calls stk push and takes user to order success page if order is successful
+'''
+
+def process_mpesa(request):
+
+    cart = Cart(request)
+    order_id = request.session.get("order_id")
+    #order = get_object_or_404(Order, id=order_id)
+    order = Order.objects.get(id=order_id)
+
+    print(f"Order : {order}")
+
+ #
+    if request.method == "POST":
+        '''
+        Add payment completed page with payment completed method
+        '''
+        phone_number = request.POST.get("phone_number")
+        # print("Printing:",order.id,phone_number,order.get_total_cost())
+        response = handle_stk_request(phone_number=phone_number,amount=str(order.get_total_cost()),reference=order.id)
+        print("Response is:", response)
+
+        '''
+        Add code to check if transaction was successful  before redirecting 
+        the user to order success page
+        '''
+        cart.clear()
+        messages.success(request, "Payment was successful")
+        return render(request, "order-completed.html", {"order": order})
+
+        # return redirect("/templates")
+    messages.warning(request, "Unable to place order. Please try again. ")
     return render(request, "process-mpesa.html", {"order": order})
 
 
