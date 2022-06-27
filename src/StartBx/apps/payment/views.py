@@ -6,6 +6,8 @@ import braintree
 from django.urls import reverse
 from .tasks import payment_completed
 from StartBx.apps.mpesa.utils import handle_stk_request
+from django.contrib import messages
+
 
 
 
@@ -91,14 +93,17 @@ def process_mpesa(request):
         # print("Printing:",order.id,phone_number,order.get_total_cost())
         response = handle_stk_request(phone_number=phone_number,amount=str(order.get_total_cost()),reference=order.id)
         print("Response is:", response)
+
         '''
         Add code to check if transaction was successful  before redirecting 
         the user to order success page
         '''
         cart.clear()
+        messages.success(request, "Payment was successful")
         return render(request, "order-completed.html", {"order": order})
 
         # return redirect("/templates")
+    messages.warning(request, "Unable to place order. Please try again. ")
     return render(request, "process-mpesa.html", {"order": order})
 
 

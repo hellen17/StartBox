@@ -12,6 +12,7 @@ from StartBx.apps.orders.models import Order
 from StartBx.apps.mpesa.utils import handle_stk_request
 from . import serializers as sz
 
+from django.contrib import messages
 # Create your views here.
 '''
 Create ViewSet
@@ -150,17 +151,22 @@ class MpesaTransactionViewset(viewsets.ModelViewSet):
             trx.status = request.data.get('status') # sets status
             trx.ian_reference = ian_reference
             trx.save()
+            messages.success(request, "Your order has been placed successfully")
+
             return Response({ 
                 "success":True,
                 "msg": "Callback successful"
 
             }, status=status.HTTP_200_OK)
         else:
+            messages.warning(request, "Your payment is still pending")
             return Response({ 
                 "success":True,
                 "msg": "Payment still pending"
 
-            }, status=status.HTTP_202_ACCEPTED)    
+            }, status=status.HTTP_202_ACCEPTED)  
+           
+  
             
 
 
