@@ -17,7 +17,7 @@
 
     <h3>STK push has been sent to your phone</h3>
     
-    <form action='{% url "payment:pay-mpesa" %}' method='POST'>
+    <form action='{% url "payment:confirm-mpesa" %}' method='POST'>
         {% csrf_token %}         
         <div class="form-group">
             <label for="exampleInputEmail1">Phone Number</label>
