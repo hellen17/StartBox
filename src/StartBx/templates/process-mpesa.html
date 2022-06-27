@@ -9,8 +9,8 @@
 
 </style>
 
-<section>
-    <div class="container">
+<section class="my-5">
+    <div class="container p-5">
 
     <!-- create a template/modal to tell user that an mpesa sdk push has been sent to their phone -->
 
@@ -18,12 +18,15 @@
     <form action='{% url "payment:confirm-mpesa" %}' method='POST'>
         {% csrf_token %}         
         <div class="form-group">
+            <!-- <p><b>Ensure the number entered is registered on Mpesa</b> </p> -->
             <label for="Phone Number">Phone Number</label>
-            <input type="text" class="form-control" id="phone_number" name="phone_number" value="254715806276" >
+            <input type="text" class="form-control" id="phone_number" name="phone_number" value="" placeholder="Please use the format 254XXXXXXXX" required >
+            <small class="form-text text-muted">Ensure you enter a valid phone number that you will use to pay via Mpesa</small>
+
         </div>
 
 
-        <button type='submit'  class="btn btn-primary">Click here to confirm your order</button>
+        <button type='submit'  class="btn btn-primary">Click to confirm your order</button>
     </form>
         
 
