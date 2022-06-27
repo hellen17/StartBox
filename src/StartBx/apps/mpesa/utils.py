@@ -92,6 +92,7 @@ def handle_stk_request(phone_number, amount, reference):
         print(payload)
 
         try:
+            
             response = requests.request("POST", config('IAN_REMIT_URL') + '/transactions/mobile-money/stk/', headers = headers, json = payload)
          
             print("Status:", response.status_code)
