@@ -14,7 +14,7 @@ def order_created(order_id):
     order = Order.objects.get(id=order_id)
     print(order.id,order.phone_number,order.get_total_cost())
 
-    '''Call STK Push function'''
+    '''Call STK Push function(moved this to a separate view)'''
 
     # response = handle_stk_request(phone_number=order.phone_number,amount=str(order.get_total_cost()),reference=order.id)
 

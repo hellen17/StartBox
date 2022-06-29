@@ -26,9 +26,9 @@ class Transaction(models.Model):
     id = models.BigAutoField(primary_key=True, unique=True)
     timestamp = models.DateTimeField(default=timezone.now)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
-    status = models.CharField(max_length=30, default='Pending')
+    status = models.CharField(max_length=30, default=TxnStatus.PENDING)
     phone_number = models.CharField(max_length=30)
-    reference = models.CharField(max_length=30, default=TxnStatus.PENDING)
+    reference = models.CharField(max_length=30)
     #user = models.ForeignKey(User, on_delete=models.CASCADE)
     
 

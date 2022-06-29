@@ -10,6 +10,14 @@ class PaymentOptions:
     MPESA:str = 'MPESA'
     CARD: str = 'CARD'
 
+
+@dataclass
+class TxnStatus:
+    PENDING: str = "Pending"
+    SUCCESSFUL: str = "Success"
+    FAILED: str = "Failure"
+
+
 # Create your models here.
 
 class Order(models.Model):
@@ -22,12 +30,10 @@ class Order(models.Model):
     phone_number = models.CharField(max_length=20,default="")
     amount = models.DecimalField(max_digits=10, decimal_places=2, default="0")
     email = models.EmailField()
-    country = models.CharField(max_length=100, default="")
-    postal_code = models.CharField(max_length=20)
-    city = models.CharField(max_length=100)
     created = models.DateTimeField(default=timezone.now)
     updated = models.DateTimeField(auto_now=True)
     paid = models.BooleanField(default=False)
+    status = models.CharField(max_length=30, default=TxnStatus.PENDING)
 
     class Meta:
         ordering = ("-created",)
