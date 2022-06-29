@@ -38,8 +38,6 @@ class OrderAdmin(admin.ModelAdmin):
         order_detail,
         order_pdf,
         "email",
-        "postal_code",
-        "city",
         "paid",
         "created",
         "updated",

@@ -7,4 +7,5 @@ urlpatterns = [
     path("process-card", views.payment_process_card, name="process-card"),
 
     path("confirm-mpesa",views.process_mpesa, name="confirm-mpesa"),
+    path("processing-transaction", views.processing_transaction, name="processing-transaction")
 ]

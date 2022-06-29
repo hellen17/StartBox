@@ -1,6 +1,6 @@
 import email
 from urllib import response
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from rest_framework.response import Response
 from rest_framework.decorators import action
 from rest_framework import viewsets, status
@@ -135,36 +135,41 @@ class MpesaTransactionViewset(viewsets.ModelViewSet):
         Get callback url for startbox .../mpesa/transactions/status
         
         """
+        
         print(request.data)
         body = request.data
 
-        #status = body['status']
+        status = body['status']
         ian_reference = body['ian_reference']
         
         print("Status", status)
 
         if status == 'SUCCESSFUL':
             reference = request.data.get('reference') #reference should be unique
-            #trx: Transaction = Transaction.objects.get(reference=reference)
 
-            trx: Order = Order.objects.get(id=reference)            
+            #trx: Transaction = Transaction.objects.get(reference=reference)
+            trx = Order.objects.get(id=reference)            
             trx.status = request.data.get('status') # sets status
+          
             trx.ian_reference = ian_reference
             trx.save()
-            messages.success(request, "Your order has been placed successfully")
+
+            #messages.success(request, "Your order has been placed successfully")
 
             return Response({ 
                 "success":True,
-                "msg": "Callback successful"
+                "msg": "Callback successful",
+                "data": trx.status
 
-            }, status=status.HTTP_200_OK)
+
+            })
         else:
-            messages.warning(request, "Your payment is still pending")
+            #messages.warning(request, "Your payment is still pending")
             return Response({ 
                 "success":True,
                 "msg": "Payment still pending"
 
-            }, status=status.HTTP_202_ACCEPTED)  
+            })  
            
   
             
