@@ -5,7 +5,6 @@ from .views import *
 from django.contrib.auth import views as auth_views
 from django.urls.conf import include
 
-
 # from .views import HomeView, PackageView, GetTemplateView, DataPrivacyView, OnlineBUsinessView, Contact, register,view_cart, ProductDetailView
 
 app_name = 'StartBx.apps.frontend'
@@ -26,7 +25,6 @@ urlpatterns = [
     path('order-success/', OrderSuccessView.as_view(), name='order-success'),
 
     #path('transactions/', include("StartBx.apps.mpesa.urls", namespace="transactions")),
-  
 
     #path('cart/',view_cart, name="cart"),
     # Auth urls

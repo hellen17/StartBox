@@ -37,6 +37,7 @@ def payment_process_card(request):
         if result.is_success:
             # mark the order as paid
             order.paid = True
+            order.status = 'SUCCESSFUL'
             # store the unique transaction id
             order.braintree_id = result.transaction.id
             order.save()

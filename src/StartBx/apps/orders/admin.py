@@ -35,14 +35,15 @@ class OrderAdmin(admin.ModelAdmin):
         "id",
         "first_name",
         "last_name",
-        order_detail,
-        order_pdf,
+        # order_detail,
+        # order_pdf,
         "email",
         "paid",
+        "status",
         "created",
         "updated",
     ]
-    list_filter = ["paid", "created", "updated"]
+    list_filter = ["paid","status", "created", "updated"]
     inlines = [OrderItemInline]
     actions = [export_to_csv]
 
