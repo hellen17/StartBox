@@ -14,11 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, re_path, include
 
- 
 
 urlpatterns = [
+    
     path('admin/', admin.site.urls),
     path('', include('StartBx.apps.frontend.urls', namespace='frontend')),
     path('', include('StartBx.apps.mpesa.urls', namespace='mpesa')),
@@ -27,7 +27,8 @@ urlpatterns = [
     path("", include("StartBx.apps.payment.urls", namespace="payment")),
     path('', include('django.contrib.auth.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
-    path("ckeditor5/", include('django_ckeditor_5.urls'))
+    path("ckeditor5/", include('django_ckeditor_5.urls')),
+
 
 
 

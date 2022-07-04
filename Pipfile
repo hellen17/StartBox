@@ -20,7 +20,6 @@ django-ckeditor-5 = "*"
 djangorestframework = "*"
 phonenumbers = "*"
 
-
 [dev-packages]
 
 [requires]

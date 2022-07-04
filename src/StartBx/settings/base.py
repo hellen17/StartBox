@@ -92,6 +92,8 @@ TEMPLATES = [
     },
 ]
 
+
+
 WSGI_APPLICATION = 'StartBx.wsgi.application'
 
 AWS_QUERYSTRING_AUTH = False
