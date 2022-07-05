@@ -93,7 +93,6 @@ def process_mpesa(request):
         Add payment completed page with payment completed method
         '''
         phone_number = request.POST.get("phone_number")
-        # print("Printing:",order.id,phone_number,order.get_total_cost())
         response = handle_stk_request(phone_number=phone_number,amount=str(order.get_total_cost()),reference=order.id)
         print("Response is:", response)
 
