@@ -93,6 +93,9 @@ def process_mpesa(request):
         Add payment completed page with payment completed method
         '''
         phone_number = request.POST.get("phone_number")
+
+        request.session['phone_number'] = phone_number
+
         response = handle_stk_request(phone_number=phone_number,amount=str(order.get_total_cost()),reference=order.id)
         print("Response is:", response)
 
@@ -114,7 +117,6 @@ def process_mpesa(request):
 
 def processing_transaction(request):
     cart = Cart(request)
-
     order_id = request.session.get("order_id")
     print('Order id' , order_id)
 
@@ -133,6 +135,7 @@ def processing_transaction(request):
         elif order.status == 'Pending':
 
             #messages.warning(request, "Payment still pending")
+
             print("Payment still pending", order.status)
             time.sleep(2)
         else:
