@@ -13,7 +13,7 @@
 .payment-options {
     position: relative;
     padding: 30px 30px;
-    background-color: #F5F7FC;
+    background-color: #0665650d;
     border-radius: 10px;
     margin-bottom: 30px;
 }
@@ -68,7 +68,7 @@ ul, li {
 .order-box {
     position: relative;
     padding: 30px 30px;
-    background: #F5F7FC;
+    background: #0665650d;
     border-radius: 8px;
     margin-bottom: 30px;
 }
