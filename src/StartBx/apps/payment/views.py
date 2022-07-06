@@ -94,8 +94,6 @@ def process_mpesa(request):
         '''
         phone_number = request.POST.get("phone_number")
 
-        request.session['phone_number'] = phone_number
-
         response = handle_stk_request(phone_number=phone_number,amount=str(order.get_total_cost()),reference=order.id)
         print("Response is:", response)
 
