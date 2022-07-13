@@ -46,7 +46,10 @@
     .card-services > .btn:hover {
         background-color: var(--theme-color)!important; 
         color: white!important;
-      }
+    }
+    .card{
+        background-color: var(--theme-color)!important;
+    }
  
 
     @media only screen and (max-width: 968px) {
@@ -179,7 +182,7 @@
         {% for item in dataset %}
 
         <div class="col-md-4">
-          <div class="card text-white text-left bg-primary mb-3">
+          <div class="card text-white text-left mb-3">
             <div class="card-body card-services d-flex flex-column">
       
               <h5 class="card-title mb-3"><strong>{{item.product_name}}

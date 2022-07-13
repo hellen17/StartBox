@@ -1,4 +1,10 @@
 
+<style>
+      .card{
+        background-color: var(--theme-color)!important;
+      }
+</style>
+
 
 <section id="packages" class="my-5">
     <div class="container text-center">
@@ -9,7 +15,7 @@
           {% for item in object_list %}
   
           <div class="col-md-4">
-            <div class="card text-white text-left bg-primary mb-3">
+            <div class="card text-white text-left mb-3">
               <div class="card-body card-services d-flex flex-column">
         
                 <h5 class="card-title mb-3"><strong>{{item.product_name}}

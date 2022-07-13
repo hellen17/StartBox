@@ -113,7 +113,7 @@ Cart Section
 
 .cart-section .totals-table-outer{
     position:relative;
-    background: #F5F7FC;
+    background: #0665650d;
     padding: 25px 30px 30px;
 }
 
@@ -195,7 +195,7 @@ default table
 }
 
 .default-table thead {
-    background: #F5F7FC;
+    background: #0665650d;
     border-radius: 8px;
     color: #ffffff;
 }
