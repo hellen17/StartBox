@@ -20,7 +20,10 @@ S3_URL = f'//{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/'
 MEDIA_URL = f'//{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/media/' 
 MEDIA_ROOT = MEDIA_URL
 STATIC_URL = f'{S3_URL}static/'
+#STATIC_URL = '/static/'
+
 ADMIN_MEDIA_PREFIX = f'{STATIC_URL}admin/'
+
 
 #ckeditor
 TEXT_CKEDITOR_BASE_PATH = f'//{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/ckeditor/ckeditor/'
