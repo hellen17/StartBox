@@ -5,7 +5,7 @@
 
 
 
-<link rel="stylesheet" href="{% static 'css/pricing-services.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/pricing-services.css' %}">
 <link rel="stylesheet" href="{% static 'css/faq.css' %}">
 
 
@@ -64,7 +64,20 @@
         position: relative;
         width: 36px;
         font-size: 24px;
-      }
+    }
+    .icon{
+        font-size: 2em;
+        text-align: center;
+    }
+    .price-icon{
+        text-align: center;
+    }
+    .why-card{
+        min-height: 230px;
+        box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.25);
+        border-radius: 5px;
+    }
+    
 
     @media only screen and (max-width: 968px) {
 
@@ -95,15 +108,81 @@
                     
                 </div>
                 <div class="col-md-6">
-                    <img class="img-fluid" src="{% static 'img/rafiki.png' %}">
+                    <img class="img-fluid" src="{% static 'img/heroshot.png' %}">
                 </div>
             </div>
         </div>
      </section> 
 
 
+<!-- Why StartBox -->
+<section id="hero">
+    <div class="container py-5">
+        <h2 class="mb-3 font-weight-bold text-center" style="color: var(--theme-color);">Why StartBox</h2>
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card border-0">
+              
+                    <div class="card-body why-card">
+                        <div class="price-icon pb-3">
+                            <i class="fa fa-thumbs-up icon" aria-hidden="true"></i>
+                                <div class="price-icon-shape-wrap">
+                                <div class="price-icon-shape"></div>
+                                <div class="price-icon-shape"></div>
+                            </div>
+                        </div>
+                        <h5 class="card-title price-text">Simplicity</h5>
+                        Legal, HR, & Compliance has never been easier...
+                        Yes it's that easy       
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card border-0">
+                    <div class="card-body why-card">
+                        <div class="price-icon pb-3">
+                            <i class="fa fa-headphones icon" aria-hidden="true"></i>
+                        </div>  
+                        <h5 class="card-title price-text">Realtime support</h5>
+
+                        We are always available to answer all your queries.
+                    </div>
+                  </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card border-0">
+                    <div class="card-body why-card">
+                        <div class="price-icon pb-3">
+                            <i class="fa fa-info icon" aria-hidden="true"></i>
+                        </div>    
+                        <h5 class="card-title price-text">Professional Help</h5>
+                      
+                        Get the help of a professional and get access to professional consultancy service
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card border-0">
+                    <div class="card-body why-card">
+                        <div class="price-icon pb-3">
+                            <i class="fa fa-users icon" aria-hidden="true"></i>
+                        </div>   
+                        <h5 class="card-title price-text">Community</h5>
+
+                        Be part of our thriving community and grow with like-minded peers.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>    
+
+
+<!-- End of Why StartBox      -->
+
 <!-- How it Works -->
-<section style="background: rgba(6, 101, 101, 0.09);" id="howitworks">
+<!-- <section style="background: rgba(6, 101, 101, 0.09);" id="howitworks">
     <div class="container-fluid pt-5" >
 
         <div class="row">
@@ -146,7 +225,7 @@
         </div>
         <br>
         
-</section>
+</section> -->
 <!-- End of how it works -->
 
 
@@ -210,10 +289,7 @@
                 </div>
                 <div class="price-icon pb-3">
                     <i class="fa fa-users" aria-hidden="true"></i>
-                    <div class="price-icon-shape-wrap">
-                        <div class="price-icon-shape"></div>
-                        <div class="price-icon-shape"></div>
-                    </div>
+                
                 </div>
           
                 <p> Get the help of a professional

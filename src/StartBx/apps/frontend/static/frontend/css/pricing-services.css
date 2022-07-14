@@ -28,11 +28,25 @@ ul, ol {
 }
 .price-table .price-icon i {
     display: inline-block;
-    height: 80px;
-    width: 80px;
+    height: 60px;
+    width: 60px;
     text-align: center;
-    font-size: 30px;
-    line-height: 80px;
+    font-size: 25px;
+    line-height: 60px;
+    border-radius: 50%;
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    background: var(--theme-color);
+    color: #fff;
+}
+
+.price-icon i {
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    font-size: 25px;
+    line-height: 60px;
     border-radius: 50%;
     -webkit-transition: all 0.25s ease;
     transition: all 0.25s ease;
