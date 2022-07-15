@@ -55,9 +55,8 @@ ul, ol {
 }
 
 .price-table .price-footer .price-block-btn {
-    display: block;
+    padding: 15px 30px;
     border-radius: 50px;
-    color: #fff;
 }
 
 

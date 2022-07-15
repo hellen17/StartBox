@@ -1,5 +1,4 @@
-
-            
+       
 <style>
 
     a{
@@ -40,7 +39,8 @@
     }
 
     .price-table .price-footer .price-block-btn {
-        display: block;
+        padding: 15px 30px;
+        display: unset!important;
         border-radius: 50px;
         color: #fff;
     }
@@ -71,7 +71,7 @@
         <div class="row align-items-center justify-content-center">
             <div class="col-lg-7">
                 <div class="section-heading">
-                    <h2 class="section-title text-center" style="color: var(--theme-color);">Pricing</h2>
+                    <h2 class="section-title text-center" style="color: var(--theme-color);">Transparent Pricing</h2>
                 </div>
             </div>
         </div>
@@ -100,9 +100,10 @@
                                 <li>Tech/Innovation Startups</li>
                                
                             </ul>
+                            
                         </div>
-                            <div class="price-footer">
-                                <a href="{% url 'frontend:packages' %}" class="default-button price-block-btn align-self-justify mt-auto w-100 ">Get Package</a>
+                            <div class="price-footer mt-auto mb-3">
+                                <a href="{% url 'frontend:packages' %}" class="default-button price-block-btn">Get Package</a>
                                 <!-- <a class="align-self-justify mt-auto w-100 btn btn-lg btn-primary" href="{% url 'frontend:contact' %}">Contact us -->
 
                             </div>
@@ -128,8 +129,8 @@
                             <p>Find specific templates to suit what you would like to accomplish. 
                             The options range from registration guidelines to accounting cheat sheets to general contracts and agreements </p>
                             </div>
-                            <div class="price-footer mt-auto">
-                                <a href="{% url 'frontend:templates' %}" class="default-button price-block-btn ">Get Template</a>
+                            <div class="price-footer mt-auto mb-3">
+                                <a href="{% url 'frontend:templates' %}" class="default-button price-block-btn">Get Template</a>
 
                                 
                             </div>
@@ -160,7 +161,7 @@
                               
                             </ul>
                             </div>
-                            <div class="price-footer mt-auto">
+                            <div class="price-footer mt-auto mb-3">
                                 <a href="{% url 'frontend:contact' %}" class="default-button price-block-btn">Contact Us</a>
                             </div>
                         </div>
