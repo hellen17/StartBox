@@ -1,8 +1,16 @@
 {% load static %}
 
+<style>
+  .dropdown-item.active, .dropdown-item:active {
+  color: #fff;
+  text-decoration: none;
+  background-color: var(--theme-color)!important;
+}
+</style>
+
 <header class="container">
     <nav class="navbar navbar-expand-lg navbar-light">
-        <a href="/"><img style="height:48px" class="navbar-brand" src="{% static 'img/Startbox logo-black.png' %}" alt="Logo"></a>
+        <a href="/"><img style="height:48px" class="navbar-brand" src="{% static 'frontend/img/Logo-green.png' %}" alt="Logo"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>

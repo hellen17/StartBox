@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% load static %}
+
 
 <style>
 .container{
@@ -11,23 +13,42 @@
 
 <section class="my-5">
     <div class="container p-5">
+        <span>
+            <img class="img-fluid" src="{% static 'frontend/img/MPESA.png' %}" alt="Mpesa logo" width="150px">
+        </span>
+    <div class="row">
+    
+        <div class="col-md-6">
+            <!-- create a template/modal to tell user that an mpesa sdk push has been sent to their phone -->
 
-    <!-- create a template/modal to tell user that an mpesa sdk push has been sent to their phone -->
+
+            <form action='{% url "payment:confirm-mpesa" %}' method='POST'>
+                {% csrf_token %}    
+
+                    
+                <div class="form-group">
+                    <!-- <p><b>Ensure the number entered is registered on Mpesa</b> </p> -->
+                    <label for="Phone Number">Phone Number</label>
+                    <input type="text" class="form-control" id="phone_number" name="phone_number" value="" placeholder="Please use the format 254XXXXXXXX" required >
+                    <small class="form-text text-muted">Ensure you enter a valid phone number that you will use to pay via Mpesa</small>
+
+                </div>
 
 
-    <form action='{% url "payment:confirm-mpesa" %}' method='POST'>
-        {% csrf_token %}         
-        <div class="form-group">
-            <!-- <p><b>Ensure the number entered is registered on Mpesa</b> </p> -->
-            <label for="Phone Number">Phone Number</label>
-            <input type="text" class="form-control" id="phone_number" name="phone_number" value="" placeholder="Please use the format 254XXXXXXXX" required >
-            <small class="form-text text-muted">Ensure you enter a valid phone number that you will use to pay via Mpesa</small>
+                <button type='submit'  class="btn btn-primary">Pay Now</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <ul>
+                <li>Click on the <b> Pay Now </b>Button to initiate a payment request on your phone</li>
+                <li>Enter your MPESA Pin when prompted on your phone to complete payment</li>
+            </ul>
 
         </div>
 
 
-        <button type='submit'  class="btn btn-primary">Click to confirm your order</button>
-    </form>
+
+    </div>
         
 
     </div>
