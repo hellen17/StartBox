@@ -6,6 +6,8 @@ from django.conf import settings
 import braintree
 from django.urls import reverse
 from .tasks import payment_completed
+from StartBx.apps.orders.tasks import order_created
+
 from StartBx.apps.mpesa.utils import handle_stk_request
 from django.contrib import messages
 import time
@@ -32,6 +34,7 @@ def payment_process_card(request):
                 "options": {"submit_for_settlement": True},
             }
         )
+        order_created.delay(order.id)
         #print("Result is",result)   
 
         if result.is_success:
@@ -41,6 +44,7 @@ def payment_process_card(request):
             # store the unique transaction id
             order.braintree_id = result.transaction.id
             order.save()
+          
             payment_completed.delay(order.id)
             cart.clear()
             return render(request, "order-completed.html", {"order": order})
@@ -96,6 +100,7 @@ def process_mpesa(request):
 
         response = handle_stk_request(phone_number=phone_number,amount=str(order.get_total_cost()),reference=order.id)
         print("Response is:", response)
+        order_created.delay(order.id)# delay function adds the task to the queue
 
         '''
         TODO:
@@ -131,7 +136,6 @@ def processing_transaction(request):
             print("Payment successful", order.status)
             return render(request, "order-completed.html", {"order": order})
         elif order.status == 'Pending':
-
             #messages.warning(request, "Payment still pending")
 
             print("Payment still pending", order.status)

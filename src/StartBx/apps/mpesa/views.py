@@ -172,29 +172,7 @@ class MpesaTransactionViewset(viewsets.ModelViewSet):
             })  
            
   
-            
-
-
-
-
-
-
-
-
-# def mpesa_transactions(request):
-
-#     amount = request.POST['amount']
-#     phone_number = request.POST['phone_number']
-#     reference = request.POST['reference']
-
-#     response = handle_stk_request(amount,phone_number,reference)
-#     print('This is the response', response)
-
-#     return response
-
-
-
-    
+        
     
 
 

@@ -52,9 +52,9 @@ def checkout(request):
                     price=item.get("price"),
                     # quantity=item.get("quantity"),
                 )
-            
-            order_created.delay(order.id) # delay function adds the task to the queue
-            # set the order in the session
+            ''''moved the order_created task to the payment view'''
+            # order_created.delay(order.id) # delay function adds the task to the queue
+            # # set the order in the session
     
             request.session["order_id"] = str(order.id)
             # redirect for payment
