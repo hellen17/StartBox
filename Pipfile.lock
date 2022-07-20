@@ -1,11 +1,11 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "81cf65bf8ca806c1f5265c1656e04a2afc92f08e2448c2351b588a355d62082f"
+            "sha256": "14b0c3220ffbefc3690679db6fbb7c8149b8814a01f2b89e98026a0753b94744"
         },
         "pipfile-spec": 6,
         "requires": {
-            "python_version": "3.8"
+            "python_version": "3.9"
         },
         "sources": [
             {
@@ -61,18 +61,18 @@
         },
         "boto3": {
             "hashes": [
-                "sha256:d4685e2fe2c436e558a94c7f68f1a6d4a6c7519d2b25a88fdf855d9a928889ad",
-                "sha256:de067346942c6d1730b513783385620519b8b2935f5b0ee2e66d565ffb57ce12"
+                "sha256:2ef6d6439b671cf130fba80fae8889bc39ee0ee0bffc39cda93ddadf98c1e91a",
+                "sha256:b4ce793771bae95223d988c1a86cdcef0831fb622dbf9ae7b92ef396bb223ee8"
             ],
             "index": "pypi",
-            "version": "==1.24.31"
+            "version": "==1.24.33"
         },
         "botocore": {
             "hashes": [
-                "sha256:b0cc79fb5a37a0e2b6befe86efd027b92101d819f1fdc56cfff39f2eb239f232",
-                "sha256:cbe87fa791aa4e8c3da64b1ccbaca7f809f6d1fba8d0b1855de2989815ef8736"
+                "sha256:4dc9ac87a0981b60a02d1ea7c4d02bbccd0a79da4731905efcdc90c230182e57",
+                "sha256:bfbeebf2fb9832f9e79635e3320265be94f512de396d3d407ca3538f994ad2c8"
             ],
-            "version": "==1.27.31"
+            "version": "==1.27.33"
         },
         "braintree": {
             "hashes": [
@@ -375,11 +375,11 @@
         },
         "phonenumbers": {
             "hashes": [
-                "sha256:9d4a9460127ffd288ae071dd1f7942e2329da5b5c5d57d8aabe7103427ca7cbf",
-                "sha256:ac13b944e18ecb3ad58d9a090a2053dfe3d30dbe3711ebc2945a461b855ad4bf"
+                "sha256:3f3160d1416dbb0be710cc5e914e60d0d3bba00e52edb48af3864efcb8290971",
+                "sha256:d2b5bc70e4fbcf92ddcef6cb81ac8b813157a80b3381f94be777ccadbbe9066f"
             ],
             "index": "pypi",
-            "version": "==8.12.51"
+            "version": "==8.12.52"
         },
         "pillow": {
             "hashes": [
@@ -549,6 +549,13 @@
             "index": "pypi",
             "version": "==3.6"
         },
+        "python-http-client": {
+            "hashes": [
+                "sha256:ad371d2bbedc6ea15c26179c6222a78bc9308d272435ddf1d5c84f068f249a36",
+                "sha256:bf841ee45262747e00dec7ee9971dfb8c7d83083f5713596488d67739170cea0"
+            ],
+            "version": "==3.3.7"
+        },
         "pytz": {
             "hashes": [
                 "sha256:1e760e2fe6a8163bc0b3d9a19c4f84342afa0a2affebfaa84b01b978a02ecaa7",
@@ -569,6 +576,20 @@
                 "sha256:2ed07d3866f523cc561bf4a00fc5535827981b117dd7876f036b0c1aca42c947"
             ],
             "version": "==0.6.0"
+        },
+        "sendgrid": {
+            "hashes": [
+                "sha256:9fba62068dd13922004b6a1676e21c6435709aaf7c2b978cdf1206e3d2196c60",
+                "sha256:d1af52f8cbb900bf79e28aa08102a503f5e26489c7b9f1d9750758a4b27c84d1"
+            ],
+            "version": "==3.6.5"
+        },
+        "sendgrid-django": {
+            "hashes": [
+                "sha256:fef60ba37d588e5e1c4dcbb3b8b7f8c16920e3e89432de357f6abd6157c4f5f4"
+            ],
+            "index": "pypi",
+            "version": "==4.2.0"
         },
         "sentry-sdk": {
             "hashes": [
