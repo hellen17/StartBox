@@ -19,6 +19,7 @@ psycopg2-binary = "*"
 django-ckeditor-5 = "*"
 djangorestframework = "*"
 phonenumbers = "*"
+sendgrid-django = "*"
 
 [dev-packages]
 
