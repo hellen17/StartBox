@@ -17,8 +17,10 @@ def payment_completed(order_id):
     order = Order.objects.get(id=order_id)
     # create invoice e-mail
     subject = f"StartBox - EE Invoice no. {order.id}"
-    message = "Please, find attached the invoice for your recent purchase."
-    email = EmailMessage(subject, message, "shalom.nyende@gmail.com", [order.email])
+
+    message = "Please, find attached your template and the invoice for your recent purchase."
+    email = EmailMessage(subject, message, "hellen@impactafrica.network", [order.email])
+
     # generate PDF
     html = render_to_string("orders/order/pdf.html", {"order": order})
     out = BytesIO()
@@ -26,7 +28,7 @@ def payment_completed(order_id):
 
     # attach PDF file
     email.attach(f"order_{order.id}.pdf", out.getvalue(), "application/pdf")
-    
+    email.attach_file('/home/hellen/Documents/projects/IAN/StartBx/src/StartBx/templates/documents/NDA.pdf')
     # send e-mail
     email.send()
 
