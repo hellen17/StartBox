@@ -1,6 +1,4 @@
 from io import BytesIO
-import os
-from StartBx.settings.base import BASE_DIR
 from celery import shared_task
 import weasyprint
 from django.template.loader import render_to_string
