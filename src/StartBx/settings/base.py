@@ -186,7 +186,7 @@ CART_SESSION_ID = 'cart'
 
 # ckeditor
 
-CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+# CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
 #braintree
