@@ -40,6 +40,7 @@ class OrderAdmin(admin.ModelAdmin):
         "email",
         "paid",
         "status",
+        "mpesa_code",
         "created",
         "updated",
     ]

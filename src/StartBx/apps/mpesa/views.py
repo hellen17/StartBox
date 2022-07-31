@@ -151,7 +151,7 @@ class MpesaTransactionViewset(viewsets.ModelViewSet):
             trx = Order.objects.get(id=reference)            
             trx.status = request.data.get('status') # sets status
           
-            trx.ian_reference = ian_reference
+            trx.mpesa_code = ian_reference
             trx.save()
 
             #messages.success(request, "Your order has been placed successfully")

@@ -14,7 +14,7 @@ class PaymentOptions:
 @dataclass
 class TxnStatus:
     PENDING: str = "Pending"
-    SUCCESSFUL: str = "Success"
+    SUCCESSFUL: str = "SUCCESSFUL"
     FAILED: str = "Failure"
 
 
@@ -23,7 +23,7 @@ class TxnStatus:
 class Order(models.Model):
     id = models.BigAutoField(primary_key=True, unique=True)
     payment_method = models.CharField(max_length=50, default=PaymentOptions.MPESA)
-    mpesa_code = models.CharField(max_length=50, blank=True)
+    mpesa_code = models.CharField(default='')
     braintree_id = models.CharField(max_length=150, blank=True)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
@@ -34,6 +34,7 @@ class Order(models.Model):
     updated = models.DateTimeField(auto_now=True)
     paid = models.BooleanField(default=False)
     status = models.CharField(max_length=30, default=TxnStatus.PENDING)
+
 
     class Meta:
         ordering = ("-created",)
