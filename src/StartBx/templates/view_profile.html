@@ -5,14 +5,24 @@
 {% load static %}
 
 
-<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+<link rel="stylesheet" href="{% static 'frontend/css/profile.css' %}">
+<style>
+  .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: var(--theme-color)!important;
+  }
+   
+  .breadcrumb-item > a{
+    color: var(--theme-color)!important;
+  }
 
+</style>
 
 <div class="container" style="padding: 2em;">
 
     <!-- Breadcrumb -->
     <nav aria-label="breadcrumb" class="main-breadcrumb">
-      <ol class="breadcrumb" style="background-color: #92b8e173;">
+      <ol class="breadcrumb" style="background-color: #0665650d;">
         <li class="breadcrumb-item"><a href="/">Home</a></li>
         <li class="breadcrumb-item"><a href="javascript:void(0)">User</a></li>
         <li class="breadcrumb-item active" aria-current="page">Profile Settings</li>
@@ -259,4 +269,9 @@
     </div>
 
   </div>
+
+    
+{% block CTA %}
+{% endblock %}
+
 {% endblock content %}
