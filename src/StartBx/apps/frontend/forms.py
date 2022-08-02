@@ -17,12 +17,12 @@ class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
     first_name = forms.CharField(label='First Name', max_length=150)
     last_name = forms.CharField(label='Last Name', max_length=150)
-    phone_regex = RegexValidator(regex=r'(\+254)\s*?(\d{3})\s*?(\d{3})\s*?(\d{3})', message="invalid phone number, phone number should be in the format of +254")
-    phone_number = forms.CharField(validators=[phone_regex], max_length=13, widget=forms.TextInput(attrs={'placeholder': 'Use the format: \'+2547xxxxxxxx\''})) # validators should be a list
+    # phone_regex = RegexValidator(regex=r'(\+254)\s*?(\d{3})\s*?(\d{3})\s*?(\d{3})', message="invalid phone number, phone number should be in the format of +254")
+    # phone_number = forms.CharField(validators=[phone_regex], max_length=13, widget=forms.TextInput(attrs={'placeholder': 'Use the format: \'+2547xxxxxxxx\''})) # validators should be a list
 
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2', 'phone_number' ]
+        fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2']
 
 # class CustomUserCreationForm(UserCreationForm):  
 #     username = forms.CharField(label='Username', min_length=5, max_length=150)  
