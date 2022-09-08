@@ -18,7 +18,7 @@ def checkout(request):
     print("User is ", request.user)
     current_user = request.user
     cart = Cart(request)
-   
+    print('cart is', cart)
 
     if request.method == "POST":
         print(request.POST)
