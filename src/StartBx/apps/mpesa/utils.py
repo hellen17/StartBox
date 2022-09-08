@@ -84,7 +84,8 @@ def handle_stk_request(phone_number, amount, reference):
         payload = {
             "till_number": till_number,
             "request_amount": amount,
-            "reference": f'STARTBX{reference}',
+            # "reference": f'STARTBX{reference}',
+            "reference": reference,
             "sender_phone": phone_number
         }
 

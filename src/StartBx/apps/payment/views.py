@@ -123,26 +123,29 @@ def processing_transaction(request):
     order_id = request.session.get("order_id")
     print('Order id' , order_id)
 
-    for i in range(2):
-        order = get_object_or_404(Order, id=order_id)
-        if order.status == 'SUCCESSFUL':
-            # mark the order as paid
-            order.paid = True
+    order = get_object_or_404(Order, id=order_id)
+    if order.status == 'SUCCESSFUL':
+        # mark the order as paid
+        order.paid = True
+        order.save()
 
-            cart.clear()
-            payment_completed.delay(order.id) #sends an email with invoice of payment
+        redirect("/processing-transaction")
 
-            messages.success(request, "Payment was successful")
-            print("Payment successful", order.status)
-            return render(request, "order-completed.html", {"order": order})
-        elif order.status == 'Pending':
-            #messages.warning(request, "Payment still pending")
+        cart.clear()
+        payment_completed.delay(order.id) #sends an email with invoice of payment
 
-            print("Payment still pending", order.status)
-            time.sleep(2)
-        else:
-            messages.warning(request, "Payment failed")    
-            print("Payment failed", order.status)
+        messages.success(request, "Payment was successful")
+        print("Payment successful", order.status)
+        return render(request, "order-completed.html", {"order": order})
+    elif order.status == 'Pending':
+        #messages.warning(request, "Payment still pending")
+        print("Payment still pending", order.status)
+        time.sleep(10)
+        return redirect("/processing-transaction")
+
+    else:
+        messages.warning(request, "Payment failed")    
+        print("Payment failed", order.status)
   
     return render(request, "processing-transaction.html", {"order": order})
 
