@@ -50,7 +50,9 @@ def register(request):
 
 class HomeView(TemplateView):
     template_name = 'home.html'
- 
+
+class LandingPage(TemplateView):
+    template_name = 'index.html' 
 
 class PackageView(TemplateView): 
     template_name = 'packages.html'  

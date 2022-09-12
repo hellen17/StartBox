@@ -140,8 +140,8 @@ def processing_transaction(request):
     elif order.status == 'Pending':
         #messages.warning(request, "Payment still pending")
         print("Payment still pending", order.status)
-        time.sleep(10)
-        return redirect("/processing-transaction")
+        #time.sleep(5)
+        #redirect("/processing-transaction")
 
     else:
         messages.warning(request, "Payment failed")    

@@ -1,0 +1,362 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+
+
+
+<link rel="stylesheet" type="text/css" href="{% static 'frontend/css/pricing-services.css' %}">
+<link rel="stylesheet" href="{% static 'frontend/css/faq.css' %}">
+
+
+
+<style>
+ 
+    .navbar-nav > a{
+        padding-left: 30px;
+        padding-right:30px
+    }
+    .card{
+        border-radius: 8px;
+        padding: 56px 18px;
+        background: #FFFFFF;
+        box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.07);
+        border: none;
+        min-height: 340px;
+
+    }
+
+    .card-body> img{
+        height:50px;
+        padding-bottom:1em;
+    }
+    section{
+        padding-bottom: 4em;
+    }
+
+    .btn {
+        color: #fff;
+        background-color: var(--theme-color)!important;
+        border-color: var(--theme-color)!important;
+     
+    }
+    .btn-main{
+        padding: 15px 30px;
+        /* display: block; */
+        border-radius: 50px;
+    }
+  
+    .card-pricing{
+        min-height: 450px;
+    }
+    .navbar-nav .nav-link > .fa > .badge {
+        font-size: 0.55rem;
+        position: absolute;
+        right: 0;
+        font-family: sans-serif;
+    }
+    .navbar-nav .nav-link > .fa {
+        top: 3px;
+        line-height: 12px;
+        position: relative;
+        width: 36px;
+        font-size: 24px;
+    }
+ 
+    .client-img {
+        width: 120px;
+        height: 120px;
+        overflow: hidden;
+        border: 4px solid #FFA800;
+        margin: 0px auto 20px;
+        border-radius: 100%;
+
+    }
+    #testimonialCarousel{
+        background: #FCFCFC;
+        border-radius: 30px;
+    }
+
+    
+
+    @media only screen and (max-width: 968px) {
+
+        .card{
+            margin-bottom: 2em;
+        }
+        .mobilenopadding{
+            padding-top: unset!important;
+            padding-left: unset!important;
+        }
+        .why-startbox{
+            text-align: center;
+        }
+        .hero-img{
+            height: 300px;
+        }
+     
+    }
+
+</style>
+<body>
+
+    <main>  
+     <section id="hero">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-md-6 m-auto px-3">
+                   
+                    <h1 class="display-4 mb-3" style="font-weight: 500;"><strong>DIY Legal and Compliance toolbox</strong> </h1>
+                    <p class="lead pb-3">Your all-in-one kit for Startup founders, Entrepreneurs and Small businesses</p>
+                    <!-- <button type="button" class="btn btn-primary">Get Templates</button> -->
+                    <a href="{% url 'frontend:templates' %}" class="mt-auto btn btn-primary mb-5">Let’s get started</a>
+
+                    
+                </div>
+                <div class="col-md-6">
+                    <img class="img-fluid hero-img" src="{% static 'frontend/img/hero.png' %}">
+                </div>
+            </div>
+        </div>
+     </section> 
+
+
+<!-- Why StartBox -->
+<section id="hero" style="background-color: #E7EFEB;">
+    <div class="container py-5 why-startbox">
+        <div class="row">
+            <div class="col-md-4">
+            <h2 class="mb-3 pb-3 font-weight-bold">Why StartBox</h2>
+            <p class="lead pb-5">Your all-in-one kit for Startup founders, Entrepreneurs and Small businesses</p>
+            </div>
+
+            <div class="row col-md-8">
+                
+                <div class="col-md-2">
+                    <img src="{% static 'frontend/img/Frame 66.png' %}" alt="">
+                </div> 
+                <div class="col-md-2">
+                    <p>Affordable & 
+                        Transparent pricing</p>
+                </div>
+                <div class="col-md-2">
+                    <img src="{% static 'frontend/img/Frame 68.png' %}" alt="">
+                </div>
+                <div class="col-md-2">
+                    <p>Easy to use
+                        documents</p>        
+                </div>
+                <div class="col-md-2">
+                    <img src="{% static 'frontend/img/Frame 72.png' %}" alt="">
+                </div>
+                <div class="col-md-2">
+                    <p>Saves
+                        you time</p>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</section>    
+
+
+<!-- Services -->
+<section class="pt-5" id="services" style="background-color: #F0F6F6;">
+    <div class="container text-center">
+        <h2 class="mb-3 font-weight-bold">Services</h2>
+        <p class="lead">We strive to keep you updated on legal compliance</p> 
+<!-- New Pricing -->
+    <div class="row justify-content-center pt-3">
+        <div class="col-md-6 col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title font-weight-bold">The Custom bundle</h4>
+                  <p class="card-text pb-3">Designed for aiding the techstartup, online business and small or medium business</p>
+                  <a href="#" class="btn btn-primary"> Let’s see what’s inside
+                  </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title font-weight-bold">A Single document</h4>
+                  <p class="card-text pb-3">Find  a specific template to suit what you would like to accomplish.  options range from registration guidelines</p>
+                  <a href="#" class="btn btn-primary">Help me find…
+                </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title font-weight-bold">The Consult</h4>
+                  <p class="card-text">Get personalized legal support from  our team of  startup / SME’s legal experts.  
+                    We offer legal consultancy services</p>
+                  <a href="#" class="btn btn-primary">I’d like a consult
+                  </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+</section>
+
+<section class="my-5">
+    <div class="container text-center" style="background: #E7EFEB; border-radius: 25px; padding:100px;">
+        <h3 class="font-weight-bold">Let us worry about compliance  so you can focus on your business</h3><br>
+        <p>We recognise the money and time it takes to getting the legal support you need to set up your operations and so we empower you to establish legally compliant operations so you can focus your time and money on your core business.
+        </p>
+        <a href="#" class="btn btn-primary">Let’s Get Started</a>
+
+    </div>
+</section>
+
+
+<!-- Testimonial -->
+<section style="background-color: #F0F6F6;" class="pt-5">
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="text-center font-weight-bold mb-3" >Testimonials</h2>
+        </div>
+        <div class="col-12">
+            <div id="testimonialCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Slide Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#testimonialCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#testimonialCarousel" data-slide-to="1"></li>
+                    <li data-target="#testimonialCarousel" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                    <!-- Slide 1 -->
+                    <div class="carousel-item active">
+                        <div class="carousel-content text-center">
+                            <p class="col-md-8 offset-md-2 font-italic">“StartBox is the one stop shop for legal and compliance documents and guidelines for startups and small business owners. 
+                                With StartBox, it becomes simple, easy and accessible for more people to start businesses and stay compliant.”
+                            </p> <br>
+                            <h3>Clara Kitungulu <br><span>StartBox Lead</span></h3>
+                            <div class="client-img"><img src="{% static 'frontend/img/Clara.jpeg' %}" alt="Testimonial Slider"></div>
+
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="carousel-item">
+                        <div class="carousel-content text-center">
+                            <p class="col-md-8 offset-md-2 font-italic">“StartBox is the one stop shop for legal and compliance documents and guidelines for startups and small business owners. 
+                                With StartBox, it becomes simple, easy and accessible for more people to start businesses and stay compliant.”
+                            </p> <br>
+                            <h3>Clara Kitungulu <br><span>StartBox Lead</span></h3>
+                            <div class="client-img"><img src="{% static 'frontend/img/Clara.jpeg' %}" alt="Testimonial Slider"></div>
+
+
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="carousel-item">
+                        <div class="carousel-content text-center">
+                            <p class="col-md-8 offset-md-2 font-italic">“StartBox is the one stop shop for legal and compliance documents and guidelines for startups and small business owners. 
+                                With StartBox, it becomes simple, easy and accessible for more people to start businesses and stay compliant.”
+                            </p> <br>
+                            <h3>Clara Kitungulu <br><span>StartBox Lead</span></h3>
+                            <div class="client-img"><img src="{% static 'frontend/img/Clara.jpeg' %}" alt="Testimonial Slider"></div>
+
+
+                        </div>
+                    </div>
+                    <!-- Slider pre and next arrow -->
+                    <a class="carousel-control-prev text-dark" href="#testimonialCarousel" role="button" data-slide="prev">
+                    <i style="color: #DF730F;" class="fas fa-chevron-left"></i>
+                    </a>
+                    <a class="carousel-control-next text-dark" href="#testimonialCarousel" role="button" data-slide="next">
+                    <i style="color: #DF730F;" class="fas fa-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<!-- End of Testimonial -->
+
+<!-- faq -->
+    {#% include 'faq.html' %#}
+<!-- once page is live update faq.html with new style and uncomment the above line  -->
+
+
+    <!-- Questions -->
+    <div class="accordion-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 px-5" style="padding-top:2rem;">
+                    <h2 class="font-weight-bold mb-3">Any questions?<br>
+                        We got you.</h2>
+                    <p class="lead">We are always ready to help with any 
+                        questions and provide frequent 
+                        assistance incase you need guidance on legal issues.
+                    </p>    
+                </div>
+                <div class="col-lg-6">
+                    <div class="accordion" id="accordionExample">
+                        
+                        <!-- Accordion Item -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">What is StartBox?</button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">StartBox is your pocket legal buddy if you are an individual, a small or a small to medium-sized business owner interested in fast, accessible and affordable legal services in the form of legal document templates, general step-by-step guidance on standard legal procedures and quick consultation with a lawyer on compliance for your business.</div>
+                            </div>
+                        </div>
+                        <!-- end of accordion-item -->
+
+                        <!-- Accordion Item -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">What are templates?</button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">These are standardized legal documents you are likely to need in your business such as standard supply agreements, employment contracts and affidavits. 
+                                    We have thought through the needs of a small to medium sized business owner, and prepared individual documents which you can access and customize by filling in your specifications. </div>
+                            </div>
+                        </div>
+                        <!-- end of accordion-item -->
+
+                        <!-- Accordion Item -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">What are customized packages?</button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">Instead of accessing individual documents, you can purchase an entire package of templates for your customization! Just look through the descriptions of each package, find which one is most suitable for your business needs, preview them, and purchase at a great package deal.</div>
+                            </div>
+                        </div>
+                        <!-- end of accordion-item -->
+
+                          <!-- Accordion Item -->
+                          <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">Can I get legal advice through StartBox?</button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">Yes! We are at your service for a free consultation on any questions you might have. 
+                                    The first  hour is free, after which we charge Ksh 1000 per hour</div>
+                            </div>
+                        </div>
+                        <!-- end of accordion-item -->
+
+                    </div> <!-- end of accordion -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of accordion-1 -->
+    <!-- end of questions -->
+<!-- End of faq -->
+
+</main>
+
+
+{% endblock content %}
