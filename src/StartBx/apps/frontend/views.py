@@ -9,7 +9,7 @@ from django.contrib import messages
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from .models import *
-from django.views.generic import DetailView, ListView
+from django.views.generic import DetailView, ListView,UpdateView
 
 
 # Create your views here.
@@ -224,3 +224,11 @@ def search(request):
             return render(request,"documents.html",{'templates':status})
     else:
         return render(request,"documents.html",{})
+
+
+class UpdateTemplateView(UpdateView):
+    model = Product
+    fields = ['content']
+    template_name = 'edit-template.html'
+
+   

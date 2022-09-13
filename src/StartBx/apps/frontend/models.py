@@ -14,6 +14,11 @@ CATEGORY = (
     ('Template', 'Template'),
  
 )
+TAGS = (
+    ('contracts', 'contracts'),
+    ('agreement', 'agreement'),
+    ('receipts', 'receipts'),
+)
 
 
 # Create your models here.
@@ -32,6 +37,7 @@ class Product(models.Model):
    # url = models.URLField(default="",blank=True)
     slug = models.SlugField(unique=True,default="",blank=True)
     category = models.CharField(max_length=20, choices=CATEGORY)
+    tags = models.CharField(max_length=20, choices=TAGS,default="",blank=True)
     file = models.FileField(default="",blank=True)
     many_files=models.ManyToManyField(Packages,default="",blank=True)
 

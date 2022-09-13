@@ -96,12 +96,10 @@
                           <button type="submit" class="btn btn-style-one"><i class="fa fa-shopping-cart pr-2" aria-hidden="true"></i>Add to Cart</button></a>
                       </form>
                     </div>
-                    <a style="color: black;" href="{% url 'frontend:edit-template' object.slug %}">Edit</a>
                     <!-- <a href="#packages"><button type="button" class="btn btn-primary"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
                         Add to Cart</button></a> -->
                     
                 </div>
-                
              
           
 
@@ -114,28 +112,13 @@
     <div class="container my-5">
         <p class="theme-color text-center" style="font-size: 2em;">What’s Included?</p>
         <span>
-        {{object.content|safe}}
+        <form action="" method="post">
+            <textarea id="txtid" name="txtname" rows="20" cols="100" >
+                {{object.content|safe}}
+            </textarea>
+            <!-- <input type="text" name="" value="{{object.content|safe}}" id=""> -->
+        </form>    
 
-            <!-- <p>Data Privacy Policy template includes the points set out in the Kenyan Data Protection Act. <br>
-
-            It empowers individuals with enforceable rights over their personal information and provides guidelines for companies to handle their users’  by addressing:</p>
-            <ul>
-                <li>collection of personal information</li>
-                <li>use of personal information </li>
-                <li>disclosure of personal information</li>
-                <li>access to and correction of personal information</li>
-                <li>storage and Security</li>
-            </ul>
-            <p>The enforeceable rights to individuals or ‘data subjects’ include:</p>
-            <ul>
-                <li>The right to be informed about data tracking</li>
-                <li>The right to access data</li>
-                <li>The right to erasure and rectification of data</li>
-                <li>The right to opt out of tracking</li>
-                <li>The right not to be subject to automated decision-making</li>
-            </ul>
-
-             -->
             <div class="text-center pt-3">
             <!-- <a href="#packages"><button type="button" class="btn btn-primary"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
                 Add to Cart</button></a> -->
