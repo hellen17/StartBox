@@ -24,7 +24,7 @@ urlpatterns = [
     path('packages/<slug:slug>/', package_detail, name="package-detail"),
     path('profile/', ViewProfileView.as_view(), name='profile'),
     path('order-success/', OrderSuccessView.as_view(), name='order-success'),
-
+    path('search/', search, name='search'),
     #path('transactions/', include("StartBx.apps.mpesa.urls", namespace="transactions")),
 
     #path('cart/',view_cart, name="cart"),

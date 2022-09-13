@@ -209,3 +209,18 @@ def product_detail(request, slug):
 
     return render(request, 'product_detail.html', context)    
 
+
+def search(request):        
+    if request.method == 'GET':      
+        template_name =  request.GET.get('search','')    
+        try:
+            status = Product.objects.filter(product_name__icontains=template_name) # filter returns a list so you might consider skip except part
+            print('Status',status)
+            return render(request,"documents.html",{"templates":status})
+        except:
+            status = None
+            print('Status',status)
+
+            return render(request,"documents.html",{'templates':status})
+    else:
+        return render(request,"documents.html",{})

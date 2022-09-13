@@ -4,6 +4,12 @@
 {% load static %}
 
 <style>
+    .card{
+        background-color: var(--theme-color)!important;
+    }
+    a:hover {
+        color: unset!important;
+    }
 
     .card-services{
         height:320px;
@@ -77,13 +83,28 @@
 <!-- Search -->
 <Section class="py-3" style="">
     <div class="container text-center my-5">
-        <p style="font-size: 2em;">Looking  for a specific document?</p>
-        <form class="form-inline">
-            
-            <input class="form-control col-md-10 " type="search" placeholder="Search Document" aria-label="Search">
+        <p style="font-size: 2em;">Looking  for a specific document?</p>                 
          
-            <button class="btn btn-outline-success my-2 my-sm-0 ml-2" type="submit">Search</button>
-        </form>
+                <form class="form-inline"  method="GET" action="{% url 'frontend:search' %}">
+            
+                    <input class="form-control col-md-8" name="search" type="search" placeholder="Search Document" aria-label="Search">
+                 
+                    <button class="btn btn-outline-success my-2 my-sm-0 ml-2" type="submit">Search</button>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle ml-1" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Filter by
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="#">Contracts</a>
+                          <a class="dropdown-item" href="#">Agreements</a>
+                          <a class="dropdown-item" href="#">Receipts</a>
+                        </div>
+                      </div>
+                      
+                </form>
+            
+
+        </div>
     
 
     </div>
@@ -95,10 +116,10 @@
 
 <!-- add if using mixins -->
 
-{% include "template_list.html" with object_list=templates only %}
+{#% include "template_list.html" with object_list=templates only %#}
 
 
-<!-- <section id="packages" class="my-5">
+<section id="packages" class="my-5">
   <div class="container text-center">
       <h2 class="mb-3 font-weight-bold" style="color: var(--theme-color);">Popular  Legal documents</h2>  
 
@@ -107,7 +128,7 @@
         {% for item in templates %}
 
         <div class="col-md-4">
-          <div class="card text-white text-left bg-primary mb-3">
+          <div class="card text-white text-left mb-3">
             <div class="card-body card-services d-flex flex-column">
       
               <h5 class="card-title mb-3"><strong>{{item.product_name}}
@@ -126,7 +147,7 @@
     </div>
   </div>
 </section>
- -->
+
 
 <!-- End of Templates -->
 
