@@ -72,7 +72,34 @@
             <div class="row">
 
                 <div class="col-md-6">
-                    <img class="img-fluid" src="{% static 'img/Rectangle 449.png' %}">
+                    <!-- <img class="img-fluid" src="{% static 'frontend/img/Rectangle 449.png' %}"> -->
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <img class="d-block w-100" src="{% static 'frontend/img/Rectangle 449.png' %}" alt="First slide">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="d-block w-100" src="{% static 'frontend/img/contract.png' %}" alt="Second slide" height="504">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="d-block w-100" src="{% static 'frontend/img/guide.png' %}" alt="Third slide" height="504">
+                          </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                      </div>
+                      
                 </div>
 
                 <div class="col-md-6 m-auto px-3">
@@ -138,7 +165,7 @@
 <!-- End of Description -->
 
 <!-- Search -->
-<Section class="py-3">
+<!-- <Section class="py-3">
     <div class="container text-center my-5">
         <p style="font-size: 2em;">Looking  for a specific document?</p>
         <form class="form-inline">
@@ -150,20 +177,25 @@
     
 
     </div>
-</Section>
+</Section> -->
 <!-- End of Search -->
 
 
 <!-- Templates -->
 <section id="packages" class="my-5">
-  <div class="container text-center">
-      <h2 class="mb-3 font-weight-bold" style="color: var(--theme-color);">Popular  Legal documents</h2>
-      <!-- <p class="lead">We make it simple, easy and accessible for more people  to start businesses and stay compliant, all on their own.</p>  -->
+  <div class="container">
+      <h2 class="mb-5 font-weight-bold text-center" style="color: var(--theme-color);">Related Bundles</h2>
 
 
-      <div class="row row-cols-3">
+      <div class="row row-cols-4">
         {% for item in dataset %}
+        <div class="col-md-3 mb-5">
+            <img src="{% static 'frontend/img/folder.png' %}" alt="">
+            <a style="color: #000;" href="{{ item.get_absolute_url }}">{{item.product_name}}</a>
+        </div>
 
+
+<!-- 
         <div class="col-md-4">
           <div class="card text-white text-left mb-3 template-card">
             <div class="card-body card-services d-flex flex-column">
@@ -178,17 +210,25 @@
 
             </div>
           </div>
-        </div>
-
+        </div> -->
 
         {% endfor %}
+
     </div>
   </div>
 </section>
 
 <!-- End of Templates -->
 
+<!-- Testimonial -->
+{% include 'testimonials.html' %}
+<!-- End of Testimonial -->
+
+{% include 'faq.html' %}
+
 </main>
+{% block CTA %}
+{% endblock %}
 
 {% endblock content %}
 

@@ -59,6 +59,9 @@ class Product(models.Model):
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse("StartBx.apps.frontend:product-detail", kwargs={"slug": self.slug})      
+        if self.category == 'Package':
+            return reverse('StartBx.apps.frontend:package-detail', kwargs={'slug': self.slug})
+        else:
+            return reverse('StartBx.apps.frontend:product-detail', kwargs={'slug': self.slug}) 
 
   

@@ -35,8 +35,7 @@
     .pricing > .card > .card-body{
         min-height: 400px!important;
     }
- 
-
+  
     @media only screen and (max-width: 968px) {
 
         .card{
@@ -62,7 +61,7 @@
                     
                 </div>
                 <div class="col-md-6">
-                    <img class="img-fluid" src="{% static 'img/package.png' %}">
+                    <img class="img-fluid" src="{% static 'frontend/img/package.png' %}">
                 </div>
             </div>
         </div>
@@ -70,16 +69,14 @@
 
 
 <!-- Packages -->
-<section id="packages" class="my-5">
+<!-- <section id="packages" class="my-5">
     <div class="container text-center">
         <h2 class="mb-3 font-weight-bold" style="color: var(--theme-color);">Our StartBox Packages</h2>
-        <!-- <p class="lead">We make it simple, easy and accessible for more people  to start businesses and stay compliant, all on their own.</p>  -->
 
         <div class="row">
             <div class="col-md-4">
               <div class="card">
                 <div class="card-body card-services d-flex flex-column">
-                <!-- <img src="{% static 'frontend/img/customize.svg' %}"> -->
                   <h3 class="pb-3">Online Business</h3>
                   <h5 class="card-title mb-3"><strong>This package includes:</strong></h5>
                   <p class="card-text">
@@ -99,7 +96,6 @@
             <div class="col-md-4">
               <div class="card">
                 <div class="card-body card-services d-flex flex-column">
-                  <!-- <img src="{% static 'frontend/img/search.svg' %}"> -->
                   <h3 class="pb-3">SME</h3>
                   <h5 class="card-title mb-3"><strong>This package includes:</strong></h5>
                   <p class="card-text">
@@ -121,7 +117,6 @@
             <div class="col-md-4">
                 <div class="card">
                   <div class="card-body card-services d-flex flex-column">
-                    <!-- <img src="{% static 'frontend/img/people.svg' %}"> -->
                     <h3 class="pb-3">StartUp</h3>
                     <h5 class="card-title mb-3"><strong>This package includes:</strong></h5>
                     <p class="card-text">
@@ -142,9 +137,35 @@
               </div>
           </div>
     </div>
-</section>
+</section> -->
 
 <!-- End of Packages -->
 
+
+
+<!-- New Package design section -->
+<section id="packages" class="my-5">
+    <div class="container">
+        <div class="row row-cols-4">
+            {% for item in packages %}
+
+            <div class="col-md-3 mb-3">
+                <img src="{% static 'frontend/img/folder.png' %}" alt="">
+                <a style="color: #000;" href="{{ item.get_absolute_url }}">{{item.product_name}}</a>
+            </div>
+
+            {% endfor %}
+
+        </div>
+     
+    </div>
+</section>
+<!-- End of new package design section -->
+
 </main>
+
+ 
+{% block CTA %}
+{% endblock %}
+
 {% endblock content %}

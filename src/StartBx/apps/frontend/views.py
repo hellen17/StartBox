@@ -54,8 +54,14 @@ class HomeView(TemplateView):
 class LandingPage(TemplateView):
     template_name = 'index.html' 
 
-class PackageView(TemplateView): 
-    template_name = 'packages.html'  
+# class PackageView(TemplateView): 
+#     template_name = 'packages.html'  
+
+class GetPackageView(ListView):
+    model = Product
+    template_name = 'packages.html'
+    slug_field = 'slug'
+    extra_context={'packages': Product.objects.all().filter(category='Package')}
 
 
 class GuidelinesView(TemplateView):
@@ -88,7 +94,7 @@ class GetTemplateView(TemplateMixin, ListView):
     template_name = 'documents.html'
     slug_field = 'slug'
 
-  
+ 
  
 # class DataPrivacyView(TemplateView):
 #     template_name = 'documents/dataprivacy.html'   
@@ -190,10 +196,10 @@ def view_cart(request):
 
 def package_detail(request, slug):
     product = get_object_or_404(Product, slug=slug)
-    template = Product.objects.all().filter(category='Template')
+    package = Product.objects.all().filter(category='Package')
     context = {
         'object': product,
-        'dataset': template,
+        'dataset': package,
     }
     
     return render(request, 'package_detail.html', context)
@@ -225,7 +231,7 @@ def search(request):
     else:
         return render(request,"documents.html",{})
 
-
+#edit template
 class UpdateTemplateView(UpdateView):
     model = Product
     fields = ['content']

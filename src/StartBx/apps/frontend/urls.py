@@ -12,7 +12,7 @@ app_name = 'StartBx.apps.frontend'
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
     path('index/', LandingPage.as_view(), name='landing'),
-    path('packages/', PackageView.as_view(), name='packages'),
+    path('packages/', GetPackageView.as_view(), name='packages'),
     path('templates/', GetTemplateView.as_view(), name='templates'),
     path('guidelines/', GuidelinesView.as_view(), name='guidelines'),
 
