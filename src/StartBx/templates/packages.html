@@ -149,7 +149,7 @@
         <div class="row row-cols-4">
             {% for item in packages %}
 
-            <div class="col-md-3 mb-3">
+            <div class="col-md-3 mb-5">
                 <img src="{% static 'frontend/img/folder.png' %}" alt="">
                 <a style="color: #000;" href="{{ item.get_absolute_url }}">{{item.product_name}}</a>
             </div>

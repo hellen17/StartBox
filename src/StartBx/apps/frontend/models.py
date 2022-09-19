@@ -31,8 +31,9 @@ class Product(models.Model):
     product_name = models.CharField(max_length=40)# null is False by default
     product_description = models.CharField(max_length=500)
     content = RichTextUploadingField(default="",blank=True)
+    usage = RichTextUploadingField(default='',blank=True)
+    who_needs = models.CharField(max_length=500, default='',blank=True)
     #content = CKEditor5Field(null=True, config_name="extends")
-
     price = models.FloatField()
    # url = models.URLField(default="",blank=True)
     slug = models.SlugField(unique=True,default="",blank=True)

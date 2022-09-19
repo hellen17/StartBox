@@ -75,17 +75,19 @@
                        
 
                 <div class="col-md-6">
-                    <img class="img-fluid" src="{% static 'img/Rectangle 448.png' %}">
+                    <img class="img-fluid" src="{% static 'frontend/img/Rectangle 448.png' %}">
                 </div>
 
                 <div class="col-md-6 m-auto px-3">
                    
                     <h2 class="display-5 mb-3 theme-color"><strong>What is a {{object.product_name}}?</strong> </h2>
-                    <p class="lead pb-3">A {{object.product_name}} states how a business will deal with the personal information of its users.</p>
-                    <h2 class="display-5 mb-3 theme-color"><strong>Usage</strong> </h2>
-                    <p class="lead pb-3">A {{object.product_name}} is used to disclose the manner in which data will be handled.</p>
+                    <p class="lead pb-3">{{object.product_description}}</p>
+                    <h2 class="display-5 theme-color"><strong>Why do you need this document</strong> </h2>
+                    <!-- <p class="lead pb-3">A {{object.product_name}} is used to disclose the manner in which data will be handled.</p> -->
+                    <p class="lead">{{object.usage|safe}}</p>
+
                     <h2 class="display-5 mb-3 theme-color"><strong>Who is it for?</strong> </h2>
-                    <p class="lead pb-3">A {{object.product_name}} is for  any website visitor or customer.</p>
+                    <p class="lead pb-3">{{object.who_needs}}</p>
 
                     <div>
                       
@@ -113,7 +115,7 @@
 <!-- Description -->
 <Section class="py-3" >
     <div class="container my-5">
-        <p class="theme-color text-center" style="font-size: 2em;">What’s Included?</p>
+        <p class="theme-color text-center" style="font-size: 2em;">Factors to Consider</p>
         <span>
         {{object.content|safe}}
 
@@ -166,7 +168,7 @@
 </div> -->
 
 <!-- Search -->
-<Section class="py-3">
+<!-- <Section class="py-3">
     <div class="container text-center my-5">
         <p style="font-size: 2em;">Looking  for a specific document?</p>
         <form class="form-inline">
@@ -178,7 +180,7 @@
     
 
     </div>
-</Section>
+</Section> -->
 <!-- End of Search -->
 
 
@@ -186,13 +188,21 @@
 
 <!-- {% include "template_list.html" with object_list=templates only %} -->
 <section id="packages" class="my-5">
-  <div class="container text-center">
-      <h2 class="mb-3 font-weight-bold" style="color: var(--theme-color);">Popular  Legal documents</h2>  
+  <div class="container">
+      <h2 class="mb-5 font-weight-bold text-center" style="color: var(--theme-color);">People buy this template with</h2>  
 
       <div class="row row-cols-3">
       
         {% for item in dataset %}
 
+
+        <div class="col-md-3 mb-5">
+            <img src="{% static 'frontend/img/folder.png' %}" alt="">
+            <a style="color: #000;" href="{{ item.get_absolute_url }}">{{item.product_name}}</a>
+        </div>
+
+
+<!-- 
         <div class="col-md-4">
           <div class="card text-white text-left mb-3">
             <div class="card-body card-services d-flex flex-column">
@@ -207,7 +217,7 @@
 
             </div>
           </div>
-        </div>
+        </div> -->
 
 
         {% endfor %}

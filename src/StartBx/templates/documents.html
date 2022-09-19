@@ -80,7 +80,7 @@
         </div>
      </section> 
 
-<!-- Search -->
+<!-- Search Function -->
 <Section class="py-3" style="">
     <div class="container text-center my-5">
         <p style="font-size: 2em;">Looking  for a specific document?</p>                 
@@ -121,13 +121,18 @@
 
 <section id="packages" class="my-5">
   <div class="container text-center">
-      <h2 class="mb-3 font-weight-bold" style="color: var(--theme-color);">Popular  Legal documents</h2>  
+      <h2 class="mb-5 font-weight-bold" style="color: var(--theme-color);">Popular  Legal documents</h2>  
 
       <div class="row row-cols-3">
       
         {% for item in templates %}
 
-        <div class="col-md-4">
+        <div class="col-md-3 mb-3">
+            <img src="{% static 'frontend/img/folder.png' %}" alt="">
+            <a style="color: #000;" href="{{ item.get_absolute_url }}">{{item.product_name}}</a>
+        </div>
+
+        <!-- <div class="col-md-4">
           <div class="card text-white text-left mb-3">
             <div class="card-body card-services d-flex flex-column">
       
@@ -140,7 +145,7 @@
 
             </div>
           </div>
-        </div>
+        </div> -->
 
 
         {% endfor %}
@@ -150,8 +155,9 @@
 
 
 <!-- End of Templates -->
-
 </main>
+{% block CTA %}
+{% endblock %}
 
 {% endblock content %}
 
