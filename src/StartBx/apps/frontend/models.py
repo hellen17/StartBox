@@ -23,8 +23,7 @@ TAGS = (
 
 # Create your models here.
 
-class Packages(models.Model):
-    file = models.FileField(upload_to="files/%Y/%m/%d")
+
     
 class Product(models.Model):
     id = models.AutoField(primary_key=True)
@@ -40,7 +39,7 @@ class Product(models.Model):
     category = models.CharField(max_length=20, choices=CATEGORY)
     tags = models.CharField(max_length=20, choices=TAGS,default="",blank=True)
     file = models.FileField(default="",blank=True)
-    many_files=models.ManyToManyField(Packages,default="",blank=True)
+    # many_files=models.ManyToManyField(Packages,default="",blank=True)
 
 
 
@@ -65,4 +64,8 @@ class Product(models.Model):
         else:
             return reverse('StartBx.apps.frontend:product-detail', kwargs={'slug': self.slug}) 
 
-  
+class Packages(models.Model):
+    guide = models.FileField(upload_to="files/%Y/%m/%d")
+    product = models.ForeignKey(
+        Product, related_name="product_items", on_delete=models.CASCADE, default="",blank=True
+    )
