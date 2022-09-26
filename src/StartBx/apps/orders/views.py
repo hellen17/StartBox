@@ -57,6 +57,8 @@ def checkout(request):
             # # set the order in the session
     
             request.session["order_id"] = str(order.id)
+            request.session["product_id"] = str(product.id)
+
             # redirect for payment
             if payment_method == PaymentOptions.MPESA:
                 return redirect(reverse("payment:process-mpesa"))

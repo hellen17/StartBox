@@ -1,3 +1,4 @@
+from itertools import product
 from struct import pack_into
 from django.shortcuts import render, redirect, get_object_or_404
 from ian_cart.cart import Cart
@@ -12,6 +13,7 @@ from StartBx.apps.mpesa.utils import handle_stk_request
 from django.contrib import messages
 import time
 #from StartBx.apps.mpesa.views import receive_callback
+# from StartBx.apps.frontend.models import Product
 
 
 
@@ -21,6 +23,8 @@ gateway = braintree.BraintreeGateway(settings.BRAINTREE_CONF)
 def payment_process_card(request):
     cart = Cart(request)
     order_id = request.session.get("order_id")
+    product_id = request.session.get("product_id")
+
     order = get_object_or_404(Order, id=order_id)
     total_cost = order.get_total_cost()
     if request.method == "POST":
@@ -45,7 +49,7 @@ def payment_process_card(request):
             order.braintree_id = result.transaction.id
             order.save()
           
-            payment_completed.delay(order.id)
+            payment_completed.delay(order.id,product_id)
             cart.clear()
             return render(request, "order-completed.html", {"order": order})
         else:
