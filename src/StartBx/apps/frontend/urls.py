@@ -10,8 +10,8 @@ from django.urls.conf import include
 app_name = 'StartBx.apps.frontend'
 
 urlpatterns = [
-    path('', HomeView.as_view(), name='home'),
-    path('index/', LandingPage.as_view(), name='landing'),
+    path('', LandingPage.as_view(), name='home'),
+    path('index/', HomeView.as_view(), name='landing'),
     path('packages/', GetPackageView.as_view(), name='packages'),
     path('templates/', GetTemplateView.as_view(), name='templates'),
     path('guidelines/', GuidelinesView.as_view(), name='guidelines'),
