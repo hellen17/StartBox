@@ -103,9 +103,9 @@
                 </div>
 
                 <div class="col-md-6 m-auto px-3">
-                   
+                    <p class="font-weight-bold" style="color: #FF4D00; font-size: 22px;">KES. {{object.price}}</p>
                     <h2 class="display-5 mb-3 theme-color"><strong>What is an {{object.product_name}}?</strong> </h2>
-                    <p class="lead pb-3">An {{object.product_name}}  provides you with everything you need to consider when setting up your online-based business.</p>
+                    <p class="lead pb-3">{{object.product_description}}</p>
 
                     <!-- <h2 class="display-5 mb-3 theme-color"><strong>Usage</strong> </h2>
                     <p class="lead pb-3">It includes an array of documents from what you need to register to the agreements you need to carry out your business, to ensuring you stay compliant.</p>
@@ -116,14 +116,8 @@
                     <p>The {{object.product_name}} includes:<br>
 
                     </p>
-                      <ul>
-                        <li><strong>Entity Registration Guide:</strong>  </li>
-                        <li><strong>Business Permit Guide:</strong> </li>
-                        <li><strong>Tax Compliance Guide: </strong></li>
-                        <li><strong>Employment Agreement:</strong> </li>
-                        <li><strong>Sale Agreement</strong> </li>
-                      </ul>
-                      </span>
+                        {{object.content|safe}}
+                    </span>
 
                     <div>
                       <form method="post" action="{%url 'ian_cart:cart_add'%}">
