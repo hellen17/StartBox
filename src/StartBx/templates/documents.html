@@ -65,10 +65,30 @@
       
     <main>  
      <section id="hero">
-        <div class="container py-5 text-center">
+        <div class="container pt-5 text-center">
 
-            <h1 class="py-5" style="font-weight: 700; font-size: 48px; line-height: 64px;">The Templates You Need to Plan, Start, Organize,  Your Business</h1>
-            <p class="lead pb-3">Your all-in-one kit for Startup founders and Small businesses</p>
+            <h1 class="py-5" style="font-weight: 700; font-size: 40px; line-height: 64px;">The Templates You Need to Plan, Start, Organize,  Your Business</h1>
+            <!-- <p class="lead pb-3">Your all-in-one kit for Startup founders and Small businesses</p> -->
+
+            <p style="font-size: 2em;">Looking  for a specific document?</p>                 
+         
+            <form class="form-inline"  method="GET" action="{% url 'frontend:search' %}">
+        
+                <input class="form-control col-md-10" name="search" type="search" placeholder="Search For Templates" aria-label="Search">
+             
+                <button class="btn btn-outline-success my-2 my-sm-0 ml-2" type="submit">Search</button>
+                <!-- <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle ml-1" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Filter by
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="#">Contracts</a>
+                      <a class="dropdown-item" href="#">Agreements</a>
+                      <a class="dropdown-item" href="#">Receipts</a>
+                    </div>
+                  </div> -->
+                  
+            </form>
 
          
             <!-- Former hero section -->
@@ -91,7 +111,7 @@
      </section> 
 
 <!-- Search Function -->
-<Section class="py-3" style="">
+<!-- <Section class="py-3" style="">
     <div class="container text-center my-5">
         <p style="font-size: 2em;">Looking  for a specific document?</p>                 
          
@@ -100,7 +120,7 @@
                     <input class="form-control col-md-10" name="search" type="search" placeholder="Search For Templates" aria-label="Search">
                  
                     <button class="btn btn-outline-success my-2 my-sm-0 ml-2" type="submit">Search</button>
-                    <!-- <div class="dropdown">
+                        <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle ml-1" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Filter by
                         </button>
@@ -111,14 +131,14 @@
                         </div>
                       </div> -->
                       
-                </form>
+                <!-- </form>
             
 
         </div>
     
 
     </div>
-</Section>
+</Section>  -->
 <!-- End of Search -->
 
 
@@ -131,7 +151,7 @@
 
 <section id="packages" class="my-5">
   <div class="container">
-      <h2 class="mb-5 font-weight-bold text-center" style="color: var(--theme-color);">Popular  Legal documents</h2>  
+      <h2 class="mb-5 font-weight-bold text-center" style="color: var(--theme-color);">Popular  Legal Templates</h2>  
 
       <div class="row row-cols-3">
       
@@ -166,11 +186,6 @@
 
 <!-- End of Templates -->
 
-<!-- Testimonial -->
-{% include 'testimonials.html' %}
-<!-- End of Testimonial -->
-
-{% include 'faq.html' %}
 
 </main>
 {% block CTA %}
