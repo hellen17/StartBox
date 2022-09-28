@@ -1,3 +1,4 @@
+from cgi import test
 from sre_constants import CATEGORY
 from django.db import models
 from django.urls import reverse
@@ -39,6 +40,7 @@ class Product(models.Model):
     category = models.CharField(max_length=20, choices=CATEGORY)
     tags = models.CharField(max_length=20, choices=TAGS,default="",blank=True)
     file = models.FileField(default="",blank=True)
+    test_field = models.CharField(max_length=40, default="",blank=True)
     # many_files=models.ManyToManyField(Packages,default="",blank=True)
 
 
