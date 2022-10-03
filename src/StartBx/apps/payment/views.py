@@ -12,10 +12,11 @@ from StartBx.apps.orders.tasks import order_created
 from StartBx.apps.mpesa.utils import handle_stk_request
 from django.contrib import messages
 import time
+import logging
 #from StartBx.apps.mpesa.views import receive_callback
 # from StartBx.apps.frontend.models import Product
 
-
+logging.basicConfig(filename='error.log', level=logging.INFO)
 
 gateway = braintree.BraintreeGateway(settings.BRAINTREE_CONF)
 
@@ -37,11 +38,17 @@ def payment_process_card(request):
                 "payment_method_nonce": nonce,
                 "options": {"submit_for_settlement": True},
             }
-        )
-        order_created.delay(order.id)
+        )        
         #print("Result is",result)   
 
+        order_created.delay(order.id)
+        print("Order id", order.id)
+        logging.info('Result is', result)
+
+
         if result.is_success:
+            logging.info("Payment was successful")
+            print("Payment successful")
             # mark the order as paid
             order.paid = True
             order.status = 'SUCCESSFUL'
