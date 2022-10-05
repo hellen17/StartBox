@@ -1,5 +1,6 @@
 from re import template
 import uuid
+import environ
 from django.shortcuts import get_object_or_404, render, redirect
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
@@ -10,7 +11,11 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from .models import *
 from django.views.generic import DetailView, ListView,UpdateView
+from airtable import Airtable
+from decouple import config
 
+base_key = config('AIRTABLE_BASE_KEY')
+api_key = config('AIRTABLE_API_KEY')
 
 # Create your views here.
 
@@ -114,6 +119,9 @@ class OnlineBusinessView(ListView):
 
 
 class Contact(View):
+    table = config("AIRTABLE_CONTACT_TABLE")
+    airtable = Airtable(base_key,table, api_key)
+
     def get(self, request):
         form = ContactForm()
         return render(
@@ -123,12 +131,28 @@ class Contact(View):
     def post(self, request):
         form = ContactForm(request.POST)
         if form.is_valid():
-            form.save()  
-            return render(
-            request,
-            'contact.html',
-            {'form': form},
-        )
+            form.company_name = form.cleaned_data['company_name']
+            #form.nature_of_business = form.cleaned_data['nature_of_business']
+            form.contact_name = form.cleaned_data['contact_name']
+            form.phone_number = form.cleaned_data['phone_number']
+            form.email = form.cleaned_data['email']
+            #form.save()
+
+            '''add airtable code here'''
+            try:
+                self.airtable.insert({
+                    'Company name': form.cleaned_data['company_name'],
+                    #'Business nature': form.cleaned_data['nature_of_business'],
+                    'Name': form.cleaned_data['contact_name'],
+                    'Phone Number': form.cleaned_data['phone_number'],
+                    'Email': form.cleaned_data['email'],
+                    'Message': form.cleaned_data['message'],
+                })
+            except Exception as e:
+                print('Error',e) 
+    
+            messages.success(request, "Form submitted successfully") 
+            return redirect('frontend:contact') 
         return render(
             request,
             'contact.html',

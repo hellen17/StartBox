@@ -20,6 +20,8 @@ django-ckeditor-5 = "*"
 djangorestframework = "*"
 phonenumbers = "*"
 sendgrid-django = "*"
+airtable = "*"
+airtable-python-wrapper = "*"
 
 [dev-packages]
 
