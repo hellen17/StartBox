@@ -77,6 +77,7 @@ def payment_process_mpesa(request):
     cart = Cart(request)
     order_id = request.session.get("order_id")
     order = get_object_or_404(Order, id=order_id)
+    
     print(f"Order : {order}")
 
  #
@@ -133,6 +134,8 @@ def processing_transaction(request):
     cart = Cart(request)
     order_id = request.session.get("order_id")
     print('Order id' , order_id)
+    product_id = request.session.get("product_id")
+
 
     order = get_object_or_404(Order, id=order_id)
     if order.status == 'SUCCESSFUL':
@@ -143,7 +146,7 @@ def processing_transaction(request):
         redirect("/processing-transaction")
 
         cart.clear()
-        payment_completed.delay(order.id) #sends an email with invoice of payment
+        payment_completed.delay(order.id,product_id) #sends an email with invoice of payment
 
         messages.success(request, "Payment was successful")
         print("Payment successful", order.status)
