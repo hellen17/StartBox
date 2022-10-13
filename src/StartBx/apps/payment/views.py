@@ -152,7 +152,7 @@ def processing_transaction(request):
         print("Payment successful", order.status)
         return render(request, "order-completed.html", {"order": order})
     elif order.status == 'Pending':
-        #messages.warning(request, "Payment still pending")
+        messages.warning(request, "Payment still pending")
         print("Payment still pending", order.status)
         #time.sleep(5)
         #redirect("/processing-transaction")
