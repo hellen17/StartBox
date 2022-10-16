@@ -1,6 +1,6 @@
 from ..base import *
 
-DEBUG = True
+DEBUG = False
 
 #change values back to true after setting production
 SECURE_SSL_REDIRECT = False
