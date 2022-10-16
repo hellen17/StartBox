@@ -2,9 +2,11 @@
 
 {% block content %}
 {% load static %}
-<!-- Canonical -->
-<link rel="canonical" href="https://startbx.com/templates/">
 
+{% block head  %}
+    <!-- Canonical -->
+    <link rel="canonical" href="https://startbx.com/templates/">
+{% endblock %}
 <style>
     .card{
         background-color: var(--theme-color)!important;

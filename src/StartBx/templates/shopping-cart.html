@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<!-- Canonical -->
-<link rel="canonical" href="https://startbx.com/cart/">
 
+{% block head  %}
+    <!-- Canonical -->
+    <link rel="canonical" href="https://startbx.com/cart/">
+{% endblock %}
 <link rel="stylesheet" href="{% static 'css/cart.css' %}">
 
 

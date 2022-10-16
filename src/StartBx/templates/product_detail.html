@@ -4,8 +4,10 @@
 {% block content %}
 {% load static %}
 
-<!-- Canonical -->
-<link rel="canonical" href="https://startbx.com/template/{{object.slug}}">
+{% block head  %}
+    <!-- Canonical -->
+    <link rel="canonical" href="https://startbx.com/template/{{object.slug}}">
+{% endblock  %}
 
 
 <style>

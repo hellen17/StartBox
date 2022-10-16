@@ -3,9 +3,10 @@
 {% block content %}
 {% load static %}
 
-<!-- Canonical -->
-<link rel="canonical" href="https://startbx.com/packages/">
-
+{% block head  %}
+    <!-- Canonical -->
+    <link rel="canonical" href="https://startbx.com/packages/">
+{% endblock %}
 <style>
  
     .card-services > img{
