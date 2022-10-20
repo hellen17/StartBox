@@ -47,6 +47,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #sitemaps
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
     'storages',
     'crispy_forms',
     'ian_cart',
@@ -61,6 +64,7 @@ INSTALLED_APPS = [
 ]
 
 #AUTH_USER_MODEL = "ian_account.User"
+SITE_ID = 1
 
 
 MIDDLEWARE = [

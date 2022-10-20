@@ -14,8 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, re_path, include
+from django.urls import path, include
+from StartBx.apps.frontend.sitemaps import ProductSitemap, StaticViewSitemap
+from django.contrib.sitemaps.views import sitemap
 
+sitemaps = {
+    'static': StaticViewSitemap,
+    'products': ProductSitemap
+}
 
 urlpatterns = [
     
@@ -28,6 +34,12 @@ urlpatterns = [
     path('', include('django.contrib.auth.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path("ckeditor5/", include('django_ckeditor_5.urls')),
+    path(
+        'sitemap.xml',
+        sitemap,
+        {'sitemaps': sitemaps},
+        name='django.contrib.sitemaps.views.sitemap',
+    ),
 
 
 
