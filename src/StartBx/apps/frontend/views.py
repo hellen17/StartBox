@@ -32,7 +32,7 @@ def register(request):
             user = authenticate(username=username, password=password)
             login(request, user)
             messages.success(request, f'Your account has been created!')
-            return redirect('frontend:home')
+            return redirect('/cart')
 
     else:   
         form = UserRegisterForm()
