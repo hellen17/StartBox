@@ -13,9 +13,10 @@ class PaymentOptions:
 
 @dataclass
 class TxnStatus:
-    PENDING: str = "Pending"
+    PENDING: str = "PENDING"
     SUCCESSFUL: str = "SUCCESSFUL"
-    FAILED: str = "Failure"
+    FAILED: str = "FAILED"
+    CANCELLED: str = "CANCELLED"
 
 
 # Create your models here.

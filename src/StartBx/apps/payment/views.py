@@ -151,12 +151,11 @@ def processing_transaction(request):
         messages.success(request, "Payment was successful")
         print("Payment successful", order.status)
         return render(request, "order-completed.html", {"order": order})
-    elif order.status == 'Pending':
-        messages.warning(request, "Payment still pending")
-        print("Payment still pending", order.status)
+    elif order.status == 'CANCELLED' or order.status == 'FAILED':
+        messages.warning(request, "Payment was cancelled")
+        print("Payment was cancelled", order.status)
         #time.sleep(5)
         #redirect("/processing-transaction")
-
     else:
         messages.warning(request, "Payment failed")    
         print("Payment failed", order.status)
